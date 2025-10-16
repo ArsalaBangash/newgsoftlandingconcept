@@ -20,14 +20,11 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'netlify'
+    preset: 'netlify',
   },
 
   content: {
-    database: {
-      type: 'sqlite',
-      filename: '/tmp/contents.sqlite'
-    },
+    // Remove database config to let Netlify preset handle it automatically
     // Configure for development
     experimental: {
       // Enable features for development
