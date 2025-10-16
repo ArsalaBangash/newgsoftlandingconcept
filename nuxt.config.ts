@@ -7,8 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/image',
     '@nuxtjs/i18n',
-    '@nuxtjs/seo',
-    'nuxt-llms'
+    '@nuxtjs/seo'
   ],
 
   css: ['~/assets/css/main.css'],
@@ -28,10 +27,6 @@ export default defineNuxtConfig({
     experimental: {
       // Enable features for development
     }
-  },
-
-  llms: {
-    domain: 'https://grey.software'
   },
 
   i18n: {

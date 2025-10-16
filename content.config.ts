@@ -70,7 +70,7 @@ const blog = defineCollection({
 // New collection for partners like freeCodeCamp
 const partners = defineCollection({
   type: 'data',
-  source: 'en/partners/**/*.json',
+  source: 'en/partners/**/*.yml',
   schema: z.object({
     name: z.string(),
     logo: z.string(), // e.g., 'freecodecamp' or 'scrimba'
