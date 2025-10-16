@@ -1,13 +1,4 @@
-[build]
-  command = "pnpm run generate"
-  publish = ".output/public"
-
+# Nuxt auto-detects Netlify and configures everything automatically
+# We only need to specify Node version (Nuxt 4 requires Node 20+)
 [build.environment]
   NODE_VERSION = "22"
-  PNPM_VERSION = "9"
-  # Skip better-sqlite3 compilation for static builds
-  CONTENT_DATABASE_TYPE = "libsql"
-  CONTENT_DATABASE_URL = ":memory:"
-
-[[plugins]]
-  package = "@netlify/plugin-caching"

@@ -46,16 +46,17 @@
 
 ### netlify.toml (NEW)
 ```toml
-[build]
-  command = "pnpm run generate"
-  publish = ".output/public"
-
+# Nuxt auto-detects Netlify and configures everything automatically
+# We only need to specify Node version (Nuxt 4 requires Node 20+)
 [build.environment]
   NODE_VERSION = "22"
-  PNPM_VERSION = "9"
-  CONTENT_DATABASE_TYPE = "libsql"
-  CONTENT_DATABASE_URL = ":memory:"
 ```
+
+**Why so simple?** Nuxt 4 has **zero-config Netlify deployment**:
+- Automatically detects Netlify environment
+- Sets correct build command (`nuxt build`)
+- Configures output directory (`.output/public`)
+- Handles static generation with `preset: 'static'`
 
 ### .npmrc (NEW)
 ```
