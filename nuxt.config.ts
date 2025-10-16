@@ -7,8 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/image',
     '@nuxtjs/i18n',
-    '@nuxtjs/seo',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/seo'
   ],
 
   css: ['~/assets/css/main.css'],
