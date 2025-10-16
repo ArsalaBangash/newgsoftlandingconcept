@@ -20,6 +20,9 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'netlify',
+    alias: {
+      'tailwindcss/colors': 'tailwindcss/colors.js'
+    }
   },
 
   content: {
