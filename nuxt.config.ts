@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'static'
+    preset: 'netlify'
   },
 
   content: {
