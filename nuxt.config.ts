@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   content: {
     database: {
       type: 'sqlite',
-      filename: ':memory:'
+      filename: '/tmp/contents.sqlite'
     },
     // Configure for development
     experimental: {
