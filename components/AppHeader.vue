@@ -10,13 +10,13 @@ const appConfig = useAppConfig()
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900 dark:text-white hover:text-accent transition-colors">
           <NuxtImg 
-            src="/logo-black-unpadded.png" 
+            src="~/assets/images/logo-black-unpadded.png" 
             alt="Grey Software Logo" 
             class="h-8 w-auto dark:hidden"
             loading="lazy"
           />
           <NuxtImg 
-            src="/logo-white-unpadded.png" 
+            src="~/assets/images/logo-white-unpadded.png" 
             alt="Grey Software Logo" 
             class="h-8 w-auto hidden dark:block"
             loading="lazy"
