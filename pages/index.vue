@@ -211,7 +211,10 @@ const featuredBooks = computed(() => {
             The non-negotiable resources every serious developer needs to know. These are the foundations that separate capable engineers from exceptional ones.
           </p>
           <div class="bg-indigo-100 dark:bg-indigo-900/50 border border-indigo-300 dark:border-indigo-700 rounded-lg p-6 max-w-3xl">
-            <p class="text-indigo-900 dark:text-indigo-100 font-medium mb-2">🎯 Why Master These First?</p>
+            <p class="text-indigo-900 dark:text-indigo-100 font-medium mb-2 flex items-center gap-2">
+              <UIcon name="lucide-target" class="w-4 h-4" />
+              Why Master These First?
+            </p>
             <p class="text-indigo-800 dark:text-indigo-200">
               These curated essentials have been battle-tested by tens of thousands of developers. They build the foundational skills that unlock everything else—from landing your first dev job to architecting systems at scale.
             </p>
@@ -260,7 +263,10 @@ const featuredBooks = computed(() => {
             The hottest resources spotted in the developer community - fresh updates and handpicked favorites.
           </p>
           <div class="bg-orange-100 dark:bg-orange-950/50 border border-orange-300 dark:border-orange-700 rounded-lg p-6 max-w-3xl">
-            <p class="text-orange-800 dark:text-orange-200 font-medium mb-2">⚡ Stay Ahead of the Curve:</p>
+            <p class="text-orange-800 dark:text-orange-200 font-medium mb-2 flex items-center gap-2">
+              <UIcon name="lucide-zap" class="w-4 h-4" />
+              Stay Ahead of the Curve:
+            </p>
             <p class="text-orange-700 dark:text-orange-300">
               "The tech landscape shifts faster than ever. These trending resources represent what the developer community is buzzing about right now. By diving into what's hot, you're not just learning - you're staying competitive and discovering tools before they hit the mainstream. What will you master this week?"
             </p>
@@ -375,15 +381,15 @@ const featuredBooks = computed(() => {
             v-model="selectedCategory"
             placeholder="Category"
             :options="[
-              { label: '📚 Courses', value: 'course' },
-              { label: '📖 Articles', value: 'article' },
-              { label: '🛠️ Tools', value: 'tool' },
-              { label: '🎧 Podcasts', value: 'podcast' },
-              { label: '🎮 Interactive', value: 'interactive' },
-              { label: '📧 Newsletters', value: 'newsletter' },
-              { label: '👥 Community', value: 'community' },
-              { label: '💼 Career', value: 'career' },
-              { label: '📚 Documentation', value: 'documentation' }
+              { label: 'Courses', value: 'course' },
+              { label: 'Articles', value: 'article' },
+              { label: 'Tools', value: 'tool' },
+              { label: 'Podcasts', value: 'podcast' },
+              { label: 'Interactive', value: 'interactive' },
+              { label: 'Newsletters', value: 'newsletter' },
+              { label: 'Community', value: 'community' },
+              { label: 'Career', value: 'career' },
+              { label: 'Documentation', value: 'documentation' }
             ]"
             class="w-48"
           />
@@ -426,14 +432,18 @@ const featuredBooks = computed(() => {
     <div class="border-t border-gray-200 dark:border-gray-800 bg-green-50 dark:bg-green-950">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            ⚡ Quick Wins (< 2 hours)
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-zap" class="w-8 h-8" />
+            Quick Wins (< 2 hours)
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Fast-track your learning with bite-sized resources you can complete today.
           </p>
           <div class="bg-green-100 dark:bg-green-950/50 border border-green-300 dark:border-green-700 rounded-lg p-6 max-w-3xl">
-            <p class="text-green-800 dark:text-green-200 font-medium mb-2">🚀 Your Productivity Coach Says:</p>
+            <p class="text-green-800 dark:text-green-200 font-medium mb-2 flex items-center gap-2">
+              <UIcon name="lucide-rocket" class="w-4 h-4" />
+              Your Productivity Coach Says:
+            </p>
             <p class="text-green-700 dark:text-green-300">
               "Every expert was once a beginner, and every journey starts with small steps. These quick wins are your training wheels - perfect for building momentum without overwhelm. Complete one today, and you'll feel that satisfying 'I got this' confidence boost. Consistency compounds!"
             </p>
@@ -475,7 +485,10 @@ const featuredBooks = computed(() => {
             The most transformative, battle-tested resources handpicked by experts. These are the tools that accelerate careers and change how developers think.
           </p>
           <div class="dark:from-purple-900/50 dark:to-pink-900/50 border border-purple-200 dark:border-purple-800 rounded-lg p-6 max-w-3xl">
-            <p class="text-purple-900 dark:text-purple-100 font-medium mb-2">✨ Why This Collection?</p>
+            <p class="text-purple-900 dark:text-purple-100 font-medium mb-2 flex items-center gap-2">
+              <UIcon name="lucide-sparkles" class="w-4 h-4" />
+              Why This Collection?
+            </p>
             <p class="text-purple-800 dark:text-purple-200">
               Each resource here has proven itself across thousands of developers. Not just good—transformative. Master these foundations and you'll build, debug, and design with confidence others take years to achieve.
             </p>
@@ -640,8 +653,8 @@ const featuredBooks = computed(() => {
             </p>
             <div class="space-y-2 mb-4">
               <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $70-120K (mid-level)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Massive (freelance, agencies, web hosts)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Stable, consistent demand</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-trending-up" class="w-3 h-3" /> Job Market:</span> Massive (freelance, agencies, web hosts)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-rocket" class="w-3 h-3" /> Growth:</span> Stable, consistent demand</p>
             </div>
             <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800 mb-4">
               <p class="text-xs text-green-800 dark:text-green-200"><span class="font-bold">✓ Best for:</span> Web agencies, freelancing, WordPress development, MVPs</p>
@@ -663,8 +676,8 @@ const featuredBooks = computed(() => {
             </p>
             <div class="space-y-2 mb-4">
               <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $90-150K (mid-level)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Very strong (enterprise, startups)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Stable, enterprise-driven</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-trending-up" class="w-3 h-3" /> Job Market:</span> Very strong (enterprise, startups)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-rocket" class="w-3 h-3" /> Growth:</span> Stable, enterprise-driven</p>
             </div>
             <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded border border-blue-200 dark:border-blue-800 mb-4">
               <p class="text-xs text-blue-800 dark:text-blue-200"><span class="font-bold">✓ Best for:</span> Enterprise jobs, scale, stable careers, big paydays</p>
@@ -686,8 +699,8 @@ const featuredBooks = computed(() => {
             </p>
             <div class="space-y-2 mb-4">
               <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $85-145K (mid-level)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Strong (enterprise, Azure)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Growing with cloud adoption</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-trending-up" class="w-3 h-3" /> Job Market:</span> Strong (enterprise, Azure)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-rocket" class="w-3 h-3" /> Growth:</span> Growing with cloud adoption</p>
             </div>
             <div class="p-3 bg-purple-50 dark:bg-purple-900/20 rounded border border-purple-200 dark:border-purple-800 mb-4">
               <p class="text-xs text-purple-800 dark:text-purple-200"><span class="font-bold">✓ Best for:</span> Enterprise .NET shops, game dev, Azure/Microsoft skills</p>
@@ -709,8 +722,8 @@ const featuredBooks = computed(() => {
             </p>
             <div class="space-y-2 mb-4">
               <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $100-160K (mid-level)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Growing rapidly (cloud, DevOps)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Fastest growing (50%+ year-over-year)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-trending-up" class="w-3 h-3" /> Job Market:</span> Growing rapidly (cloud, DevOps)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-rocket" class="w-3 h-3" /> Growth:</span> Fastest growing (50%+ year-over-year)</p>
             </div>
             <div class="p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded border border-cyan-200 dark:border-cyan-800 mb-4">
               <p class="text-xs text-cyan-800 dark:text-cyan-200"><span class="font-bold">✓ Best for:</span> Cloud infrastructure, DevOps, high pay, future-proof</p>
@@ -732,8 +745,8 @@ const featuredBooks = computed(() => {
             </p>
             <div class="space-y-2 mb-4">
               <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $120-200K+ (mid-level)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Niche but very lucrative</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Exploding (crypto, systems, performance)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-trending-up" class="w-3 h-3" /> Job Market:</span> Niche but very lucrative</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-rocket" class="w-3 h-3" /> Growth:</span> Exploding (crypto, systems, performance)</p>
             </div>
             <div class="p-3 bg-orange-50 dark:bg-orange-900/20 rounded border border-orange-200 dark:border-orange-800 mb-4">
               <p class="text-xs text-orange-800 dark:text-orange-200"><span class="font-bold">✓ Best for:</span> Premium pay, cutting-edge work, future-proof skills</p>
@@ -755,8 +768,8 @@ const featuredBooks = computed(() => {
             </p>
             <div class="space-y-2 mb-4">
               <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $80-140K (mid-level, ML roles higher)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Very strong (ML, data, backend)</p>
-              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Steady (tied to AI/ML boom)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-trending-up" class="w-3 h-3" /> Job Market:</span> Very strong (ML, data, backend)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold flex items-center gap-1"><UIcon name="lucide-rocket" class="w-3 h-3" /> Growth:</span> Steady (tied to AI/ML boom)</p>
             </div>
             <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800 mb-4">
               <p class="text-xs text-green-800 dark:text-green-200"><span class="font-bold">✓ Best for:</span> Data science, AI/ML, backend APIs, rapid development</p>
@@ -771,14 +784,20 @@ const featuredBooks = computed(() => {
         </div>
 
         <div class="mt-12 p-8 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg">
-          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">💡 The Real Career Truth</h3>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+            <UIcon name="lucide-lightbulb" class="w-5 h-5" />
+            The Real Career Truth
+          </h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <p class="font-semibold text-slate-800 dark:text-slate-200 mb-2">🏆 Job Security</p>
               <p class="text-sm text-slate-700 dark:text-slate-300">Enterprise stacks (Java, .NET, PHP) have been around 20+ years and will be around 20+ more. Your skills won't become obsolete.</p>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 dark:text-slate-200 mb-2">💰 Better Pay</p>
+              <p class="font-semibold text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2">
+                <UIcon name="lucide-dollar-sign" class="w-4 h-4" />
+                Better Pay
+              </p>
               <p class="text-sm text-slate-700 dark:text-slate-300">Enterprise developers earn 20-30% more on average. Java/Go/Rust developers earn the most. Less hype, more money.</p>
             </div>
             <div>
