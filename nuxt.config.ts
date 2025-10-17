@@ -26,10 +26,8 @@ export default defineNuxtConfig({
   },
 
   content: {
-    // Remove database config to let Netlify preset handle it automatically
-    // Configure for development
     experimental: {
-      // Enable features for development
+      search: false
     }
   },
 
