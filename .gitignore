@@ -27,7 +27,8 @@
 local.db
 local.db-shm
 local.db-wal
-
+.netlify
+.data/content
 # Vite specific - used across all lessons
 **/.vite/
 **/vite.config.js.timestamp-*
