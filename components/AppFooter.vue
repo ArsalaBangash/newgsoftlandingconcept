@@ -32,19 +32,17 @@ function scrollToTop() {
           <div class="lg:col-span-1">
             <NuxtLink to="/" class="inline-block mb-4">
               <div class="flex items-center gap-2">
-                <NuxtImg 
+                <img 
                   src="/images/logo-black-unpadded.png" 
                   alt="Grey Software Logo" 
                   class="h-6 w-auto dark:hidden"
-                  loading="lazy"
                   width="120"
                   height="24"
                 />
-                <NuxtImg 
+                <img 
                   src="/images/logo-white-unpadded.png" 
                   alt="Grey Software Logo" 
                   class="h-6 w-auto hidden dark:block"
-                  loading="lazy"
                   width="120"
                   height="24"
                 />
