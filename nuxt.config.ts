@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     '@nuxtjs/seo'
   ],
 
-  css: ['~/assets/css/main.css'],
 
   colorMode: {
     preference: 'system',
