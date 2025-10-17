@@ -9,6 +9,9 @@ interface FilterOptions {
   difficulties?: string[]
   formats?: string[]
   licenses?: string[]
+  tags?: string[]
+  category?: string
+  featured?: boolean
   isFree?: boolean
   isOpenSource?: boolean
 }
@@ -26,11 +29,28 @@ const route = useRoute()
 const router = useRouter()
 
 // Initialize filters from URL query params
+// Note: category is converted to formats array for UI sync
+// Note: difficulty (singular) is converted to difficulties array for UI sync
+const initialFormats = route.query.formats ? (Array.isArray(route.query.formats) ? route.query.formats as string[] : [route.query.formats as string]) : []
+const categoryParam = route.query.category as string | undefined
+if (categoryParam && !initialFormats.includes(categoryParam)) {
+  initialFormats.push(categoryParam)
+}
+
+const initialDifficulties = route.query.difficulties ? (Array.isArray(route.query.difficulties) ? route.query.difficulties as string[] : [route.query.difficulties as string]) : []
+const difficultyParam = route.query.difficulty as string | undefined
+if (difficultyParam && !initialDifficulties.includes(difficultyParam)) {
+  initialDifficulties.push(difficultyParam)
+}
+
 const filters = ref<FilterOptions>({
   topics: route.query.topics ? (Array.isArray(route.query.topics) ? route.query.topics as string[] : [route.query.topics as string]) : undefined,
-  difficulties: route.query.difficulties ? (Array.isArray(route.query.difficulties) ? route.query.difficulties as string[] : [route.query.difficulties as string]) : undefined,
-  formats: route.query.formats ? (Array.isArray(route.query.formats) ? route.query.formats as string[] : [route.query.formats as string]) : undefined,
+  difficulties: initialDifficulties.length > 0 ? initialDifficulties : undefined,
+  formats: initialFormats.length > 0 ? initialFormats : undefined,
   licenses: route.query.licenses ? (Array.isArray(route.query.licenses) ? route.query.licenses as string[] : [route.query.licenses as string]) : undefined,
+  tags: route.query.tags ? (typeof route.query.tags === 'string' ? route.query.tags.split(',').map(t => t.trim()) : (Array.isArray(route.query.tags) ? route.query.tags as string[] : [])) : undefined,
+  category: categoryParam,
+  featured: route.query.featured === 'true',
   isFree: route.query.isFree === 'true',
   isOpenSource: route.query.isOpenSource === 'true'
 })
@@ -62,6 +82,9 @@ watch([filters, searchQuery, sortBy], () => {
   if (filters.value.difficulties?.length) query.difficulties = filters.value.difficulties
   if (filters.value.formats?.length) query.formats = filters.value.formats
   if (filters.value.licenses?.length) query.licenses = filters.value.licenses
+  if (filters.value.tags?.length) query.tags = filters.value.tags.join(',')
+  if (filters.value.category) query.category = filters.value.category
+  if (filters.value.featured) query.featured = 'true'
   if (filters.value.isFree) query.isFree = 'true'
   if (filters.value.isOpenSource) query.isOpenSource = 'true'
   if (searchQuery.value) query.search = searchQuery.value
@@ -89,8 +112,28 @@ const filteredResources = computed(() => {
     if (filters.value.formats?.length && resource.format && !filters.value.formats.includes(resource.format)) {
       return false
     }
+    // Category filter (category is a synonym for format)
+    if (filters.value.category && resource.format && resource.format.toLowerCase() !== filters.value.category.toLowerCase()) {
+      return false
+    }
     // License filter
     if (filters.value.licenses?.length && resource.license && !filters.value.licenses.includes(resource.license)) {
+      return false
+    }
+    // Tags filter
+    if (filters.value.tags?.length) {
+      const resourceTags = resource.tags || []
+      const hasMatchingTag = filters.value.tags.some(filterTag => 
+        resourceTags.some((resourceTag: string) => 
+          resourceTag.toLowerCase() === filterTag.toLowerCase()
+        )
+      )
+      if (!hasMatchingTag) {
+        return false
+      }
+    }
+    // Featured filter
+    if (filters.value.featured && !resource.featured) {
       return false
     }
     // Free filter
@@ -202,6 +245,51 @@ const sortOptions = [
                 {{ option.label }}
               </option>
             </select>
+          </div>
+
+          <!-- Active Filter Chips (Tags & Featured) -->
+          <div v-if="filters.tags?.length || filters.featured" class="flex flex-wrap gap-2 mb-6">
+            <!-- Featured Chip -->
+            <div
+              v-if="filters.featured"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 rounded-lg text-sm font-medium"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <span>Featured Only</span>
+              <button
+                @click="filters.featured = false"
+                class="ml-1 hover:text-amber-900 dark:hover:text-amber-100 focus:outline-none"
+                aria-label="Remove featured filter"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Tag Chips -->
+            <div
+              v-for="tag in filters.tags"
+              :key="tag"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-lg text-sm font-medium"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+              </svg>
+              <span>{{ tag }}</span>
+              <button
+                @click="filters.tags = filters.tags?.filter(t => t !== tag)"
+                class="ml-1 hover:text-blue-900 dark:hover:text-blue-100 focus:outline-none"
+                :aria-label="`Remove ${tag} tag filter`"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           <!-- Resources Grid -->

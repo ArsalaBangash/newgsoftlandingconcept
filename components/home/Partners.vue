@@ -10,7 +10,15 @@ const partnersList = computed(() => props.partners || [])
 const getPartnerIcon = (logo: string) => {
   const iconMap: Record<string, string> = {
     'freecodecamp': 'simple-icons:freecodecamp',
-    'scrimba': 'simple-icons:scrimba'
+    'scrimba': 'simple-icons:scrimba',
+    'theodinproject': 'simple-icons:theodinproject',
+    'codecademy': 'simple-icons:codecademy',
+    'khanacademy': 'simple-icons:khanacademy',
+    'exercism': 'simple-icons:exercism',
+    'frontendmentor': 'simple-icons:frontendmentor',
+    'edx': 'simple-icons:edx',
+    'codewars': 'simple-icons:codewars',
+    'leetcode': 'simple-icons:leetcode'
   }
   return iconMap[logo] || `simple-icons:${logo}`
 }
@@ -19,9 +27,9 @@ const getPartnerIcon = (logo: string) => {
 <template>
   <UContainer class="py-24">
     <div class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Featured Partners</h2>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Recommended Learning Platforms</h2>
       <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-        Trusted organizations that support our mission.
+        High-quality platforms we trust for learning to code. Most offer free resources.
       </p>
     </div>
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">

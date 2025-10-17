@@ -12,7 +12,7 @@ const appConfig = useAppConfig()
           <img 
             src="/assets/images/logo-black-unpadded.png" 
             alt="Grey Software Logo" 
-            class="h-8 w-auto dark:hidden"
+            class="h-6 w-auto dark:hidden"
             loading="lazy"
           />
           <img 

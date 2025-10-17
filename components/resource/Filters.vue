@@ -5,6 +5,9 @@ interface FilterOptions {
   difficulties?: string[]
   formats?: string[]
   licenses?: string[]
+  tags?: string[]
+  category?: string
+  featured?: boolean
   isFree?: boolean
   isOpenSource?: boolean
 }
@@ -88,6 +91,9 @@ const hasActiveFilters = computed(() => {
     (filters.value.difficulties?.length ?? 0) > 0 ||
     (filters.value.formats?.length ?? 0) > 0 ||
     (filters.value.licenses?.length ?? 0) > 0 ||
+    (filters.value.tags?.length ?? 0) > 0 ||
+    !!filters.value.category ||
+    !!filters.value.featured ||
     filters.value.isFree ||
     filters.value.isOpenSource
 })
@@ -97,6 +103,9 @@ const activeFilterCount = computed(() => {
     (filters.value.difficulties?.length ?? 0) +
     (filters.value.formats?.length ?? 0) +
     (filters.value.licenses?.length ?? 0) +
+    (filters.value.tags?.length ?? 0) +
+    (filters.value.category ? 1 : 0) +
+    (filters.value.featured ? 1 : 0) +
     (filters.value.isFree ? 1 : 0) +
     (filters.value.isOpenSource ? 1 : 0)
 })
