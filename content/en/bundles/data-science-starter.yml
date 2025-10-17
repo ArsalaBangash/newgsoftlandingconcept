@@ -1,0 +1,50 @@
+id: data-science-starter
+title: "📊 Data Science Starter Pack"
+description: "Launch your data science journey. Learn statistics, Python, data analysis, and build your first ML models."
+icon: "📈"
+duration: "10 weeks"
+difficulty: intermediate
+tags:
+  - data-science
+  - machine-learning
+  - python
+  - statistics
+  - analytics
+resources:
+  - title: "Programming for Everybody (Python)"
+    url: "https://www.coursera.org/learn/python"
+    type: course
+    duration: "30 hours"
+    description: "Python fundamentals for data work"
+  
+  - title: "Google's Machine Learning Crash Course"
+    url: "https://developers.google.com/machine-learning/crash-course"
+    type: course
+    duration: "15 hours"
+    description: "ML concepts, TensorFlow, neural networks, and best practices"
+  
+  - title: "PyTorch for Deep Learning - freeCodeCamp"
+    url: "https://www.youtube.com/watch?v=V_xro1bcAuA"
+    type: tutorial
+    duration: "26 hours"
+    description: "Comprehensive PyTorch course with projects"
+  
+  - title: "Kaggle Competitions"
+    url: "https://kaggle.com/competitions"
+    type: practice
+    duration: "Ongoing"
+    description: "Real datasets, competitions, and community learning"
+  
+  - title: "Deep Learning Book"
+    url: "https://www.deeplearningbook.org"
+    type: book
+    duration: "100 hours"
+    description: "Advanced deep learning theory and implementation"
+
+outcomes:
+  - "Work with Python for data analysis and manipulation"
+  - "Build predictive models and understand ML fundamentals"
+  - "Use TensorFlow and PyTorch effectively"
+  - "Prepare datasets and handle missing data"
+  - "Evaluate models and avoid overfitting"
+  - "Deploy machine learning models"

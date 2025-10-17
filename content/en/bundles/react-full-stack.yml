@@ -1,0 +1,50 @@
+id: react-full-stack
+title: "🚀 React Full Stack Mastery"
+description: "Build production-ready full-stack applications with React, Node.js, and modern tooling. From frontend fundamentals to backend APIs to deployment."
+icon: "⚛️"
+duration: "6 weeks"
+difficulty: intermediate
+tags:
+  - react
+  - full-stack
+  - javascript
+  - nodejs
+  - backend
+resources:
+  - title: "React Official Tutorial"
+    url: "https://react.dev/learn"
+    type: course
+    duration: "2 hours"
+    description: "Interactive React fundamentals covering components, hooks, and state management"
+  
+  - title: "You Don't Know JS (Book Series)"
+    url: "https://github.com/getify/You-Dont-Know-JS"
+    type: book
+    duration: "50 hours"
+    description: "Deep dive into JavaScript language fundamentals - essential for mastery"
+  
+  - title: "Full Stack Open (University of Helsinki)"
+    url: "https://fullstackopen.com"
+    type: course
+    duration: "100 hours"
+    description: "Complete full-stack curriculum: React, Node.js, MongoDB, GraphQL, testing"
+  
+  - title: "Next.js 14 Official Learn"
+    url: "https://nextjs.org/learn"
+    type: tutorial
+    duration: "10 hours"
+    description: "Modern React framework with server components and API routes"
+  
+  - title: "System Design Primer"
+    url: "https://github.com/donnemartin/system-design-primer"
+    type: article
+    duration: "20 hours"
+    description: "Understand scalability and architecture patterns for production systems"
+
+outcomes:
+  - "Build interactive React applications with hooks and modern patterns"
+  - "Create Node.js APIs and databases with MongoDB or PostgreSQL"
+  - "Deploy full-stack applications to production"
+  - "Understand system design and scalability"
+  - "Write testable, maintainable code"
+  - "Collaborate effectively using Git workflows"

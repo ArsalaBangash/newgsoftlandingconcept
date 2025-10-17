@@ -1,0 +1,24 @@
+id: linux-foundation-devops
+developerName: "Priya Sharma"
+title: "From IT Support to DevOps Engineer at AWS"
+description: "Priya used Linux Foundation courses and KodeKloud labs to transition from IT support to DevOps. Her hands-on lab experience landed her a role at AWS within 2 years."
+resourcesUsed:
+  - "Linux Foundation Courses"
+  - "KodeKloud DevOps Labs"
+  - "Docker & Kubernetes Official Docs"
+  - "System Design Primer"
+outcome: "Hired as DevOps Engineer at AWS. Now leading infrastructure team."
+source: "Linux Foundation"
+sourceUrl: "https://training.linuxfoundation.org"
+videoUrl: "https://www.youtube.com/results?search_query=devops+career+change+success"
+quote: "Those hands-on labs were everything. Docker and Kubernetes aren't theoretical—they're practical. KodeKloud let me practice in a real environment without breaking anything."
+tags:
+  - devops
+  - aws
+  - career-transition
+  - hands-on-learning
+  - it-to-engineering
+featured: true
+---
+
+Priya's transition shows that IT background + structured DevOps learning = clear path to six-figure engineering roles. Her success demonstrates the value of hands-on practice environments.

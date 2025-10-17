@@ -1,0 +1,50 @@
+id: java-spring-enterprise
+title: "☕ Java & Spring Boot Enterprise"
+description: "Master enterprise Java development with Spring Boot. Build scalable systems used in Fortune 500 companies. Java ecosystem is mature, battle-tested, and here to stay."
+icon: "☕"
+duration: "12 weeks"
+difficulty: intermediate
+tags:
+  - java
+  - spring-boot
+  - backend
+  - enterprise
+  - microservices
+resources:
+  - title: "Java Official Tutorials"
+    url: "https://docs.oracle.com/en/java/"
+    type: course
+    duration: "40 hours"
+    description: "Official Java language fundamentals and advanced concepts"
+  
+  - title: "Spring Boot Official Guide"
+    url: "https://spring.io/guides"
+    type: tutorial
+    duration: "50 hours"
+    description: "Build production-ready Spring applications quickly"
+  
+  - title: "Baeldung - Java & Spring Tutorial Hub"
+    url: "https://www.baeldung.com"
+    type: course
+    duration: "200+ hours"
+    description: "Comprehensive, practical tutorials for Java and Spring ecosystem"
+  
+  - title: "Microservices Patterns & Architecture"
+    url: "https://microservices.io/"
+    type: article
+    duration: "20 hours"
+    description: "Learn patterns for building scalable distributed systems"
+  
+  - title: "PostgreSQL & Database Design for Java"
+    url: "https://www.postgresql.org/docs/"
+    type: tutorial
+    duration: "30 hours"
+    description: "Data persistence patterns and optimization"
+
+outcomes:
+  - "Build robust Spring Boot applications"
+  - "Design microservices architecture"
+  - "Implement enterprise security patterns"
+  - "Work with databases and ORM (Hibernate/JPA)"
+  - "Deploy to cloud platforms (AWS, GCP, Azure)"
+  - "Scale applications for millions of users"

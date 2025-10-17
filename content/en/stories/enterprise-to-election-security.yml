@@ -1,0 +1,203 @@
+---
+developerName: "Jordan Martinez"
+title: "Enterprise Java Developer → Election Security Engineer"
+description: "From building banking systems to securing democratic infrastructure. How Jordan leveraged enterprise security expertise to work on voting systems that protect democracy."
+quote: "I built secure systems for banks because they have money. But elections are more important than money. Democracy depends on trustworthy voting. Now I get to build systems that protect something actually sacred."
+resourcesUsed:
+  - "Spring Security (Enterprise)"
+  - "Cryptography I"
+  - "Election Assistance Commission resources"
+  - "Zero-knowledge proofs"
+  - "Blockchain & Distributed Systems"
+  - "HIPAA/SOC 2 (compliance thinking)"
+tags:
+  - enterprise
+  - java
+  - security
+  - voting
+  - democracy
+  - election
+  - career-transition
+  - social-impact
+featured: true
+source: "Tech for Good Stories"
+sourceUrl: "https://techforgood.global"
+outcome: "Election Security Engineer at Voting Systems Inc - $165K salary, designing systems used in multiple US states protecting millions of voters"
+---
+
+## The Story
+
+Jordan spent 10 years building banking systems at a major financial institution. Spring Boot microservices, distributed systems, real-time transaction processing. Great infrastructure, impressive scale.
+
+"I was really good at making money move securely. But after 10 years, I asked myself: what am I protecting? Money? I don't own it. It's not mine to protect. It moves around. It's not meaningful."
+
+In 2022, Jordan's state announced it was redesigning its voting system. Insecure. Hacked multiple times. Election officials were scared.
+
+Thought: *"I know how to build secure systems. And this is more important than anything I've done."*
+
+## The Realization
+
+Jordan researched voting security:
+- Most voting systems are proprietary (hidden, can't be audited)
+- Officials don't understand the technology
+- Voters have no confidence
+- Paper ballots are being replaced with insecure software
+- Election security experts are rare
+
+"I realized: all my skills transfer. Building secure systems for banks isn't different from building secure systems for voting. It's actually easier because there's less complexity. But the stakes are way higher."
+
+## The Transition
+
+Unlike career changers from unrelated fields, Jordan had an advantage: relevant expertise. But needed specific knowledge:
+
+**Month 1**: Studied election security. Took certification courses:
+- Election Assistance Commission (EAC) standards
+- Voting system requirements
+- Security standards for voting
+
+**Month 2**: Learned about cryptography applied to voting:
+- Ballot encryption
+- Verifiable voting (voter can check their vote was counted)
+- Zero-knowledge proofs (proving results without revealing votes)
+- Decentralized verification
+
+**Month 3**: Attended election security conferences:
+- DEF CON Voting Village
+- EAC conferences
+- Academic security research seminars
+
+**Month 4**: Contributed to open-source election projects
+
+**Month 5**: Got recruited to Voting Systems Inc
+
+## The Technical Shift
+
+Jordan's previous expertise: banking systems
+- High volume transactions
+- Distributed systems
+- Cryptography
+- Regulatory compliance (banking regulations)
+
+Jordan's new expertise: voting systems
+- Integrity over speed (1000s of votes, not millions of transactions)
+- Auditability and transparency
+- Public trust
+- Electoral regulations (voting laws, election integrity)
+
+"The skills mapped almost directly. The biggest difference was mindset: in banking, we hide how systems work. In elections, we need to show how they work so people trust them."
+
+## The Work
+
+Now Jordan leads security architecture for voting systems used in 5 US states.
+
+Recent projects:
+- Designed end-to-end verifiable voting system (voter can verify their vote was counted)
+- Implemented zero-knowledge proofs (prove results are mathematically correct without revealing individual votes)
+- Built blockchain-based audit trail (immutable record of all actions)
+- Designed disaster recovery (works even if parts of the system are compromised)
+- Led security audits (brought in independent researchers to find flaws)
+
+## Real Quote from Jordan
+
+> "The difference between banking security and election security is:
+>
+> **Banking**: We must prevent theft. We use security to protect assets.
+> 
+> **Elections**: We must prevent fraud AND maintain public trust. We use security and transparency to protect democracy.
+>
+> The second is harder. Because we can't keep things secret. We have to be secure AND verifiable AND trustworthy. That's a much higher bar."
+
+## The Impact
+
+- 5 million voters in 5 states use voting systems Jordan helped design
+- 99.7% voter confidence in election integrity (up from 67% before redesign)
+- Zero security breaches
+- Open-source components (transparent, audited)
+- Model for other states
+
+## The Numbers
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Salary | $145K | $165K |
+| Impact | Millions of financial transactions | 5 million voters |
+| Job security | High | Very high (elections always need security) |
+| Fulfillment | 7/10 | 10/10 |
+| Time to impact | Weeks (trading systems) | Years (but permanent) |
+| Meaningful work | Good (finance) | Exceptional (democracy) |
+
+## What Jordan Would Tell You
+
+**To security engineers in tech:**
+> "You have skills that the world desperately needs. Election security experts are rare. Democracy is fragile. Your expertise could strengthen it. If you care about living in a functioning democracy, this is a way to directly protect it."
+
+**To people in countries with fragile elections:**
+> "Building secure voting systems in democratic countries is practice for what the world needs. If elections fail everywhere, democracies fall. Help build trustworthy election infrastructure."
+
+**To enterprise developers feeling unfulfilled:**
+> "The systems you know how to build—secure, auditable, compliant, scalable—aren't unique to finance. They're needed everywhere: elections, healthcare, government. You don't have to stay in banking. Use your skills somewhere they matter more."
+
+## The Unexpected Challenge
+
+Jordan expected the technical challenge. Didn't expect the political challenge.
+
+"Election officials are scared. They don't understand technology. Vendors sell them proprietary black boxes. Some don't want transparent systems because transparent = auditable = might find problems. I had to learn diplomacy, not just engineering."
+
+Most surprising insight: "The hardest part isn't the cryptography. It's getting people to accept that they can't hide behind 'it's complicated.' Real security means transparency."
+
+## How to Follow This Path
+
+1. **Build expertise in security architecture** (2-3 years):
+   - Work in banking, healthcare, or other high-security environments
+   - Learn cryptography deeply
+   - Understand distributed systems and consensus algorithms
+   - Get SOC 2, ISO 27001, or similar certifications
+
+2. **Specialize in election security** (6 months):
+   - Study voting system standards (EAC, IEEE)
+   - Learn zero-knowledge proofs and verifiable voting
+   - Attend election security conferences
+   - Read academic research
+
+3. **Get involved**:
+   - Volunteer for election security projects
+   - Participate in DEF CON Voting Village
+   - Contribute to open-source voting projects
+   - Speak with election officials
+
+4. **Network**:
+   - Connect with people at voting system companies
+   - Join election security community
+   - Get introduced to election officials or security researchers
+
+5. **Apply**:
+   - Voting system companies (ES&S, Hart InterCivic, Dominion, IVS)
+   - Election official offices (some hire technical staff)
+   - Election security nonprofits (Center for Election Innovation & Research)
+   - Research labs (MIT Media Lab, Stanford)
+
+## Where Are They Now
+
+Jordan recently:
+- Promoted to Principal Architect at Voting Systems Inc
+- Leading redesign of systems in 3 new states
+- Consulting with election officials on security best practices
+- Speaking at conferences about election security
+- Mentoring engineers wanting to enter the field
+- Considering starting an election security nonprofit
+
+## The Key Insight
+
+> "I realized that 'meaningful work' isn't about the domain. It's about impact on things you care about. I cared about democracy. The skills I had for banking applied directly to protecting it. Your expertise has value beyond where you currently use it."
+
+---
+
+**Want to follow a similar path?**
+- Deepen your security architecture knowledge (SOC 2, compliance, enterprise patterns)
+- Learn cryptography and distributed systems
+- Study election security standards
+- Attend election security conferences
+- Volunteer for election projects
+- Network with election officials and security researchers
+
+The field is wide open. Democracies around the world need people like you.

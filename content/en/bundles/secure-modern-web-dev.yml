@@ -1,0 +1,191 @@
+id: secure-modern-web-dev
+title: "🔒 Secure Modern Web Development"
+icon: "🔒"
+difficulty: "Intermediate"
+duration: "10 weeks"
+description: "Build secure, privacy-respecting web applications using modern tech. Combines React/Next.js with security best practices, privacy design, and user data protection. For developers who believe the web should be fast, beautiful, AND trustworthy."
+tags:
+  - security
+  - privacy
+  - react
+  - nextjs
+  - web
+  - cryptography
+  - encryption
+  - user-data
+
+learningOutcomes:
+  - "Frontend Security": "Prevent XSS, CSRF, injection attacks in modern JavaScript"
+  - "Privacy by Design": "Build applications that collect minimal data, store securely"
+  - "End-to-End Encryption": "Add encryption to web apps using TweetNaCl, libsodium, or similar"
+  - "Secure Authentication": "OAuth2, JWT, multi-factor authentication, secure sessions"
+  - "Data Protection": "GDPR compliance, data minimization, secure deletion, encryption at rest/transit"
+  - "Performance + Security": "Building fast AND secure - they're not mutually exclusive"
+  - "User Trust": "Privacy policies, transparency, security headers, trust indicators"
+
+resources:
+  # Foundation: Security Fundamentals
+  - title: "Web Security Academy (PortSwigger)"
+    url: "https://portswigger.net/web-security"
+    type: "interactive"
+    duration: "15 hours"
+    sequence: 1
+    description: "Interactive labs covering XSS, CSRF, authentication attacks, and defenses. Essential security knowledge for any web developer."
+    relatesTo: ["Frontend Security", "Authentication"]
+
+  # React & Next.js Security
+  - title: "Next.js Official Learn Course"
+    url: "https://nextjs.org/learn"
+    type: "course"
+    duration: "8 hours"
+    sequence: 2
+    description: "Build modern web applications with Next.js. Includes security best practices, server-side rendering for better data protection."
+    relatesTo: ["Frontend Security", "Data Protection"]
+
+  - title: "OWASP Top 10 for JavaScript"
+    url: "https://owasp.org/www-community/attacks/DOM_based_XSS"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 2
+    description: "JavaScript-specific security vulnerabilities and how to prevent them in React applications."
+    relatesTo: ["Frontend Security"]
+
+  # Encryption & Privacy in Web Apps
+  - title: "Real World Cryptography (Manning)"
+    url: "https://www.manning.com/books/real-world-cryptography"
+    type: "book"
+    duration: "8 hours"
+    sequence: 3
+    description: "How cryptography is used in TLS/SSL, authentication, and messaging. Understanding the why behind encryption."
+    relatesTo: ["Encryption", "Data Protection"]
+
+  - title: "TweetNaCl.js: Cryptography for JavaScript"
+    url: "https://tweetnacl.js.org"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 3
+    description: "Adding end-to-end encryption to web applications using modern cryptography libraries."
+    relatesTo: ["Encryption", "User Data Protection"]
+
+  - title: "Privacy by Design (Future of Privacy Forum)"
+    url: "https://fpf.org"
+    type: "documentation"
+    duration: "5 hours"
+    sequence: 3
+    description: "Principles for building privacy-respecting applications: data minimization, user control, transparency."
+    relatesTo: ["Privacy by Design"]
+
+  # Authentication & Sessions
+  - title: "OAuth 2.0 & OpenID Connect (Auth0 Docs)"
+    url: "https://auth0.com/intro-to-iam/oauth2-and-openid"
+    type: "documentation"
+    duration: "4 hours"
+    sequence: 4
+    description: "Modern authentication: OAuth2, OpenID Connect, secure session management."
+    relatesTo: ["Secure Authentication"]
+
+  - title: "CORS, CSP, SameSite Cookies (Web Security Policies)"
+    url: "https://developer.mozilla.org/en-US/docs/Web/Security"
+    type: "documentation"
+    duration: "5 hours"
+    sequence: 4
+    description: "Understanding and implementing security headers: Content Security Policy, Cross-Origin Resource Sharing."
+    relatesTo: ["Frontend Security"]
+
+  - title: "Two-Factor Authentication Implementation"
+    url: "https://www.twilio.com/docs/verify/totp"
+    type: "documentation"
+    duration: "4 hours"
+    sequence: 4
+    description: "Adding 2FA to web applications using TOTP, SMS, or other methods."
+    relatesTo: ["Secure Authentication", "User Trust"]
+
+  # Database Security
+  - title: "Secure Database Design (PostgreSQL)"
+    url: "https://www.postgresql.org/docs/current/sql-syntax.html"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 5
+    description: "SQL injection prevention, parameterized queries, row-level security, encryption at rest."
+    relatesTo: ["Frontend Security", "Data Protection"]
+
+  - title: "Hashing Passwords Properly (bcrypt, Argon2)"
+    url: "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+    type: "documentation"
+    duration: "3 hours"
+    sequence: 5
+    description: "Never store passwords in plaintext. Understanding salting, hashing, and key derivation functions."
+    relatesTo: ["Secure Authentication", "Data Protection"]
+
+  # GDPR & Compliance
+  - title: "GDPR for Developers (Practical)"
+    url: "https://gdpr-info.eu"
+    type: "documentation"
+    duration: "4 hours"
+    sequence: 6
+    description: "What GDPR means for web developers: user consent, data retention, data deletion, privacy notices."
+    relatesTo: ["Privacy by Design", "User Trust"]
+
+  - title: "Data Minimization Principles"
+    url: "https://www.eff.org/issues/privacy"
+    type: "documentation"
+    duration: "3 hours"
+    sequence: 6
+    description: "Collect less data. Fewer data points = smaller attack surface = better privacy for users."
+    relatesTo: ["Privacy by Design"]
+
+  # Practical Implementation
+  - title: "Building a Secure Chat App (Hands-On Project)"
+    url: "https://github.com/topics/e2e-encrypted-chat"
+    type: "interactive"
+    duration: "8 hours"
+    sequence: 7
+    description: "Practical project: build a simple chat application with end-to-end encryption using React and TweetNaCl.js."
+    relatesTo: ["Encryption", "Secure Authentication", "All concepts"]
+
+  - title: "Security Audit & Penetration Testing for Web Apps"
+    url: "https://portswigger.net/web-security/essential-skills"
+    type: "interactive"
+    duration: "6 hours"
+    sequence: 7
+    description: "Testing your own applications for vulnerabilities. Burp Suite, OWASP ZAP, manual testing."
+    relatesTo: ["Frontend Security"]
+
+  - title: "Content Security Policy Implementation Guide"
+    url: "https://csp-evaluator.withgoogle.com"
+    type: "interactive"
+    duration: "4 hours"
+    sequence: 7
+    description: "Setting up CSP headers to prevent injection attacks. Testing and validation."
+    relatesTo: ["Frontend Security"]
+
+outcomes:
+  - "Build React applications that are secure by default"
+  - "Understand and prevent common web vulnerabilities (XSS, CSRF, injection)"
+  - "Implement end-to-end encryption in web applications"
+  - "Design privacy-respecting data collection and storage"
+  - "Implement secure authentication including 2FA"
+  - "Pass security audits and penetration tests"
+  - "Comply with GDPR and privacy regulations"
+  - "Earn user trust through transparent, secure practices"
+
+careerPathways:
+  - "Full Stack Developer with Security Focus"
+  - "Security-Conscious Frontend Engineer"
+  - "Privacy Engineer at Tech Companies"
+  - "Security Consultant (Web Applications)"
+  - "CISO/Security Lead (Technical Background)"
+
+projectIdeas:
+  - "Privacy-respecting newsletter signup with encryption"
+  - "Secure to-do list with end-to-end encryption"
+  - "Privacy dashboard showing data collected about you"
+  - "GDPR-compliant user preference center"
+  - "Zero-knowledge proof based authentication demo"
+
+prerequisites:
+  - "Solid JavaScript knowledge (React helpful but not required)"
+  - "Familiarity with HTTP, cookies, sessions"
+  - "Willingness to learn security concepts"
+
+featuredFlag: true

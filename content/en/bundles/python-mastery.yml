@@ -1,0 +1,50 @@
+id: python-mastery
+title: "🐍 Python Developer Mastery"
+description: "Master Python from basics to advanced applications. Build scripts, web applications, data processing pipelines, and dive into AI/ML."
+icon: "🐍"
+duration: "8 weeks"
+difficulty: beginner
+tags:
+  - python
+  - programming
+  - backend
+  - automation
+  - data-science
+resources:
+  - title: "Automate the Boring Stuff with Python"
+    url: "https://automatetheboringstuff.com"
+    type: book
+    duration: "40 hours"
+    description: "Practical Python for automation, file management, and web scraping"
+  
+  - title: "Programming for Everybody (Python) - University of Michigan"
+    url: "https://www.coursera.org/learn/python"
+    type: course
+    duration: "30 hours"
+    description: "Beginner-friendly Python fundamentals on Coursera"
+  
+  - title: "Python Bytes Podcast"
+    url: "https://pythonbytes.fm"
+    type: article
+    duration: "Ongoing"
+    description: "Stay current with weekly Python news and tips"
+  
+  - title: "Google's Machine Learning Crash Course"
+    url: "https://developers.google.com/machine-learning/crash-course"
+    type: course
+    duration: "15 hours"
+    description: "Introduction to ML concepts and TensorFlow"
+  
+  - title: "Deep Learning Specialization"
+    url: "https://www.coursera.org/specializations/deep-learning"
+    type: course
+    duration: "12 weeks"
+    description: "Advanced neural networks and deep learning by Andrew Ng"
+
+outcomes:
+  - "Write production-quality Python code"
+  - "Automate repetitive tasks and scripts"
+  - "Build web applications with frameworks"
+  - "Process and analyze data effectively"
+  - "Understand machine learning fundamentals"
+  - "Deploy Python applications"

@@ -1,0 +1,21 @@
+id: scrimba-bootcamp-grad
+developerName: "Marcus Johnson"
+title: "From Coding Bootcamp to Senior Engineer at Netflix"
+description: "Marcus used Scrimba's interactive courses alongside his bootcamp to accelerate learning. 3 years later, he's a senior engineer at Netflix working on streaming infrastructure."
+resourcesUsed:
+  - "Scrimba Courses"
+  - "System Design Primer"
+  - "LeetCode"
+outcome: "Started at Netflix as junior, promoted to senior in 3 years. Now mentors junior engineers."
+source: "Scrimba"
+sourceUrl: "https://scrimba.com/articles/success-stories"
+quote: "The hands-on, interactive nature of Scrimba made concepts stick. I wasn't just watching code—I was writing it."
+tags:
+  - bootcamp-grad
+  - netflix
+  - career-advancement
+  - system-design
+featured: true
+---
+
+Marcus demonstrates that the combination of bootcamp training + supplementary resources = accelerated career growth. His path is common among developers who invest in continuous learning.

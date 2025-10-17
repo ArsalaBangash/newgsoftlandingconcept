@@ -1,0 +1,222 @@
+🔍 Scanning all resources for 404s and broken links...
+==================================================
+[0;31m❌ 404 NOT FOUND[0m - The 80/20 Learning Rule
+   URL: https://fs.blog/pareto-principle/
+   File: content/en/resources/articles/80-20-learning-rule.md
+[1;33m⚠️  302[0m - The Complete Developer Roadmap: All Three Paths to Impact
+   URL: https://greysoftware.com/roadmaps
+[0;32m✅ 200[0m - From Silicon Valley Data Scientist to Human Rights Activist Tech
+[0;32m✅ 200[0m - Design Systems Ultimate Guide 2024
+[0;31m❌ 404 NOT FOUND[0m - How to Build a Successful Developer Career
+   URL: https://www.freecodecamp.org/news/how-to-build-a-successful-developer-career/
+   File: content/en/resources/articles/developer-career.md
+[0;32m✅ 200[0m - Enterprise Systems for Social Good: Building Privacy-First Platforms at Scale
+[0;31m❌ 404 NOT FOUND[0m - The Future of Web Development
+   URL: https://example.com/future-web-dev
+   File: content/en/resources/articles/future-web-dev.md
+[1;33m⚠️  301[0m - How to Contribute to Open Source
+   URL: https://opensource.guide/how-to-contribute
+[0;32m✅ 200[0m - Kanban Study Method Guide
+[0;32m✅ 200[0m - Learning Rust in 2024
+[0;32m✅ 200[0m - Modern CSS Features 2024
+[0;32m✅ 200[0m - How to Contribute to Open Source Projects
+[0;32m✅ 200[0m - Privacy by Design in Modern Web Frameworks
+[0;32m✅ 200[0m - RESTful API Design Best Practices Guide 2024
+[0;32m✅ 200[0m - 6 Software Engineering Best Practices for 2025
+[0;31m❌ 404 NOT FOUND[0m - Spaced Repetition & Recall
+   URL: https://www.learningscientists.org/blog/2023/6/21/spacing-out-your-learning
+   File: content/en/resources/articles/spaced-repetition.md
+[0;32m✅ 200[0m - System Design Primer
+[0;32m✅ 200[0m - Web Performance Optimization Strategies
+[1;33m⚠️  301[0m - Introduction to Web3 Development
+   URL: https://ethereum.org/en/developers/docs/
+[0;32m✅ 200[0m - Zero-to-One: Building Your First SaaS
+[0;32m✅ 200[0m - Automate the Boring Stuff with Python
+[0;32m✅ 200[0m - Deep Learning Book
+[0;32m✅ 200[0m - Eloquent JavaScript
+[0;32m✅ 200[0m - Go Programming Language
+[0;32m✅ 200[0m - The Modern JavaScript Tutorial
+[0;32m✅ 200[0m - Pro Git
+[0;32m✅ 200[0m - The Rust Programming Language (The Book)
+[0;32m✅ 200[0m - Rust Programming Language
+[0;32m✅ 200[0m - Tackling TypeScript
+[0;32m✅ 200[0m - You Don't Know JS (Book Series)
+[0;32m✅ 200[0m - Levels.fyi
+[0;32m✅ 200[0m - Open Source Guide
+[0;32m✅ 200[0m - Roadmap.sh
+[0;32m✅ 200[0m - Tech Interview Handbook
+[0;32m✅ 200[0m - Dev.to
+[0;32m✅ 200[0m - freeCodeCamp Forum
+[0;32m✅ 200[0m - Hashnode
+[1;33m⚠️  301[0m - Reddit r/learnprogramming
+   URL: https://reddit.com/r/learnprogramming
+[1;33m⚠️  301[0m - Reddit r/webdev
+   URL: https://reddit.com/r/webdev
+[1;33m⚠️  302[0m - Stack Overflow
+   URL: https://stackoverflow.com
+[0;32m✅ 200[0m - CodeNewbie Community
+[0;32m✅ 200[0m - Dev.to
+[0;32m✅ 200[0m - First Contributions
+[0;32m✅ 200[0m - FreeCodeCamp Forum
+[0;32m✅ 200[0m - GitHub
+[0;32m✅ 200[0m - Good First Issue
+[0;32m✅ 200[0m - Hashnode
+[0;32m✅ 200[0m - Reactiflux Discord
+[1;33m⚠️  301[0m - Reddit - r/programming
+   URL: https://reddit.com/r/programming
+[1;33m⚠️  302[0m - Scrimba Discord Community
+   URL: https://scrimba.com/discord
+[1;33m⚠️  302[0m - Stack Overflow
+   URL: https://stackoverflow.com/
+[1;33m⚠️  301[0m - The Odin Project Discord
+   URL: https://discord.gg/theodinproject
+[1;33m⚠️  301[0m - Decentralized Internet - Building Systems Nobody Controls
+   URL: https://ethereum.org/en/web3/
+[0;32m✅ 200[0m - DevSecOps: Security in Your Deployment Pipeline
+[1;33m⚠️  301[0m - ASP.NET Core - Microsoft's Modern Web Framework
+   URL: https://learn.microsoft.com/en-us/aspnet/core/
+[1;33m⚠️  301[0m - AWS DevOps Engineer Associate Course
+   URL: https://acloudguru.com
+[1;33m⚠️  301[0m - AWS Certified DevOps Engineer
+   URL: https://acloudguru.com/course/aws-certified-devops-engineer-professional
+[0;32m✅ 200[0m - Cisco Python Programming
+[0;32m✅ 200[0m - Deep Learning Specialization by DeepLearning.AI
+[1;33m⚠️  301[0m - freeCodeCamp Responsive Web Design
+   URL: https://www.freecodecamp.org/learn/responsive-web-design/
+[0;32m✅ 200[0m - Full Stack Open (University of Helsinki)
+[0;32m✅ 200[0m - Google's Machine Learning Crash Course
+[0;32m✅ 200[0m - Harvard CS50: Introduction to Computer Science
+[0;32m✅ 200[0m - Introduction to Node.js
+[0;32m✅ 200[0m - KodeKloud DevOps Learning Resources
+[0;32m✅ 200[0m - Laravel - The PHP Framework for Artisans
+[0;32m✅ 200[0m - The Missing Semester of Your CS Education
+[0;32m✅ 200[0m - MongoDB Tutorial for Beginners 2024
+[0;32m✅ 200[0m - Next.js 14 Official Learn Course
+[0;32m✅ 200[0m - The Odin Project
+[0;32m✅ 200[0m - PostgreSQL Complete Course
+[0;32m✅ 200[0m - Programming for Everybody (Python)
+[0;32m✅ 200[0m - PyTorch for Deep Learning
+[1;33m⚠️  308[0m - Spring Boot - Build Production-Grade Applications
+   URL: https://spring.io/projects/spring-boot
+[0;32m✅ 200[0m - WordPress Developer Guide
+[1;33m⚠️  302[0m - Awesome - Curated Lists of Resources
+   URL: https://awesome.re
+[0;32m✅ 200[0m - Cryptography I - Stanford & Coursera
+[0;32m✅ 200[0m - DevDocs
+[0;32m✅ 200[0m - Internet Privacy & Anonymity - Practical Guide
+[1;33m⚠️  302[0m - MDN Web Docs
+   URL: https://developer.mozilla.org
+[0;32m✅ 200[0m - The Open Source Way - How Communities Built Freedom
+[0;32m✅ 200[0m - Web.dev (Google)
+[0;32m✅ 200[0m - Advent of Code
+[0;32m✅ 200[0m - Codewars
+[0;32m✅ 200[0m - Exercism
+[0;32m✅ 200[0m - Frontend Mentor
+[1;33m⚠️  301[0m - HackerRank
+   URL: https://hackerrank.com
+[1;33m⛔ 403 FORBIDDEN[0m - LeetCode
+   URL: https://leetcode.com
+   File: content/en/resources/interactive-platforms/leetcode.md
+[1;33m⚠️  302[0m - Scrimba
+   URL: https://scrimba.com
+[1;33m⚠️  302[0m - CodinGame
+   URL: https://www.codingame.com/
+[0;32m✅ 200[0m - Edabit
+[0;32m✅ 200[0m - Exercism
+[0;32m✅ 200[0m - Flexbox Froggy
+[0;32m✅ 200[0m - Frontend Mentor
+[0;32m✅ 200[0m - Grid Garden
+[0;32m✅ 200[0m - KodeKloud DevOps Interactive Labs
+[1;33m⚠️  302[0m - Scrimba
+   URL: https://scrimba.com/
+[1;33m⚠️  302[0m - SoloLearn
+   URL: https://www.sololearn.com/
+[0;32m✅ 200[0m - Web Security Academy - Protecting Yourself & Others
+[1;33m⚠️  301[0m - AngelList
+   URL: https://angel.co/
+[1;33m⛔ 403 FORBIDDEN[0m - Indeed
+   URL: https://indeed.com/
+   File: content/en/resources/jobs/indeed.md
+[1;33m⚠️  301[0m - LinkedIn
+   URL: https://linkedin.com/
+[0;32m✅ 200[0m - Bytes - JavaScript Newsletter
+[0;32m✅ 200[0m - CSS-Tricks
+[0;32m✅ 200[0m - CSS-Tricks Newsletter
+[0;32m✅ 200[0m - Daily.dev Digest
+[0;32m✅ 200[0m - DevOps Weekly
+[0;32m✅ 200[0m - Frontend Focus
+[0;32m✅ 200[0m - GitHub Explore Newsletter
+[1;33m⚠️  301[0m - Hacker Newsletter
+   URL: https://www.hackernewsletter.com
+[0;32m✅ 200[0m - JavaScript Weekly
+[0;32m✅ 200[0m - Node Weekly
+[0;32m✅ 200[0m - React Status
+[0;32m✅ 200[0m - TLDR Newsletter
+[0;32m✅ 200[0m - TLDR Newsletter
+[0;32m✅ 200[0m - Changelog
+[0;32m✅ 200[0m - CodeNewbie
+[1;33m⚠️  301[0m - JavaScript Jabber
+   URL: https://devchat.tv/podcasts/js-jabber/
+[0;31m❌ 404 NOT FOUND[0m - Lex Fridman Podcast - AI Episodes
+   URL: https://lexfridman.com/ai
+   File: content/en/resources/podcast/lex-fridman-ai.md
+[0;32m✅ 200[0m - Python Bytes
+[0;32m✅ 200[0m - React Podcast
+[0;32m✅ 200[0m - Software Engineering Daily
+[0;32m✅ 200[0m - Syntax.fm - The Jamstack Episode
+[0;32m✅ 200[0m - Changelog
+[0;32m✅ 200[0m - CodeNewbie
+[1;33m⚠️  301[0m - JavaScript Jabber
+   URL: https://devchat.tv/js-jabber
+[0;32m✅ 200[0m - Python Bytes
+[0;32m✅ 200[0m - React Podcast
+[0;32m✅ 200[0m - Software Engineering Daily
+[0;32m✅ 200[0m - Advent of Code
+[1;33m⚠️  301[0m - Codewars
+   URL: https://codewars.com/
+[1;33m⚠️  301[0m - HackerRank
+   URL: https://hackerrank.com/
+[1;33m⛔ 403 FORBIDDEN[0m - LeetCode
+   URL: https://leetcode.com/
+   File: content/en/resources/practice/leetcode.md
+[0;32m✅ 200[0m - NeetCode
+[0;32m✅ 200[0m - Project Euler
+[0;32m✅ 200[0m - Amazon Web Services (AWS)
+[0;32m✅ 200[0m - Biome
+[0;32m✅ 200[0m - Bruno
+[0;32m✅ 200[0m - Bun Runtime
+[1;33m⚠️  308[0m - Cursor
+   URL: https://cursor.sh/
+[0;32m✅ 200[0m - Docker
+[0;32m✅ 200[0m - Drizzle ORM
+[0;32m✅ 200[0m - Git
+[0;32m✅ 200[0m - Playwright
+[0;32m✅ 200[0m - Postman
+[0;32m✅ 200[0m - PyTorch
+[0;32m✅ 200[0m - TensorFlow
+[1;33m⚠️  301[0m - Vite
+   URL: https://vitejs.dev/
+[0;32m✅ 200[0m - Vitest
+[0;32m✅ 200[0m - VS Code
+[0;32m✅ 200[0m - Zed Editor
+[0;32m✅ 200[0m - Machine Learning Crash Course by Google
+[0;32m✅ 200[0m - Nuxt 3 Fundamentals
+[1;33m⚠️  307[0m - Svelte Official Tutorial
+   URL: https://svelte.dev/tutorial
+[0;32m✅ 200[0m - Bro Code
+[0;32m✅ 200[0m - freeCodeCamp.org YouTube
+[0;32m✅ 200[0m - How the Internet Really Works - Understanding Infrastructure & Freedom
+[0;32m✅ 200[0m - Traversy Media JavaScript Crash Course
+[0;32m✅ 200[0m - Quantum Computing for Everyone
+[0;32m✅ 200[0m - Traversy Media
+
+==================================================
+📊 REPORT SUMMARY
+==================================================
+Total URLs checked: 160
+[0;32m✅ Valid (2xx):[0m 119
+[0;31m❌ 404 Errors:[0m 5
+[1;33m⚠️  Timeouts/Other:[0m 36
+==================================================
+
+[0;31m⚠️  ACTION REQUIRED: Found 5 broken links![0m

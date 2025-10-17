@@ -1,0 +1,50 @@
+id: go-rust-systems
+title: "⚙️ Go & Rust for Systems Programming"
+description: "Master modern systems languages. Go for cloud infrastructure, Rust for performance-critical systems. These languages are reshaping infrastructure and are increasingly demanded."
+icon: "⚙️"
+duration: "10 weeks"
+difficulty: advanced
+tags:
+  - go
+  - rust
+  - systems-programming
+  - infrastructure
+  - performance
+resources:
+  - title: "The Go Programming Language"
+    url: "https://golang.org/doc/"
+    type: book
+    duration: "40 hours"
+    description: "Official Go documentation and tour"
+  
+  - title: "Rust Official Book & Guide"
+    url: "https://doc.rust-lang.org/book/"
+    type: book
+    duration: "60 hours"
+    description: "The Rust programming language official comprehensive guide"
+  
+  - title: "Go Web Development"
+    url: "https://go.dev/doc/"
+    type: tutorial
+    duration: "30 hours"
+    description: "Build web services and APIs with Go"
+  
+  - title: "Rust for Systems Programming"
+    url: "https://doc.rust-lang.org/nomicon/"
+    type: tutorial
+    duration: "40 hours"
+    description: "Memory safety without garbage collection"
+  
+  - title: "Microservices & Infrastructure with Go"
+    url: "https://www.digitalocean.com/community/tutorials?q=golang"
+    type: tutorial
+    duration: "30 hours"
+    description: "Docker, Kubernetes, cloud infrastructure with Go"
+
+outcomes:
+  - "Write efficient Go programs for cloud infrastructure"
+  - "Build memory-safe systems with Rust"
+  - "Create high-performance services"
+  - "Understand systems-level programming concepts"
+  - "Deploy containers and microservices"
+  - "Contribute to infrastructure projects"

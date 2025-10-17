@@ -1,0 +1,50 @@
+id: interview-prep
+title: "🎯 FAANG Interview Intensive"
+description: "Comprehensive preparation for top-tech interviews. Master algorithms, system design, behavioral questions, and negotiation tactics."
+icon: "💼"
+duration: "12 weeks"
+difficulty: intermediate
+tags:
+  - interviews
+  - algorithms
+  - system-design
+  - career
+  - faang
+resources:
+  - title: "Tech Interview Handbook"
+    url: "https://www.techinterviewhandbook.org"
+    type: article
+    duration: "30 hours"
+    description: "Complete guide to coding, behavioral, and system design interviews"
+  
+  - title: "NeetCode 150"
+    url: "https://neetcode.io"
+    type: course
+    duration: "40 hours"
+    description: "Curated 150 problems with video solutions covering all patterns"
+  
+  - title: "LeetCode Premium"
+    url: "https://leetcode.com"
+    type: practice
+    duration: "60 hours"
+    description: "1000+ coding problems with solutions and discuss sections"
+  
+  - title: "System Design Primer"
+    url: "https://github.com/donnemartin/system-design-primer"
+    type: article
+    duration: "20 hours"
+    description: "Learn to design scalable systems like real architects"
+  
+  - title: "Behavioral Question Framework"
+    url: "https://www.techinterviewhandbook.org/behavioral-questions/"
+    type: article
+    duration: "5 hours"
+    description: "Master STAR method for leadership and teamwork questions"
+
+outcomes:
+  - "Solve coding problems efficiently with clear communication"
+  - "Design systems at scale from first principles"
+  - "Answer behavioral questions with compelling stories"
+  - "Negotiate offers and maximize compensation"
+  - "Manage interview anxiety and perform under pressure"
+  - "Land offers from top tech companies"

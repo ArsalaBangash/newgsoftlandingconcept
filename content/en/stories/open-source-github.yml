@@ -1,0 +1,23 @@
+id: open-source-github
+developerName: "Alex Rodriguez"
+title: "From GitHub Contributions to Google Engineer"
+description: "Alex became known in open source communities through consistent high-quality contributions. Google recruiters reached out. Now works on core infrastructure at Google."
+resourcesUsed:
+  - "Contributing to Open Source"
+  - "Tech Interview Handbook"
+  - "System Design Primer"
+  - "GitHub Learning"
+outcome: "Hired by Google as Software Engineer. Leads infrastructure project team."
+source: "Open Source Stories"
+sourceUrl: "https://opensource.guide/how-to-contribute"
+quote: "Open source was my portfolio. Every contribution was a portfolio piece. Google didn't care about degrees—they cared about what I'd built."
+tags:
+  - open-source
+  - google
+  - portfolio-driven
+  - community-contribution
+  - self-taught
+featured: true
+---
+
+Alex's journey highlights that open source excellence can be a direct path to top tech companies. Quality contributions > credentials in many cases.

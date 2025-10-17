@@ -1,45 +1,29 @@
 <!-- components/SearchModal.vue -->
 <script setup lang="ts">
+import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
+import { useSearch } from '~/composables/useSearch'
+
 const isOpen = ref(false)
-const searchQuery = ref('')
 const selectedIndex = ref(0)
 const searchInput = ref<HTMLInputElement>()
 
-const { data: allResources } = await useAsyncData('search-resources', () =>
-  queryCollection('resources').all()
-)
-
-// Fuzzy search implementation
-function fuzzyMatch(text: string, query: string): boolean {
-  const textLower = text.toLowerCase()
-  const queryLower = query.toLowerCase()
-  
-  // Exact match
-  if (textLower.includes(queryLower)) return true
-  
-  // Fuzzy match - all query characters must appear in order
-  let textIndex = 0
-  for (const char of queryLower) {
-    textIndex = textLower.indexOf(char, textIndex)
-    if (textIndex === -1) return false
-    textIndex++
-  }
-  return true
+const options = {
+  keys: [
+    { name: 'title', weight: 10 },        // Most important
+    { name: 'author', weight: 8 },        // Author searches matter
+    { name: 'description', weight: 7 },
+    { name: 'tags', weight: 6 },
+    { name: 'topic', weight: 5 },         // Category searches
+    { name: 'format', weight: 4 },        // Format searches
+  ],
+  includeScore: true,
+  threshold: 0.35,  // Lower threshold for better matching
 }
+const { searchQuery, searchResults: allSearchResults } = useSearch('resources', options)
 
 const searchResults = computed(() => {
-  if (!searchQuery.value || !allResources.value) return []
-  
-  const query = searchQuery.value.trim()
-  if (query.length < 2) return []
-  
-  return allResources.value
-    .filter(resource => {
-      return fuzzyMatch(resource.title, query) ||
-        fuzzyMatch(resource.description, query) ||
-        resource.tags.some(tag => fuzzyMatch(tag, query))
-    })
-    .slice(0, 8) // Limit to 8 results
+  if (searchQuery.value.length < 2) return []
+  return allSearchResults.value.slice(0, 8)
 })
 
 // Keyboard shortcuts
@@ -48,9 +32,9 @@ function handleKeydown(e: KeyboardEvent) {
     e.preventDefault()
     isOpen.value = true
   }
-  
+
   if (!isOpen.value) return
-  
+
   if (e.key === 'Escape') {
     isOpen.value = false
   } else if (e.key === 'ArrowDown') {
@@ -91,8 +75,29 @@ watch(searchQuery, () => {
   selectedIndex.value = 0
 })
 
+// Get icon for resource format
+function getFormatIcon(format: string) {
+  const icons: Record<string, string> = {
+    video: '▶️',
+    article: '📄',
+    course: '🎓',
+    book: '📚',
+    tool: '🔧',
+    documentation: '📖',
+    interactive: '💻',
+    tutorial: '📝',
+    podcast: '🎙️',
+    newsletter: '📬',
+    community: '👥',
+    practice: '🏋️',
+    career: '💼',
+    youtube: '📺',
+  }
+  return icons[format?.toLowerCase()] || '📄'
+}
+
 defineExpose({
-  open: () => { isOpen.value = true }
+  open: () => { isOpen.value = true },
 })
 </script>
 
@@ -216,6 +221,11 @@ defineExpose({
               @mouseenter="selectedIndex = index"
             >
               <div class="flex items-start gap-3">
+                <!-- Format Icon -->
+                <div class="flex-shrink-0 text-lg mt-0.5" :title="resource.format">
+                  {{ getFormatIcon(resource.format) }}
+                </div>
+                
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-2 mb-1">
                     <h3 class="text-sm font-semibold text-gray-900 dark:text-white truncate">
@@ -261,7 +271,7 @@ defineExpose({
               </span>
             </div>
             <NuxtLink 
-              to="/resources"
+              :to="searchQuery ? `/resources?search=${encodeURIComponent(searchQuery)}` : '/resources'"
               class="text-accent hover:text-accent/80 font-medium"
               @click="isOpen = false"
             >

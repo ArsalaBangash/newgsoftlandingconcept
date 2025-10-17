@@ -1,0 +1,228 @@
+id: digital-freedom-privacy
+title: "🔐 Digital Freedom & Privacy"
+icon: "🔐"
+difficulty: "Intermediate to Advanced"
+duration: "14 weeks"
+description: "Comprehensive pathway to understanding internet architecture, cryptography, privacy, security, and decentralized systems. Knowledge that protects freedom, enables secure communication, and empowers people everywhere to own their digital lives. From DNS to blockchain, from Tor to zero-knowledge proofs."
+tags:
+  - privacy
+  - security
+  - cryptography
+  - internet
+  - freedom
+  - open-source
+  - decentralization
+  - anonymity
+  - activism
+
+learningOutcomes:
+  - "Foundation": "How the internet works, DNS, TCP/IP, routing - understanding infrastructure"
+  - "Cryptography": "Symmetric & asymmetric encryption, digital signatures, authentication protocols"
+  - "Privacy Tools": "VPNs, Tor, encrypted messaging, password management, metadata protection"
+  - "Security": "Common attacks, defense mechanisms, secure coding practices"
+  - "Open Source": "Why transparency matters, contributing to secure projects, community power"
+  - "Decentralization": "Blockchain, smart contracts, peer-to-peer networks, censorship resistance"
+  - "Applied Practice": "Building secure applications, protecting personal data, practical activism tech"
+
+resources:
+  # PHASE 1: Foundation (Weeks 1-2)
+  - title: "How Does the Internet Actually Work? (Code.org)"
+    url: "https://www.youtube.com/playlist?list=PLzdnOPI8iJtZ8KLHz0Bk1uA0-8Sm0UKJa"
+    type: "youtube"
+    duration: "10 hours"
+    phase: 1
+    description: "Visual, accessible explanation of DNS, TCP/IP, packets, routing. Know how information travels, who can see it, and where it's vulnerable."
+    keyTopics: ["DNS", "TCP/IP", "Routing", "Packets", "Internet Infrastructure"]
+
+  - title: "Networking Essentials - Cisco (Free via Netacad)"
+    url: "https://www.netacad.com/courses/networking"
+    type: "course"
+    duration: "15 hours"
+    phase: 1
+    description: "Professional networking fundamentals from Cisco. Understand IP addresses, subnetting, and network architecture."
+    keyTopics: ["IP Addressing", "Subnetting", "Network Protocols", "Firewalls"]
+
+  # PHASE 2: Cryptography (Weeks 3-5)
+  - title: "Cryptography I (Stanford, Dan Boneh)"
+    url: "https://www.coursera.org/learn/crypto"
+    type: "course"
+    duration: "20 hours"
+    phase: 2
+    description: "Professional-grade cryptography. Symmetric encryption, asymmetric encryption, digital signatures, authentication."
+    keyTopics: ["AES", "RSA", "Digital Signatures", "Authentication Protocols"]
+
+  - title: "Cryptography II (Stanford, Dan Boneh)"
+    url: "https://www.coursera.org/learn/crypto2"
+    type: "course"
+    duration: "18 hours"
+    phase: 2
+    description: "Advanced cryptography: zero-knowledge proofs, secure multiparty computation, and more."
+    keyTopics: ["Zero-Knowledge Proofs", "Secure Computation", "Advanced Protocols"]
+
+  - title: "Real World Cryptography (Practical Applications)"
+    url: "https://www.manning.com/books/real-world-cryptography"
+    type: "book"
+    duration: "12 hours"
+    phase: 2
+    description: "How cryptography is actually used in TLS/SSL, VPNs, messaging apps, and blockchain."
+    keyTopics: ["TLS/SSL", "Message Authentication", "Key Exchange", "Real Applications"]
+
+  # PHASE 3: Privacy Tools & Practices (Weeks 6-7)
+  - title: "Internet Privacy Handbook (EFF - Electronic Frontier Foundation)"
+    url: "https://www.eff.org/deeplinks/2023/12/privacy-handbook"
+    type: "documentation"
+    duration: "6 hours"
+    phase: 3
+    description: "Complete practical guide: VPNs, Tor, encrypted messaging, two-factor authentication, metadata protection."
+    keyTopics: ["VPNs", "Tor", "Signal", "ProtonMail", "2FA", "Metadata"]
+
+  - title: "Tor Project Documentation & Browser"
+    url: "https://www.torproject.org"
+    type: "documentation"
+    duration: "8 hours"
+    phase: 3
+    description: "Understanding anonymous browsing: how Tor works, onion routing, exit nodes, practical use cases."
+    keyTopics: ["Onion Routing", "Anonymity", "Exit Nodes", "Hidden Services"]
+
+  - title: "Signal Protocol & Encrypted Messaging (Technical Deep Dive)"
+    url: "https://signal.org/docs/"
+    type: "documentation"
+    duration: "6 hours"
+    phase: 3
+    description: "How Signal and similar apps implement end-to-end encryption. Double Ratchet algorithm."
+    keyTopics: ["End-to-End Encryption", "Double Ratchet", "Perfect Forward Secrecy"]
+
+  # PHASE 4: Web Security (Weeks 8-9)
+  - title: "Web Security Academy (PortSwigger - Interactive Labs)"
+    url: "https://portswigger.net/web-security"
+    type: "interactive"
+    duration: "20 hours"
+    phase: 4
+    description: "Comprehensive web security: SQL injection, XSS, CSRF, authentication attacks, and defenses."
+    keyTopics: ["SQL Injection", "XSS", "CSRF", "Authentication", "Access Control"]
+
+  - title: "OWASP Top 10 & Secure Coding Practices"
+    url: "https://owasp.org/www-project-top-ten/"
+    type: "documentation"
+    duration: "10 hours"
+    phase: 4
+    description: "Understanding the most critical web vulnerabilities and how to defend against them."
+    keyTopics: ["Injection", "Broken Auth", "Data Exposure", "Broken Access Control"]
+
+  - title: "HackerOne & Bug Bounty Programs (Learning through Practice)"
+    url: "https://www.hackerone.com"
+    type: "interactive"
+    duration: "Ongoing"
+    phase: 4
+    description: "Real-world practice finding vulnerabilities. Learn security by participating in responsible disclosure."
+    keyTopics: ["Penetration Testing", "Vulnerability Discovery", "Responsible Disclosure"]
+
+  # PHASE 5: Open Source & Community (Weeks 10)
+  - title: "The Open Source Way (Red Hat Community)"
+    url: "https://www.theopensourceway.org"
+    type: "documentation"
+    duration: "8 hours"
+    phase: 5
+    description: "Why open source matters for security, freedom, and trust. How to contribute to secure projects."
+    keyTopics: ["Transparency", "Community", "Collaboration", "Security Through Openness"]
+
+  - title: "Contributing to Open Source Security Projects"
+    url: "https://opensource.guide/"
+    type: "documentation"
+    duration: "6 hours"
+    phase: 5
+    description: "How to find and contribute to privacy/security projects. Git, GitHub, pull requests, code review."
+    keyTopics: ["Git Workflow", "Code Review", "Community Norms", "Security Projects"]
+
+  - title: "Linux Foundation Courses (Free & Paid)"
+    url: "https://www.linuxfoundation.org/training"
+    type: "course"
+    duration: "20 hours (pick courses)"
+    phase: 5
+    description: "Official Linux Foundation training in security, container security, and privacy-focused development."
+    keyTopics: ["Container Security", "Kubernetes Security", "Cloud Security"]
+
+  # PHASE 6: Decentralization & Blockchain (Weeks 11-12)
+  - title: "Bitcoin & Blockchain Fundamentals"
+    url: "https://www.coursera.org/specializations/blockchain"
+    type: "course"
+    duration: "12 hours"
+    phase: 6
+    description: "Understanding blockchain technology: Bitcoin, consensus, mining, and why decentralization matters for freedom."
+    keyTopics: ["Blockchain", "Bitcoin", "Consensus", "Mining", "Decentralization"]
+
+  - title: "Ethereum & Smart Contracts (Solidity)"
+    url: "https://ethereum.org/en/developers"
+    type: "course"
+    duration: "15 hours"
+    phase: 6
+    description: "Building decentralized applications. Smart contracts, DAOs, DeFi, and censorship-resistant systems."
+    keyTopics: ["Solidity", "Smart Contracts", "DAOs", "DeFi", "Gas"]
+
+  - title: "IPFS & Decentralized Storage"
+    url: "https://docs.ipfs.tech/concepts/what-is-ipfs"
+    type: "documentation"
+    duration: "8 hours"
+    phase: 6
+    description: "Peer-to-peer file storage that can't be censored. How IPFS works and why it matters for freedom."
+    keyTopics: ["IPFS", "P2P Storage", "Content Addressing", "Decentralization"]
+
+  # PHASE 7: Advanced & Applied (Weeks 13-14)
+  - title: "Zero-Knowledge Proofs: The Future of Privacy"
+    url: "https://zkp.science/"
+    type: "documentation"
+    duration: "10 hours"
+    phase: 7
+    description: "Advanced cryptography: proving things without revealing information. Zcash, privacy coins, future of crypto."
+    keyTopics: ["ZK Proofs", "Privacy Coins", "Anonymous Transactions"]
+
+  - title: "Building Secure Applications (Practical Synthesis)"
+    url: "https://www.securecoding.cert.org"
+    type: "documentation"
+    duration: "12 hours"
+    phase: 7
+    description: "Applying everything learned: secure development practices, threat modeling, security auditing."
+    keyTopics: ["Threat Modeling", "Secure Design", "Code Auditing", "Security Testing"]
+
+  - title: "Activism Tech & Digital Rights Organizations"
+    url: "https://www.accessnow.org"
+    type: "documentation"
+    duration: "Ongoing"
+    phase: 7
+    description: "How tech is used for activism. Organizations protecting digital rights. Case studies and opportunities."
+    keyTopics: ["Digital Rights", "Activism", "Human Rights", "Community Power"]
+
+outcomes:
+  - "Understand complete internet architecture from packets to protocols"
+  - "Master cryptography fundamentals and advanced concepts"
+  - "Implement privacy tools and practices in daily life"
+  - "Recognize web security vulnerabilities and defend against them"
+  - "Contribute to open-source security and privacy projects"
+  - "Understand decentralized systems and blockchain technology"
+  - "Apply security knowledge to build trustworthy applications"
+  - "Protect freedom of thought, communication, and access to information"
+
+careerPathways:
+  - "Privacy Engineer (Google, Apple, Signal)"
+  - "Security Researcher (Academic or Independent)"
+  - "Cryptographer (Tech Companies, Governments, Blockchain)"
+  - "DevOps Security Engineer (Cloud Companies)"
+  - "Blockchain Developer (Crypto, DeFi, Privacy Projects)"
+  - "Digital Rights Activist / NGO Tech Lead"
+  - "Bug Bounty Hunter / Security Consultant"
+  - "Open Source Security Project Maintainer"
+
+prerequisites:
+  - "Basic programming skills (any language)"
+  - "Comfortable with command line / Linux"
+  - "Math foundation (algebra, basic discrete math helpful but not required)"
+
+nextSteps:
+  - "Pick a phase and start with the first resource"
+  - "Set up Linux (Ubuntu or similar) for hands-on practice"
+  - "Join privacy/security communities: Reddit r/privacy, OWASP, PortSwigger community"
+  - "Practice on HackerOne or Bugcrowd"
+  - "Contribute to open-source security projects"
+  - "Build a project applying what you learned"
+
+featured: true

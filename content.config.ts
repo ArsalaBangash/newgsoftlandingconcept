@@ -79,10 +79,55 @@ const partners = defineCollection({
   })
 })
 
+// Curated learning bundles - skill paths combining multiple resources
+const bundles = defineCollection({
+  type: 'data',
+  source: 'en/bundles/**/*.yml',
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    description: z.string(),
+    icon: z.string().optional(), // emoji or icon name
+    duration: z.string(), // e.g., "6 weeks", "3 months"
+    difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
+    resources: z.array(z.object({
+      title: z.string(),
+      url: z.string().url(),
+      type: z.enum(['course', 'tutorial', 'book', 'practice', 'article']),
+      duration: z.string(),
+      description: z.string()
+    })),
+    outcomes: z.array(z.string()), // What you'll be able to do
+    tags: z.array(z.string())
+  })
+})
+
+// Real developer success stories from established sources
+const successStories = defineCollection({
+  type: 'data',
+  source: 'en/stories/**/*.yml',
+  schema: z.object({
+    id: z.string(),
+    developerName: z.string(),
+    title: z.string(), // e.g., "From Bootcamp to Senior Dev at Google"
+    description: z.string(), // Short excerpt from their story
+    resourcesUsed: z.array(z.string()), // Resource titles they used
+    outcome: z.string(), // What they achieved
+    source: z.string(), // freeCodeCamp, Scrimba, YouTube, etc.
+    sourceUrl: z.string().url(), // Direct link to full story
+    videoUrl: z.string().url().optional(), // Video of their story if available
+    quote: z.string().optional(), // Inspiring quote from them
+    tags: z.array(z.string()), // career-change, no-degree, self-taught, etc.
+    featured: z.boolean().default(false)
+  })
+})
+
 export default defineContentConfig({
   collections: {
     resources,
     blog,
-    partners
+    partners,
+    bundles,
+    successStories
   }
 })

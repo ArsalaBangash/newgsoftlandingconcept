@@ -1,5 +1,9 @@
 <!-- pages/resources/index.vue -->
 <script setup lang="ts">
+import { ref, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useSearch } from '~/composables/useSearch'
+
 interface FilterOptions {
   topics?: string[]
   difficulties?: string[]
@@ -31,14 +35,29 @@ const filters = ref<FilterOptions>({
   isOpenSource: route.query.isOpenSource === 'true'
 })
 
-const searchQuery = ref((route.query.search as string) || '')
 const sortBy = ref((route.query.sort as string) || 'newest')
 const showFilters = ref(true)
+
+const options = {
+  keys: [
+    { name: 'title', weight: 10 },        // Most important
+    { name: 'author', weight: 8 },        // Author searches matter
+    { name: 'description', weight: 7 },
+    { name: 'tags', weight: 6 },
+    { name: 'topic', weight: 5 },         // Category searches
+    { name: 'format', weight: 4 },        // Format searches
+  ],
+  includeScore: true,
+  threshold: 0.35,  // Lower threshold for better matching
+}
+const { searchQuery, searchResults, resources } = useSearch('resources', options)
+searchQuery.value = (route.query.search as string) || ''
+
 
 // Sync filters with URL
 watch([filters, searchQuery, sortBy], () => {
   const query: Record<string, any> = {}
-  
+
   if (filters.value.topics?.length) query.topics = filters.value.topics
   if (filters.value.difficulties?.length) query.difficulties = filters.value.difficulties
   if (filters.value.formats?.length) query.formats = filters.value.formats
@@ -47,60 +66,41 @@ watch([filters, searchQuery, sortBy], () => {
   if (filters.value.isOpenSource) query.isOpenSource = 'true'
   if (searchQuery.value) query.search = searchQuery.value
   if (sortBy.value !== 'newest') query.sort = sortBy.value
-  
+
   router.replace({ query })
 }, { deep: true })
 
-const { data: resources } = await useAsyncData('all-resources', () =>
-  queryCollection('resources').all()
-)
 
 const filteredResources = computed(() => {
   if (!resources.value) return []
 
-  let filtered = resources.value.filter(resource => {
+  let filtered = searchQuery.value ? searchResults.value : resources.value
+
+  filtered = filtered.filter(resource => {
     // Topic filter
     if (filters.value.topics?.length && !filters.value.topics.includes(resource.topic)) {
       return false
     }
-    
     // Difficulty filter
     if (filters.value.difficulties?.length && !filters.value.difficulties.includes(resource.difficulty)) {
       return false
     }
-    
     // Format filter
     if (filters.value.formats?.length && resource.format && !filters.value.formats.includes(resource.format)) {
       return false
     }
-    
     // License filter
     if (filters.value.licenses?.length && resource.license && !filters.value.licenses.includes(resource.license)) {
       return false
     }
-    
     // Free filter
     if (filters.value.isFree && !resource.isFree) {
       return false
     }
-    
     // Open Source filter
     if (filters.value.isOpenSource && !resource.isOpenSource) {
       return false
     }
-    
-    // Search filter
-    if (searchQuery.value) {
-      const query = searchQuery.value.toLowerCase()
-      const matchesTitle = resource.title.toLowerCase().includes(query)
-      const matchesDescription = resource.description.toLowerCase().includes(query)
-      const matchesTags = resource.tags.some(tag => tag.toLowerCase().includes(query))
-      
-      if (!matchesTitle && !matchesDescription && !matchesTags) {
-        return false
-      }
-    }
-    
     return true
   })
 

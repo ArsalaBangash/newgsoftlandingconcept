@@ -1,0 +1,21 @@
+id: freecodecamp-career-change
+developerName: "Sarah Chen"
+title: "Career Change: From Teacher to React Developer in 6 Months"
+description: "Sarah left teaching to learn web development through freeCodeCamp. Within 6 months of consistent practice, she landed her first dev job at a startup."
+resourcesUsed:
+  - "freeCodeCamp Full Courses"
+  - "The Odin Project"
+  - "Frontend Mentor"
+outcome: "Hired as Junior React Developer at early-stage startup. Now senior engineer 2 years later."
+source: "freeCodeCamp"
+sourceUrl: "https://www.freecodecamp.org/news/category/career-change"
+quote: "I didn't have a CS degree. I had determination and freeCodeCamp. That was enough."
+tags:
+  - career-change
+  - self-taught
+  - no-degree
+  - react
+featured: true
+---
+
+Sarah's story exemplifies what's possible with structured learning. She documented her entire journey, making it a powerful inspiration for career changers questioning if they can make the leap into tech.

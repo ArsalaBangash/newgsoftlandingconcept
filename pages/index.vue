@@ -1,82 +1,31 @@
 <!-- pages/index.vue -->
 <script setup lang="ts">
 
-const { data: allResources } = await useAsyncData('all-resources', async () => {
-  try {
-    return await queryCollection('resources').all()
-  } catch (error) {
-    console.warn('Failed to load resources:', error)
-    return []
-  }
-})
+// Fetch all collections
+const { data: allResources } = await useAsyncData('all-resources', () =>
+  queryCollection('resources').all()
+)
 
-const { data: partners } = await useAsyncData('partners', async () => {
-  try {
-    return await queryCollection('partners').all()
-  } catch (error) {
-    console.warn('Failed to load partners:', error)
-    return []
-  }
-})
+const { data: partners } = await useAsyncData('partners', () =>
+  queryCollection('partners').all()
+)
 
+const { data: bundles } = await useAsyncData('learning-bundles', () =>
+  queryCollection('bundles').all()
+)
+
+const { data: successStories } = await useAsyncData('success-stories', () =>
+  queryCollection('successStories').all()
+)
+
+// Featured resources for Expert Essentials and Master's Collection sections
 const featuredResources = computed(() => {
   return (allResources.value || []).filter(r => r.featured)
 })
 
-const articles = computed(() => {
-  return (allResources.value || []).filter(r => r.category === 'article')
-})
-
-const tools = computed(() => {
-  return (allResources.value || []).filter(r => r.category === 'tool')
-})
-
-const courses = computed(() => {
-  return (allResources.value || []).filter(r => r.category === 'course')
-})
-
-const podcasts = computed(() => {
-  return (allResources.value || []).filter(r => r.category === 'podcast')
-})
-
-const tutorials = computed(() => {
-  return (allResources.value || []).filter(r => r.category === 'tutorial')
-})
-
-const youtube = computed(() => {
-  return (allResources.value || []).filter(r => r.category === 'youtube')
-})
-
-const books = computed(() => {
-  return (allResources.value || []).filter(r => r.category === 'book')
-})
-
-const practice = computed(() => {
-  return (allResources.value || []).filter((r: any) => r.category === 'practice')
-})
-
-const community = computed(() => {
-  return (allResources.value || []).filter((r: any) => r.category === 'community')
-})
-
-const newsletters = computed(() => {
-  return (allResources.value || []).filter((r: any) => r.category === 'newsletter')
-})
-
-const jobs = computed(() => {
-  return (allResources.value || []).filter((r: any) => r.category === 'job')
-})
-
-const interactive = computed(() => {
-  return (allResources.value || []).filter((r: any) => r.category === 'interactive')
-})
-
-const career = computed(() => {
-  return (allResources.value || []).filter((r: any) => r.category === 'career')
-})
-
+// Documentation resources for Hidden Gems section
 const documentation = computed(() => {
-  return (allResources.value || []).filter((r: any) => r.category === 'documentation')
+  return (allResources.value || []).filter((r: any) => r.format === 'documentation')
 })
 
 const latestResources = computed(() => {
@@ -161,6 +110,91 @@ const trendingThisWeek = computed(() => {
     <HomeHero />
     <HomeFeatures />
 
+    <!-- 🎯 Quick Decision Tool - Find Your Path -->
+    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
+      <UContainer class="py-24">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <span class="text-3xl">🎯</span>
+            <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">
+              What Should You Learn Next?
+            </h2>
+          </div>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Overwhelmed by choices? Answer a few quick questions and we'll point you to the perfect resources for your situation.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Career Change -->
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
+            <div class="text-4xl mb-3">🔄</div>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Career Change?</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              You're switching fields. You need structured, beginner-friendly resources.
+            </p>
+            <a href="/resources?difficulty=beginner&category=course" class="inline-flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300">
+              Find Beginner Courses
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Interview Prep -->
+          <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg border border-blue-200 dark:border-blue-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
+            <div class="text-4xl mb-3">💼</div>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Interview Prep?</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              You're preparing for technical interviews. You need focused, battle-tested resources.
+            </p>
+            <a href="/resources?tags=interview-prep&category=practice" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+              Interview Resources
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Skill Deepening -->
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg border border-purple-200 dark:border-purple-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
+            <div class="text-4xl mb-3">🚀</div>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Level Up Existing Skills?</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              You know basics. You want to master advanced concepts and patterns.
+            </p>
+            <a href="/resources?difficulty=advanced" class="inline-flex items-center gap-2 text-sm font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
+              Advanced Resources
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Quick Practice -->
+          <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-lg border border-orange-200 dark:border-orange-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
+            <div class="text-4xl mb-3">⚡</div>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Quick Learning Sprints?</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              You have limited time. You want intensive, high-impact learning bundles.
+            </p>
+            <a href="#learning-bundles" class="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300">
+              Browse Learning Bundles
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-12 p-6 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800">
+          <p class="text-center text-gray-700 dark:text-gray-300">
+            <span class="font-semibold">Still not sure?</span> Scroll down to see our curated bundles, comparison guides, and real success stories from developers in your situation.
+          </p>
+        </div>
+      </UContainer>
+    </div>
+
     <!-- ⭐ Expert Essentials - The Non-Negotiables -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 dark:from-indigo-950/40 dark:via-blue-950/40 dark:to-cyan-950/40">
       <UContainer class="py-24">
@@ -182,7 +216,7 @@ const trendingThisWeek = computed(() => {
           </div>
         </div>
         
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div v-if="featuredResources.length > 0" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <ResourceCard
             v-for="resource in featuredResources.slice(0, 6)" 
             :key="resource.path"
@@ -488,7 +522,7 @@ const trendingThisWeek = computed(() => {
           </div>
         </div>
         
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div v-if="featuredResources.length > 0" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <ResourceCard
             v-for="resource in featuredResources.slice(0, 8)" 
             :key="resource.path"
@@ -517,6 +551,706 @@ const trendingThisWeek = computed(() => {
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </NuxtLink>
+        </div>
+      </UContainer>
+    </div>
+
+    <!-- 📚 Learning Bundles - Complete Skill Paths -->
+    <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40">
+      <UContainer class="py-24">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <span class="text-3xl">📚</span>
+            <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-300 dark:to-teal-300 bg-clip-text text-transparent">
+              Learning Bundles
+            </h2>
+          </div>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+            Complete, structured learning paths. Stop jumping between resources. Follow these curated bundles from zero to hero in your chosen skill.
+          </p>
+          <div class="bg-emerald-100 dark:bg-emerald-900/50 border border-emerald-300 dark:border-emerald-700 rounded-lg p-6 max-w-3xl mx-auto">
+            <p class="text-emerald-900 dark:text-emerald-100 font-medium mb-2">🎯 How It Works</p>
+            <p class="text-emerald-800 dark:text-emerald-200">
+              Each bundle combines the best resources in a proven sequence. No more decision paralysis. Pick your goal, follow the path, and level up. Typical completion time: 6-12 weeks depending on pace.
+            </p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div v-for="bundle in bundles" :key="bundle.id" class="group">
+            <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 h-full hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-700 transition-all transform hover:-translate-y-1">
+              <!-- Header -->
+              <div class="mb-4">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <div class="text-3xl mb-2">{{ bundle.icon || '🎓' }}</div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      {{ bundle.title }}
+                    </h3>
+                  </div>
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap" :class="bundle.difficulty === 'beginner' ? 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-200' : bundle.difficulty === 'intermediate' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-200' : 'bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-200'">
+                    {{ bundle.difficulty }}
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                  {{ bundle.description }}
+                </p>
+              </div>
+
+              <!-- Duration -->
+              <div class="mb-4 p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded border border-emerald-200 dark:border-emerald-800">
+                <p class="text-sm font-semibold text-emerald-900 dark:text-emerald-100">⏱️ {{ bundle.duration }}</p>
+              </div>
+
+              <!-- Resource Count -->
+              <div class="mb-4">
+                <p class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">📦 {{ (bundle.resources || []).length }} Resources</p>
+                <ul class="space-y-1 text-xs text-gray-600 dark:text-gray-400">
+                  <li v-for="(resource, idx) in (bundle.resources || []).slice(0, 3)" :key="idx" class="flex items-start gap-2">
+                    <span class="text-emerald-600 dark:text-emerald-400 font-bold">→</span>
+                    <span class="line-clamp-1">{{ resource.title }}</span>
+                  </li>
+                  <li v-if="(bundle.resources || []).length > 3" class="text-emerald-600 dark:text-emerald-400 font-medium">
+                    +{{ (bundle.resources || []).length - 3 }} more...
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Outcomes Preview -->
+              <div class="mb-4">
+                <p class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">✅ You'll Master</p>
+                <ul class="space-y-1 text-xs text-gray-600 dark:text-gray-400">
+                  <li v-for="(outcome, idx) in (bundle.outcomes || []).slice(0, 2)" :key="idx" class="flex items-start gap-2">
+                    <span class="text-green-600 dark:text-green-400">✓</span>
+                    <span>{{ outcome }}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- CTA -->
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-800">
+                <button class="w-full px-4 py-2 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-600 text-white font-semibold rounded transition-colors text-sm">
+                  Start This Path →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Ready to commit to a structured learning journey?</p>
+          <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105">
+            Browse All Learning Paths
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </UContainer>
+    </div>
+
+    <!-- 🌍 Real World Tech Stacks - What Actually Powers the Internet -->
+    <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-950/50 dark:to-gray-950/50">
+      <UContainer class="py-24">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <span class="text-3xl">🌍</span>
+            <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-slate-600 to-gray-600 dark:from-slate-300 dark:to-gray-300 bg-clip-text text-transparent">
+              Real World Tech Stacks
+            </h2>
+          </div>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+            Forget the JavaScript bubble. Here's what ACTUALLY powers production systems worldwide—and why learning these gives you job security and higher pay.
+          </p>
+          <div class="bg-slate-100 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-lg p-6 max-w-3xl mx-auto">
+            <p class="text-slate-900 dark:text-slate-100 font-medium mb-2">📊 Real Numbers</p>
+            <p class="text-slate-800 dark:text-slate-200 text-sm">
+              77% of all websites use PHP. Java powers global banking and healthcare. .NET dominates enterprises. WordPress runs 43% of the web. These aren't dying technologies—they're the backbone of the digital world. Companies NEED developers who understand these systems.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- PHP/Laravel -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-3">🐘</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">PHP & Laravel</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <span class="font-semibold text-green-600 dark:text-green-400">77% of all websites</span> - WordPress, Shopify, Facebook (originally), Slack (backend), Netflix (originally)
+            </p>
+            <div class="space-y-2 mb-4">
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $70-120K (mid-level)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Massive (freelance, agencies, web hosts)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Stable, consistent demand</p>
+            </div>
+            <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800 mb-4">
+              <p class="text-xs text-green-800 dark:text-green-200"><span class="font-bold">✓ Best for:</span> Web agencies, freelancing, WordPress development, MVPs</p>
+            </div>
+            <NuxtLink to="/resources?tags=php,laravel,wordpress" class="inline-flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400 hover:text-green-700">
+              Learn PHP Stack
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Java/Spring -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-3">☕</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Java & Spring Boot</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <span class="font-semibold text-blue-600 dark:text-blue-400">Fortune 500 companies</span> - Banks, insurance, healthcare, government systems
+            </p>
+            <div class="space-y-2 mb-4">
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $90-150K (mid-level)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Very strong (enterprise, startups)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Stable, enterprise-driven</p>
+            </div>
+            <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded border border-blue-200 dark:border-blue-800 mb-4">
+              <p class="text-xs text-blue-800 dark:text-blue-200"><span class="font-bold">✓ Best for:</span> Enterprise jobs, scale, stable careers, big paydays</p>
+            </div>
+            <NuxtLink to="/resources?tags=java,spring" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700">
+              Learn Java Stack
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- .NET/C# -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-3">🔷</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">C# & .NET</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <span class="font-semibold text-purple-600 dark:text-purple-400">Microsoft ecosystem</span> - Enterprise, gaming (Unity), Azure cloud
+            </p>
+            <div class="space-y-2 mb-4">
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $85-145K (mid-level)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Strong (enterprise, Azure)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Growing with cloud adoption</p>
+            </div>
+            <div class="p-3 bg-purple-50 dark:bg-purple-900/20 rounded border border-purple-200 dark:border-purple-800 mb-4">
+              <p class="text-xs text-purple-800 dark:text-purple-200"><span class="font-bold">✓ Best for:</span> Enterprise .NET shops, game dev, Azure/Microsoft skills</p>
+            </div>
+            <NuxtLink to="/resources?tags=csharp,dotnet" class="inline-flex items-center gap-2 text-sm font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700">
+              Learn .NET Stack
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Go -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-3">🐹</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Go (Golang)</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <span class="font-semibold text-cyan-600 dark:text-cyan-400">Infrastructure & cloud</span> - Docker, Kubernetes, Terraform, cloud-native tools
+            </p>
+            <div class="space-y-2 mb-4">
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $100-160K (mid-level)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Growing rapidly (cloud, DevOps)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Fastest growing (50%+ year-over-year)</p>
+            </div>
+            <div class="p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded border border-cyan-200 dark:border-cyan-800 mb-4">
+              <p class="text-xs text-cyan-800 dark:text-cyan-200"><span class="font-bold">✓ Best for:</span> Cloud infrastructure, DevOps, high pay, future-proof</p>
+            </div>
+            <NuxtLink to="/resources?tags=go,golang" class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700">
+              Learn Go
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Rust -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-3">🦀</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Rust</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <span class="font-semibold text-orange-600 dark:text-orange-400">Systems & performance</span> - Linux kernel, Firefox, blockchain, WebAssembly
+            </p>
+            <div class="space-y-2 mb-4">
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $120-200K+ (mid-level)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Niche but very lucrative</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Exploding (crypto, systems, performance)</p>
+            </div>
+            <div class="p-3 bg-orange-50 dark:bg-orange-900/20 rounded border border-orange-200 dark:border-orange-800 mb-4">
+              <p class="text-xs text-orange-800 dark:text-orange-200"><span class="font-bold">✓ Best for:</span> Premium pay, cutting-edge work, future-proof skills</p>
+            </div>
+            <NuxtLink to="/resources?tags=rust" class="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 dark:text-orange-400 hover:text-orange-700">
+              Learn Rust
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Python (Backend/Data) -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-3">🐍</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Python (Backend)</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <span class="font-semibold text-green-600 dark:text-green-400">Data science & backend</span> - Django, FastAPI, machine learning, data pipelines
+            </p>
+            <div class="space-y-2 mb-4">
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">💰 Salary:</span> $80-140K (mid-level, ML roles higher)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">📈 Job Market:</span> Very strong (ML, data, backend)</p>
+              <p class="text-xs text-gray-700 dark:text-gray-300"><span class="font-bold">🚀 Growth:</span> Steady (tied to AI/ML boom)</p>
+            </div>
+            <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800 mb-4">
+              <p class="text-xs text-green-800 dark:text-green-200"><span class="font-bold">✓ Best for:</span> Data science, AI/ML, backend APIs, rapid development</p>
+            </div>
+            <NuxtLink to="/resources?category=course&tags=python" class="inline-flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400 hover:text-green-700">
+              Learn Python Backend
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">💡 The Real Career Truth</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <p class="font-semibold text-slate-800 dark:text-slate-200 mb-2">🏆 Job Security</p>
+              <p class="text-sm text-slate-700 dark:text-slate-300">Enterprise stacks (Java, .NET, PHP) have been around 20+ years and will be around 20+ more. Your skills won't become obsolete.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-slate-800 dark:text-slate-200 mb-2">💰 Better Pay</p>
+              <p class="text-sm text-slate-700 dark:text-slate-300">Enterprise developers earn 20-30% more on average. Java/Go/Rust developers earn the most. Less hype, more money.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-slate-800 dark:text-slate-200 mb-2">🌍 Massive Market</p>
+              <p class="text-sm text-slate-700 dark:text-slate-300">Your job options span every industry: banking, healthcare, government, retail. Not just startups. This is the real economy.</p>
+            </div>
+          </div>
+        </div>
+      </UContainer>
+    </div>
+
+    <!-- 🔐 Freedom Through Code - Digital Rights, Privacy, and Open Systems -->
+    <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/50 dark:via-purple-950/50 dark:to-pink-950/50">
+      <UContainer class="py-24">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <span class="text-3xl">🔐</span>
+            <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-300 dark:via-purple-300 dark:to-pink-300 bg-clip-text text-transparent">
+              Freedom Through Code
+            </h2>
+          </div>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto font-medium">
+            Technology is a tool for human dignity. Privacy, security, and open systems enable people worldwide to communicate freely, access knowledge, and protect their rights.
+          </p>
+          <div class="max-w-4xl mx-auto space-y-4 text-left">
+            <div class="bg-white/50 dark:bg-gray-900/30 border border-indigo-200 dark:border-indigo-800 rounded-lg p-6">
+              <p class="text-gray-800 dark:text-gray-200 mb-3">
+                <span class="font-bold text-indigo-600 dark:text-indigo-400">🌍 Knowledge as Liberation:</span> In countries with limited internet access or government censorship, understanding cryptography, internet architecture, and open-source principles can be life-changing. Technology is a path to truth, education, and connection.
+              </p>
+              <p class="text-gray-800 dark:text-gray-200 mb-3">
+                <span class="font-bold text-purple-600 dark:text-purple-400">🔒 Privacy as Freedom:</span> Privacy isn't about hiding—it's about autonomy and dignity. Whether you're a journalist in a restrictive regime, a dissident sharing information, or simply someone who values personal freedom, privacy protections matter.
+              </p>
+              <p class="text-gray-800 dark:text-gray-200">
+                <span class="font-bold text-pink-600 dark:text-pink-400">⛓️ Decentralization as Power:</span> Centralized systems can be controlled by a few. Decentralized systems distribute power. Open-source software, peer-to-peer networks, and blockchain technologies enable systems that no single entity can censor or shut down.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <!-- Card 1: Cryptography -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-indigo-200 dark:border-indigo-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-4">🔐</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cryptography</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Understand the mathematics that protect communication. Encryption isn't just for spies—it's how ordinary people keep their conversations private, their data safe, and their lives their own.
+            </p>
+            <div class="space-y-2 mb-4 text-xs text-gray-700 dark:text-gray-300">
+              <p><span class="font-semibold">Learn:</span> How encryption works, digital signatures, authentication</p>
+              <p><span class="font-semibold">Master course:</span> Cryptography I by Stanford & Dan Boneh</p>
+              <p><span class="font-semibold">Time:</span> 20 hours</p>
+            </div>
+            <NuxtLink to="/resources?tags=cryptography" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700">
+              Explore Cryptography
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Card 2: Internet Architecture -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-purple-200 dark:border-purple-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-4">🌐</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Internet Architecture</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Know how information travels, where it's vulnerable, and how the internet actually works. Understanding infrastructure is understanding where freedom can be protected—and threatened.
+            </p>
+            <div class="space-y-2 mb-4 text-xs text-gray-700 dark:text-gray-300">
+              <p><span class="font-semibold">Learn:</span> DNS, TCP/IP, routing, packets, surveillance points</p>
+              <p><span class="font-semibold">Master resource:</span> How the Internet Actually Works (Code.org)</p>
+              <p><span class="font-semibold">Time:</span> 10 hours</p>
+            </div>
+            <NuxtLink to="/resources?tags=internet" class="inline-flex items-center gap-2 text-sm font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700">
+              Learn Internet Basics
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Card 3: Privacy & Anonymity -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-pink-200 dark:border-pink-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-4">🕵️</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Privacy & Anonymity</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Practical tools and techniques to protect your data: VPNs, Tor, encrypted messaging, password management. Privacy is a fundamental right for all.
+            </p>
+            <div class="space-y-2 mb-4 text-xs text-gray-700 dark:text-gray-300">
+              <p><span class="font-semibold">Learn:</span> VPNs, Tor, Signal, Proton Mail, metadata protection</p>
+              <p><span class="font-semibold">Master guide:</span> Internet Privacy Handbook (EFF)</p>
+              <p><span class="font-semibold">Time:</span> 6 hours</p>
+            </div>
+            <NuxtLink to="/resources?tags=privacy" class="inline-flex items-center gap-2 text-sm font-semibold text-pink-600 dark:text-pink-400 hover:text-pink-700">
+              Master Privacy
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Card 4: Open Source -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-indigo-200 dark:border-indigo-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-4">🔓</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Open Source Freedom</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Transparency builds trust. Open-source software lets you see the code, verify security, and trust what you're using. Participate in communities that believe code should be free.
+            </p>
+            <div class="space-y-2 mb-4 text-xs text-gray-700 dark:text-gray-300">
+              <p><span class="font-semibold">Learn:</span> Why open-source matters, how to contribute, community power</p>
+              <p><span class="font-semibold">Master guide:</span> The Open Source Way (Red Hat)</p>
+              <p><span class="font-semibold">Time:</span> 8 hours</p>
+            </div>
+            <NuxtLink to="/resources?tags=open-source" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700">
+              Join Open Source
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Card 5: Decentralization -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-purple-200 dark:border-purple-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-4">⛓️</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Decentralized Systems</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Systems without intermediaries. Peer-to-peer networks, blockchain, and decentralized organizations create technologies that can't be shut down or censored by any single entity.
+            </p>
+            <div class="space-y-2 mb-4 text-xs text-gray-700 dark:text-gray-300">
+              <p><span class="font-semibold">Learn:</span> Blockchain, DAOs, IPFS, censorship resistance</p>
+              <p><span class="font-semibold">Master course:</span> Decentralized Internet (Ethereum Foundation)</p>
+              <p><span class="font-semibold">Time:</span> 12 hours</p>
+            </div>
+            <NuxtLink to="/resources?tags=decentralization" class="inline-flex items-center gap-2 text-sm font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700">
+              Explore Decentralization
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+
+          <!-- Card 6: Web Security -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-pink-200 dark:border-pink-800 p-6 hover:shadow-lg transition-all">
+            <div class="text-4xl mb-4">🛡️</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Web Security</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Understanding attacks protects you and others. Learn SQL injection, XSS, authentication vulnerabilities, and defense mechanisms. Security by understanding.
+            </p>
+            <div class="space-y-2 mb-4 text-xs text-gray-700 dark:text-gray-300">
+              <p><span class="font-semibold">Learn:</span> Common attacks, defense mechanisms, ethical hacking</p>
+              <p><span class="font-semibold">Master course:</span> Web Security Academy (PortSwigger)</p>
+              <p><span class="font-semibold">Time:</span> 15 hours</p>
+            </div>
+            <NuxtLink to="/resources?tags=security" class="inline-flex items-center gap-2 text-sm font-semibold text-pink-600 dark:text-pink-400 hover:text-pink-700">
+              Master Web Security
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <!-- Complete Learning Bundle -->
+        <div class="bg-gradient-to-r from-indigo-100 to-pink-100 dark:from-indigo-900/30 dark:to-pink-900/30 border border-indigo-300 dark:border-indigo-700 rounded-lg p-8 text-center">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">📚 Complete Learning Path: Digital Freedom & Privacy</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-6">
+            A comprehensive 12-week bundle combining cryptography, internet architecture, privacy tools, open-source principles, and security knowledge. For anyone who believes technology should empower human freedom.
+          </p>
+          <NuxtLink to="/resources?tags=digital-freedom" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 text-white font-semibold rounded-lg transition-all">
+            Start the Freedom Path
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </NuxtLink>
+        </div>
+
+        <div class="mt-12 text-center text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p class="mb-2">
+            <span class="font-semibold">Note:</span> This content is not political. These resources serve universal human values: dignity, freedom of thought, access to knowledge, and the ability to protect oneself. They're relevant everywhere—in democracies and restrictive regimes alike.
+          </p>
+        </div>
+      </UContainer>
+    </div>
+
+    <!-- ⚔️ Resource Showdowns - Head-to-Head Comparisons -->
+    <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/40 dark:to-orange-950/40">
+      <UContainer class="py-24">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <span class="text-3xl">⚔️</span>
+            <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-300 dark:to-orange-300 bg-clip-text text-transparent">
+              Resource Showdowns
+            </h2>
+          </div>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+            Can't decide between similar resources? Here's how they stack up against each other.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Comparison 1: Codewars vs LeetCode -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/50 dark:to-orange-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white">Codewars vs LeetCode</h3>
+              <p class="text-sm text-gray-700 dark:text-gray-300">Coding practice platforms compared</p>
+            </div>
+            <div class="p-6 space-y-4">
+              <div>
+                <h4 class="font-semibold text-amber-700 dark:text-amber-300 mb-2">🏆 Codewars Wins On:</h4>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li class="flex gap-2"><span class="text-amber-500">✓</span> <span>Gamification (ranks, streaks, clans)</span></li>
+                  <li class="flex gap-2"><span class="text-amber-500">✓</span> <span>Community-created problems (more fun)</span></li>
+                  <li class="flex gap-2"><span class="text-amber-500">✓</span> <span>Multiple programming languages</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-orange-700 dark:text-orange-300 mb-2">🏆 LeetCode Wins On:</h4>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li class="flex gap-2"><span class="text-orange-500">✓</span> <span>Interview-focused problems</span></li>
+                  <li class="flex gap-2"><span class="text-orange-500">✓</span> <span>Detailed company-specific prep</span></li>
+                  <li class="flex gap-2"><span class="text-orange-500">✓</span> <span>Better for FAANG prep</span></li>
+                </ul>
+              </div>
+              <div class="p-3 bg-amber-50 dark:bg-amber-900/20 rounded border border-amber-200 dark:border-amber-800">
+                <p class="text-sm text-amber-900 dark:text-amber-100"><span class="font-bold">💡 Pick:</span> Codewars for learning, LeetCode for interviews</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparison 2: Full Stack Open vs The Odin Project -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/50 dark:to-red-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white">Full Stack Open vs The Odin Project</h3>
+              <p class="text-sm text-gray-700 dark:text-gray-300">Comprehensive web dev courses compared</p>
+            </div>
+            <div class="p-6 space-y-4">
+              <div>
+                <h4 class="font-semibold text-orange-700 dark:text-orange-300 mb-2">🏆 Full Stack Open Wins On:</h4>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li class="flex gap-2"><span class="text-orange-500">✓</span> <span>Modern stack (React, Node, MongoDB)</span></li>
+                  <li class="flex gap-2"><span class="text-orange-500">✓</span> <span>Faster completion (13 weeks vs 1+ year)</span></li>
+                  <li class="flex gap-2"><span class="text-orange-500">✓</span> <span>Production-ready projects</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-red-700 dark:text-red-300 mb-2">🏆 The Odin Project Wins On:</h4>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li class="flex gap-2"><span class="text-red-500">✓</span> <span>Foundational web dev (HTML, CSS, vanilla JS)</span></li>
+                  <li class="flex gap-2"><span class="text-red-500">✓</span> <span>Thorough explanations & resources</span></li>
+                  <li class="flex gap-2"><span class="text-red-500">✓</span> <span>Better for absolute beginners</span></li>
+                </ul>
+              </div>
+              <div class="p-3 bg-orange-50 dark:bg-orange-900/20 rounded border border-orange-200 dark:border-orange-800">
+                <p class="text-sm text-orange-900 dark:text-orange-100"><span class="font-bold">💡 Pick:</span> Odin for foundations, Full Stack Open for modern stack</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparison 3: System Design Primer vs LeetCode System Design -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="bg-gradient-to-r from-red-100 to-pink-100 dark:from-red-900/50 dark:to-pink-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white">System Design Primer vs Interview Handbook</h3>
+              <p class="text-sm text-gray-700 dark:text-gray-300">System design learning resources compared</p>
+            </div>
+            <div class="p-6 space-y-4">
+              <div>
+                <h4 class="font-semibold text-red-700 dark:text-red-300 mb-2">🏆 System Design Primer Wins On:</h4>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li class="flex gap-2"><span class="text-red-500">✓</span> <span>Deep technical explanations</span></li>
+                  <li class="flex gap-2"><span class="text-red-500">✓</span> <span>Real-world architecture examples</span></li>
+                  <li class="flex gap-2"><span class="text-red-500">✓</span> <span>Comprehensive & thorough</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pink-700 dark:text-pink-300 mb-2">🏆 Interview Handbook Wins On:</h4>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li class="flex gap-2"><span class="text-pink-500">✓</span> <span>Interview-specific patterns</span></li>
+                  <li class="flex gap-2"><span class="text-pink-500">✓</span> <span>Quick reference format</span></li>
+                  <li class="flex gap-2"><span class="text-pink-500">✓</span> <span>Faster to prepare with</span></li>
+                </ul>
+              </div>
+              <div class="p-3 bg-red-50 dark:bg-red-900/20 rounded border border-red-200 dark:border-red-800">
+                <p class="text-sm text-red-900 dark:text-red-100"><span class="font-bold">💡 Pick:</span> Both! Use Primer to learn, Handbook to practice</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparison 4: NeetCode vs LeetCode -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="bg-gradient-to-r from-pink-100 to-rose-100 dark:from-pink-900/50 dark:to-rose-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white">NeetCode vs LeetCode</h3>
+              <p class="text-sm text-gray-700 dark:text-gray-300">Focused interview prep platforms compared</p>
+            </div>
+            <div class="p-6 space-y-4">
+              <div>
+                <h4 class="font-semibold text-pink-700 dark:text-pink-300 mb-2">🏆 NeetCode Wins On:</h4>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li class="flex gap-2"><span class="text-pink-500">✓</span> <span>Video walkthroughs for every problem</span></li>
+                  <li class="flex gap-2"><span class="text-pink-500">✓</span> <span>Curated 150 problems (not 1000+)</span></li>
+                  <li class="flex gap-2"><span class="text-pink-500">✓</span> <span>Pattern-based learning</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-rose-700 dark:text-rose-300 mb-2">🏆 LeetCode Wins On:</h4>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li class="flex gap-2"><span class="text-rose-500">✓</span> <span>Massive problem database</span></li>
+                  <li class="flex gap-2"><span class="text-rose-500">✓</span> <span>Company-specific questions</span></li>
+                  <li class="flex gap-2"><span class="text-rose-500">✓</span> <span>Frequent updates & new problems</span></li>
+                </ul>
+              </div>
+              <div class="p-3 bg-pink-50 dark:bg-pink-900/20 rounded border border-pink-200 dark:border-pink-800">
+                <p class="text-sm text-pink-900 dark:text-pink-100"><span class="font-bold">💡 Pick:</span> NeetCode for learning patterns, LeetCode for grinding</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+          <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-2">💡 The Real Truth</h3>
+          <p class="text-amber-800 dark:text-amber-200">
+            Most comparisons are "both are great" because they actually are. The key is picking based on YOUR learning style. Visual learner? Video solutions matter. Competitive? Gamification helps. Interview prepping? Focus on interview-specific resources. Don't waste time comparing—just pick and commit.
+          </p>
+        </div>
+      </UContainer>
+    </div>
+
+    <!-- 🚀 Developer Success Stories - Real Journeys, Real Results -->
+    <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 dark:from-red-950/40 dark:via-orange-950/40 dark:to-yellow-950/40">
+      <UContainer class="py-24">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <span class="text-3xl">🚀</span>
+            <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-300 dark:to-orange-300 bg-clip-text text-transparent">
+              Success Stories
+            </h2>
+          </div>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+            Real developers. Real outcomes. See how they used these resources to transform their careers.
+          </p>
+          <div class="bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 rounded-lg p-6 max-w-3xl mx-auto">
+            <p class="text-red-900 dark:text-red-100 font-medium mb-2">✨ These are real stories from freeCodeCamp, Scrimba, YouTube creators, and open-source communities</p>
+            <p class="text-red-800 dark:text-red-200">
+              From career changers to indie hackers to engineers at Google and Netflix—these developers used the resources on this site to achieve their dreams. No fluff, no fake testimonials. Just real paths to real outcomes.
+            </p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div v-for="story in successStories" :key="story.id" class="group">
+            <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 h-full hover:shadow-lg hover:border-orange-300 dark:hover:border-orange-700 transition-all transform hover:-translate-y-1">
+              <!-- Header -->
+              <div class="mb-4">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                      {{ story.developerName }}
+                    </h3>
+                    <p class="text-sm font-semibold text-orange-600 dark:text-orange-400">
+                      {{ story.title }}
+                    </p>
+                  </div>
+                  <div class="flex gap-1 flex-wrap justify-end">
+                    <span v-for="tag in (story.tags || []).slice(0, 2)" :key="tag" class="px-2 py-1 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/50 dark:text-orange-200">
+                      {{ tag }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Story Description -->
+              <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                {{ story.description }}
+              </p>
+
+              <!-- Quote -->
+              <div v-if="story.quote" class="mb-4 p-4 bg-orange-50 dark:bg-orange-900/20 rounded border-l-4 border-orange-400">
+                <p class="text-sm italic text-gray-700 dark:text-gray-300">
+                  "{{ story.quote }}"
+                </p>
+              </div>
+
+              <!-- Resources Used -->
+              <div class="mb-4">
+                <p class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">📚 Resources Used:</p>
+                <div class="flex flex-wrap gap-2">
+                  <span v-for="resource in (story.resourcesUsed || []).slice(0, 3)" :key="resource" class="px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                    {{ resource }}
+                  </span>
+                  <span v-if="(story.resourcesUsed || []).length > 3" class="px-2 py-1 text-xs text-gray-600 dark:text-gray-400">
+                    +{{ (story.resourcesUsed || []).length - 3 }} more
+                  </span>
+                </div>
+              </div>
+
+              <!-- Outcome -->
+              <div class="mb-4 p-3 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800">
+                <p class="text-sm font-semibold text-green-900 dark:text-green-100">✅ Outcome:</p>
+                <p class="text-sm text-green-800 dark:text-green-200">{{ story.outcome }}</p>
+              </div>
+
+              <!-- Source Link -->
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-800">
+                <a :href="story.sourceUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300">
+                  Read Full Story on {{ story.source }}
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 bg-gradient-to-r from-red-100 to-orange-100 dark:from-red-900/50 dark:to-orange-900/50 border border-red-300 dark:border-red-700 rounded-lg">
+          <h3 class="text-xl font-bold text-red-900 dark:text-red-100 mb-3">🎯 What These Stories Show</h3>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+              <p class="font-semibold text-red-800 dark:text-red-200 mb-1">💡 Career Change Works</p>
+              <p class="text-sm text-red-700 dark:text-red-300">No CS degree? No problem. Thousands have made the leap.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-orange-800 dark:text-orange-200 mb-1">📚 Free Resources Work</p>
+              <p class="text-sm text-orange-700 dark:text-orange-300">You don't need expensive bootcamps. Dedication matters more.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-red-800 dark:text-red-200 mb-1">🚀 Fast Growth Possible</p>
+              <p class="text-sm text-red-700 dark:text-red-300">6 months to landing jobs? 2 years to senior roles? Yes.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-orange-800 dark:text-orange-200 mb-1">🎓 Portfolio > Credentials</p>
+              <p class="text-sm text-orange-700 dark:text-orange-300">What you build matters more than where you learned.</p>
+            </div>
+          </div>
         </div>
       </UContainer>
     </div>
@@ -706,511 +1440,62 @@ const trendingThisWeek = computed(() => {
       </UContainer>
     </div>
 
-    <!-- Articles -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Insightful Articles
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Deep dives into development topics and career advice.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in articles" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- Tools -->
-        <!-- Tools -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Essential Developer Tools
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Tools that power modern development workflows.
-          </p>
-          <div class="bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800 rounded-lg p-6 max-w-3xl mx-auto">
-            <p class="text-purple-800 dark:text-purple-200 font-medium mb-2">🛠️ Your Efficiency Expert Says:</p>
-            <p class="text-purple-700 dark:text-purple-300">
-              "The right tools don't just make you faster - they make you better. These aren't just utilities; they're force multipliers for your development superpowers. Invest time in learning them well, and you'll wonder how you ever coded without them. Your future self will thank you for this investment!"
+    <!-- 🎯 Ready to Dive Deeper? - CTA to Resources -->
+    <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 dark:from-indigo-950/50 dark:via-blue-950/50 dark:to-cyan-950/50">
+      <UContainer class="py-32">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="mb-8">
+            <span class="text-6xl mb-6 block">🚀</span>
+            <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Ready to Explore 160+ Curated Resources?
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+              You've seen the strategy. Now discover the tools. Browse our complete collection of free, high-quality resources—filtered by topic, difficulty, format, and more.
             </p>
           </div>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in tools" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
 
-    <!-- Courses -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Recommended Courses
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Structured learning paths for skill development.
-          </p>
-          <div class="bg-orange-50 dark:bg-orange-950/50 border border-orange-200 dark:border-orange-800 rounded-lg p-6 max-w-3xl mx-auto">
-            <p class="text-orange-800 dark:text-orange-200 font-medium mb-2">🎓 Your Learning Strategist Says:</p>
-            <p class="text-orange-700 dark:text-orange-300">
-              "Courses aren't just about acquiring knowledge - they're about building systematic understanding. These carefully selected programs provide the structure you need to go from confused to confident. Commit to one, follow through completely, and watch how it transforms not just what you know, but how you think about problems."
-            </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+              <div class="text-3xl mb-3">🔍</div>
+              <h3 class="font-bold text-gray-900 dark:text-white mb-2">Smart Search</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Find exactly what you need with powerful filters and fuzzy search</p>
+            </div>
+            <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+              <div class="text-3xl mb-3">📚</div>
+              <h3 class="font-bold text-gray-900 dark:text-white mb-2">Every Category</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Courses, tools, books, podcasts, communities—all in one place</p>
+            </div>
+            <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+              <div class="text-3xl mb-3">⚡</div>
+              <h3 class="font-bold text-gray-900 dark:text-white mb-2">Always Free</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Every resource is free or open source. Learn without barriers</p>
+            </div>
           </div>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in courses" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>    <!-- Podcasts -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Developer Podcasts
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Learn while commuting with expert insights.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in podcasts" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
 
-    <!-- Tutorials -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Hands-On Tutorials
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Step-by-step guides to build real projects.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in tutorials" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- YouTube -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            YouTube Channels
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Visual learning with expert tutorials and talks.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in youtube" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- Books -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Recommended Books
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            In-depth knowledge from timeless classics.
-          </p>
-          <div class="bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800 rounded-lg p-6 max-w-3xl mx-auto">
-            <p class="text-amber-800 dark:text-amber-200 font-medium mb-2">📖 Your Wisdom Guide Says:</p>
-            <p class="text-amber-700 dark:text-amber-300">
-              "Books are investments in your future self. While tutorials teach you how, books teach you why. These aren't just reading materials - they're mind-expanding journeys that will change how you approach problems forever. Read deeply, take notes, and revisit them. The best developers are also the best learners."
-            </p>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in books" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- Practice & Challenges -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Practice & Challenges
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Sharpen your skills with coding challenges and algorithms.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in practice" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- Community Platforms -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Open Source & Community
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Connect with developers worldwide and contribute to open source.
-          </p>
-        </div>
-        
-        <!-- Community Coaching Copy -->
-        <div class="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-12">
-          <div class="flex items-start space-x-3">
-            <div class="flex-shrink-0">
-              <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <NuxtLink
+              to="/resources"
+              class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white text-lg font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <span>Explore All Resources</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                Build Your Developer Network
-              </h3>
-              <p class="text-blue-800 dark:text-blue-200">
-                You're not just learning to code—you're joining a global community of creators. Start small: follow one developer on Twitter, join one Discord server, contribute to one open source project. Your network will accelerate your growth faster than any tutorial ever could. Remember, the best opportunities come from the people you meet along the way.
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in community" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- Newsletters -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Newsletters & Blogs
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Stay current with curated tech news and insights.
-          </p>
-        </div>
-        
-        <!-- Newsletters Coaching Copy -->
-        <div class="bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-12">
-          <div class="flex items-start space-x-3">
-            <div class="flex-shrink-0">
-              <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </NuxtLink>
+            
+            <div class="inline-flex items-center gap-2 px-6 py-4 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-lg font-semibold rounded-lg border-2 border-gray-300 dark:border-gray-700">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-2">
-                Never Stop Learning
-              </h3>
-              <p class="text-purple-800 dark:text-purple-200">
-                The tech world moves fast—really fast. But here's the truth: you don't need to read everything. You need to read the right things consistently. Pick 2-3 newsletters that speak to you, set aside 15 minutes each morning, and commit to this ritual. Over time, this small habit will make you the developer who "just knows" what's coming next. Your future self will thank you.
-              </p>
+              <span>Or Press</span>
+              <kbd class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 rounded border border-gray-300 dark:border-gray-700 font-mono">⌘K</kbd>
+              <span>to Search</span>
             </div>
           </div>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in newsletters" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
 
-    <!-- Job Boards -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Job Boards & Career
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Find your next opportunity in tech.
+          <p class="mt-8 text-sm text-gray-500 dark:text-gray-500">
+            💡 <span class="font-semibold">Pro Tip:</span> Use the filters to match your exact learning style, time commitment, and skill level
           </p>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in jobs" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- Interactive Learning -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Interactive Learning Platforms
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
-            Hands-on learning platforms with interactive coding environments and challenges.
-          </p>
-        </div>
-        
-        <!-- Interactive Learning Coaching Copy -->
-        <div class="bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-12">
-          <div class="flex items-start space-x-3">
-            <div class="flex-shrink-0">
-              <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
-                Learning Through Doing
-              </h3>
-              <p class="text-green-800 dark:text-green-200">
-                Theory is important, but mastery comes from practice. These interactive platforms aren't just games—they're your training ground. Set a goal: complete one challenge per day, or spend 30 minutes building something new. The magic happens when you stop consuming content and start creating. Every bug you fix, every feature you build, every challenge you overcome—these are the moments that transform you from a learner into a builder.
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in interactive" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- Career Resources -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Career Development Resources
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Level up your career with salary data, interview prep, and professional growth tools.
-          </p>
-          <div class="bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 rounded-lg p-6 max-w-3xl mx-auto">
-            <p class="text-blue-800 dark:text-blue-200 font-medium mb-2">💪 Your Career Coach Says:</p>
-            <p class="text-blue-700 dark:text-blue-300">
-              "Success isn't just about technical skills - it's about knowing your worth, preparing strategically, and building the career you deserve. These resources give you the tools to negotiate better, interview confidently, and grow professionally. You've got the talent - now get the recognition you deserve!"
-            </p>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in career" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
         </div>
       </UContainer>
     </div>
@@ -1233,7 +1518,7 @@ const trendingThisWeek = computed(() => {
           </div>
         </div>
         
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div v-if="documentation.length > 0" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <ResourceCard
             v-for="resource in documentation.slice(0, 3)" 
             :key="resource.path"
@@ -1250,6 +1535,9 @@ const trendingThisWeek = computed(() => {
             :tags="resource.tags"
             :featured="resource.featured"
           />
+        </div>
+        <div v-else class="text-center py-12">
+          <p class="text-gray-500 dark:text-gray-400">Coming soon...</p>
         </div>
       </UContainer>
     </div>
@@ -1753,45 +2041,6 @@ const trendingThisWeek = computed(() => {
           <p class="text-sm text-red-700 dark:text-red-300">
             Close this tab. Open VS Code. Build something. Come back when you need help. The best education is action + feedback.
           </p>
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- Documentation & References -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
-      <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            Documentation & References
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Authoritative documentation and reference materials for modern development.
-          </p>
-          <div class="bg-green-50 dark:bg-green-950/50 border border-green-200 dark:border-green-800 rounded-lg p-6 max-w-3xl mx-auto">
-            <p class="text-green-800 dark:text-green-200 font-medium mb-2">🎯 Your Technical Mentor Says:</p>
-            <p class="text-green-700 dark:text-green-300">
-              "Great developers don't memorize everything - they know where to find the right information quickly. These documentation resources are your professional lifeline. Master them, and you'll solve problems faster, write better code, and become the developer everyone turns to for answers."
-            </p>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ResourceCard
-            v-for="resource in documentation" 
-            :key="resource.path"
-            :title="resource.title"
-            :description="resource.description"
-            :url="resource.url"
-            :difficulty="resource.difficulty"
-            :format="resource.format"
-            :estimated-time="resource.estimatedTime"
-            :license="resource.license"
-            :is-free="resource.isFree"
-            :is-open-source="resource.isOpenSource"
-            :github-stars="resource.githubStars"
-            :tags="resource.tags"
-            :featured="resource.featured"
-          />
         </div>
       </UContainer>
     </div>

@@ -1,0 +1,50 @@
+id: php-laravel-backend
+title: "🔧 Modern PHP & Laravel Backend"
+description: "Build production-grade web applications with PHP and Laravel. From fundamentals to real-world enterprise applications. PHP powers 77% of the web—it's not going anywhere."
+icon: "🐘"
+duration: "8 weeks"
+difficulty: intermediate
+tags:
+  - php
+  - laravel
+  - backend
+  - web-development
+  - production
+resources:
+  - title: "PHP Official Documentation"
+    url: "https://www.php.net/manual/en/"
+    type: course
+    duration: "Variable"
+    description: "The authoritative PHP reference - from basics to advanced OOP"
+  
+  - title: "Laravel Official Documentation & Tutorial"
+    url: "https://laravel.com/docs"
+    type: course
+    duration: "20 hours"
+    description: "Modern PHP framework with elegant syntax and powerful tooling"
+  
+  - title: "Laracasts - Your Friendly PHP Learning Portal"
+    url: "https://laracasts.com"
+    type: course
+    duration: "100+ hours"
+    description: "Comprehensive Laravel training from basics to advanced patterns"
+  
+  - title: "Database Design with PostgreSQL & MySQL"
+    url: "https://www.postgresql.org/docs/"
+    type: tutorial
+    duration: "30 hours"
+    description: "Understand data modeling, indexing, and optimization"
+  
+  - title: "RESTful API Design Best Practices"
+    url: "https://daily.dev/blog/restful-api-design-best-practices-guide-2024"
+    type: article
+    duration: "45 min"
+    description: "Build APIs that scale and are maintainable"
+
+outcomes:
+  - "Build full-featured web applications with Laravel"
+  - "Design and optimize databases for performance"
+  - "Create robust REST APIs"
+  - "Understand security best practices (authentication, authorization, validation)"
+  - "Deploy and maintain production PHP applications"
+  - "Work with real-world codebases and legacy systems"

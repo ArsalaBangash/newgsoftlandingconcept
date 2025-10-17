@@ -1,0 +1,51 @@
+id: web-fundamentals
+title: "🌐 Web Development Fundamentals"
+description: "Start your web development journey. Master HTML, CSS, JavaScript, and build your first projects from scratch."
+icon: "💻"
+duration: "12 weeks"
+difficulty: beginner
+tags:
+  - web-development
+  - html
+  - css
+  - javascript
+  - frontend
+  - beginner
+resources:
+  - title: "MDN Web Docs"
+    url: "https://developer.mozilla.org/en-US/docs/Learn"
+    type: tutorial
+    duration: "60 hours"
+    description: "Authoritative HTML, CSS, JavaScript from Mozilla"
+  
+  - title: "The Odin Project"
+    url: "https://www.theodinproject.com"
+    type: course
+    duration: "100 hours"
+    description: "Complete free web dev curriculum with projects"
+  
+  - title: "Flexbox Froggy & Grid Garden"
+    url: "https://flexboxfroggy.com"
+    type: practice
+    duration: "3 hours"
+    description: "Fun interactive games to master CSS layout"
+  
+  - title: "JavaScript Crash Course - Traversy Media"
+    url: "https://www.youtube.com/watch?v=hdI2bqOjy3c"
+    type: tutorial
+    duration: "3 hours"
+    description: "Comprehensive JavaScript fundamentals in one video"
+  
+  - title: "Frontend Mentor"
+    url: "https://www.frontendmentor.io"
+    type: practice
+    duration: "Ongoing"
+    description: "Real-world frontend challenges to build portfolio"
+
+outcomes:
+  - "Write semantic HTML and accessible markup"
+  - "Master CSS layouts, flexbox, and responsive design"
+  - "Understand JavaScript fundamentals and DOM manipulation"
+  - "Build interactive web pages"
+  - "Create responsive designs that work on all devices"
+  - "Start building a portfolio of real projects"

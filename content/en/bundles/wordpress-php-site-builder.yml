@@ -1,0 +1,50 @@
+id: wordpress-php-site-builder
+title: "📄 WordPress & PHP Site Building"
+description: "WordPress runs 43% of all websites. Learn to build, customize, and maintain WordPress sites professionally. Understanding WordPress + PHP makes you valuable in web agencies and freelance work."
+icon: "📄"
+duration: "6 weeks"
+difficulty: beginner
+tags:
+  - wordpress
+  - php
+  - web-development
+  - cms
+  - freelance
+resources:
+  - title: "WordPress Official Getting Started"
+    url: "https://wordpress.org/support/article/new-to-wordpress-where-to-start/"
+    type: tutorial
+    duration: "10 hours"
+    description: "Official WordPress fundamentals and administration"
+  
+  - title: "WordPress Theme Development"
+    url: "https://developer.wordpress.org/themes/"
+    type: tutorial
+    duration: "30 hours"
+    description: "Build custom WordPress themes from scratch"
+  
+  - title: "WordPress Plugin Development"
+    url: "https://developer.wordpress.org/plugins/"
+    type: tutorial
+    duration: "40 hours"
+    description: "Extend WordPress with custom functionality"
+  
+  - title: "PHP for WordPress Developers"
+    url: "https://www.php.net/manual/en/"
+    type: course
+    duration: "40 hours"
+    description: "Essential PHP knowledge for working with WordPress"
+  
+  - title: "Freelance Web Development with WordPress"
+    url: "https://www.youtube.com/results?search_query=freelance+wordpress+development"
+    type: tutorial
+    duration: "20 hours"
+    description: "Business and technical aspects of WordPress freelancing"
+
+outcomes:
+  - "Set up and manage WordPress installations"
+  - "Build professional custom themes"
+  - "Create custom plugins for specific functionality"
+  - "Optimize WordPress for performance and SEO"
+  - "Provide WordPress support and maintenance"
+  - "Build successful freelance WordPress business"

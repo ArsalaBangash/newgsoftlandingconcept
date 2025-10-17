@@ -1,0 +1,253 @@
+id: python-activism-tech
+title: "🐍 Python for Activism & Digital Freedom"
+icon: "🐍"
+difficulty: "Intermediate"
+duration: "10 weeks"
+description: "Use Python to build tools for digital rights, privacy, and freedom. Data analysis, automation, encryption, and decentralized systems. For developers who want to use technology to make the world more free and transparent."
+tags:
+  - python
+  - activism
+  - privacy
+  - automation
+  - data-analysis
+  - cryptography
+  - freedom
+  - social-good
+
+learningOutcomes:
+  - "Python Fundamentals": "Programming in Python for activists and technologists"
+  - "Cryptography in Python": "Cryptography library, encryption, decryption, hashing"
+  - "Web Scraping for Transparency": "Extract public data ethically and analyze it"
+  - "Automation": "Automate repetitive tasks, build tools for activists"
+  - "Privacy Tools": "Building privacy-focused applications"
+  - "Data Analysis": "Understand data, reveal hidden patterns, inform advocacy"
+  - "Decentralization": "Building peer-to-peer and decentralized applications"
+  - "Community Projects": "Contributing to open-source activism tech"
+
+resources:
+  # Foundation: Python
+  - title: "Python for Everybody (Dr. Charles Severance)"
+    url: "https://www.py4e.com"
+    type: "course"
+    duration: "16 hours"
+    sequence: 1
+    description: "Accessible introduction to Python. Perfect for beginners with zero programming experience."
+    relatesTo: ["Python Fundamentals"]
+
+  - title: "Automate the Boring Stuff with Python"
+    url: "https://automatetheBoringStuff.com"
+    type: "book"
+    duration: "12 hours"
+    sequence: 1
+    description: "Learn Python through practical automation tasks. Web scraping, file handling, scheduling."
+    relatesTo: ["Python Fundamentals", "Automation"]
+
+  - title: "Python for Data Analysis (Pandas, NumPy)"
+    url: "https://wesmckinney.com/books/python-for-data-analysis"
+    type: "book"
+    duration: "15 hours"
+    sequence: 2
+    description: "Working with data: Pandas for data manipulation, analysis, and visualization."
+    relatesTo: ["Data Analysis"]
+
+  # Cryptography & Security
+  - title: "Cryptography for Python Developers"
+    url: "https://cryptography.io"
+    type: "documentation"
+    duration: "8 hours"
+    sequence: 3
+    description: "Python Cryptography library: encryption, decryption, digital signatures, certificate handling."
+    relatesTo: ["Cryptography in Python"]
+
+  - title: "PyCryptodome & Encryption Algorithms"
+    url: "https://pycryptodome.readthedocs.io"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 3
+    description: "Pure Python cryptographic algorithms. Building secure applications."
+    relatesTo: ["Cryptography in Python"]
+
+  - title: "Hashing & Password Security in Python"
+    url: "https://passlib.readthedocs.io"
+    type: "documentation"
+    duration: "4 hours"
+    sequence: 3
+    description: "Proper password handling: bcrypt, Argon2, key derivation."
+    relatesTo: ["Cryptography in Python"]
+
+  # Web Scraping for Transparency
+  - title: "Web Scraping Ethically (BeautifulSoup, Scrapy)"
+    url: "https://beaut ifulsoup.readthedocs.io"
+    type: "documentation"
+    duration: "8 hours"
+    sequence: 4
+    description: "Extract public data from websites. Important for transparency work, investigations, and data journalism."
+    relatesTo: ["Web Scraping for Transparency", "Data Analysis"]
+
+  - title: "Robots.txt, Legal, and Ethical Web Scraping"
+    url: "https://en.wikipedia.org/wiki/Web_scraping#Legal_issues"
+    type: "documentation"
+    duration: "3 hours"
+    sequence: 4
+    description: "Understanding legal and ethical boundaries in data extraction. Privacy and rights of others."
+    relatesTo: ["Web Scraping for Transparency"]
+
+  - title: "Real-World Data Journalism: Extracting Stories from Data"
+    url: "https://journalists.org/resources"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 4
+    description: "Techniques used by journalists to extract and visualize stories from raw data."
+    relatesTo: ["Web Scraping for Transparency", "Data Analysis"]
+
+  # Automation for Activists
+  - title: "Python Scheduling & Task Automation"
+    url: "https://schedule.readthedocs.io"
+    type: "documentation"
+    duration: "4 hours"
+    sequence: 5
+    description: "Scheduling tasks, automated monitoring, alerts. Build tools that work 24/7."
+    relatesTo: ["Automation"]
+
+  - title: "Building Bots & Automated Tools"
+    url: "https://python-telegram-bot.readthedocs.io"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 5
+    description: "Creating bots for Telegram, Discord, Slack to automate activism campaigns."
+    relatesTo: ["Automation"]
+
+  - title: "Python APIs & Webhooks"
+    url: "https://requests.readthedocs.io"
+    type: "documentation"
+    duration: "5 hours"
+    sequence: 5
+    description: "Building tools that communicate with other services via APIs. Integrating services."
+    relatesTo: ["Automation"]
+
+  # Privacy Tools & Applications
+  - title: "Building Privacy-Respecting Applications"
+    url: "https://www.djangoproject.com"
+    type: "documentation"
+    duration: "10 hours"
+    sequence: 6
+    description: "Django framework for building secure, privacy-focused web applications."
+    relatesTo: ["Privacy Tools"]
+
+  - title: "End-to-End Encryption in Python (PyNaCl, TweetNaCl)"
+    url: "https://pynacl.readthedocs.io"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 6
+    description: "Adding encryption to applications: messaging, file sharing, communication tools."
+    relatesTo: ["Privacy Tools", "Cryptography in Python"]
+
+  - title: "Building a Secure Messaging Bot"
+    url: "https://github.com/topics/encrypted-messaging"
+    type: "interactive"
+    duration: "8 hours"
+    sequence: 6
+    description: "Practical project: build an encrypted messaging bot using Python and cryptography."
+    relatesTo: ["Privacy Tools", "Automation"]
+
+  # Data Analysis for Activism
+  - title: "Exploratory Data Analysis (EDA) with Python"
+    url: "https://matplotlib.org"
+    type: "documentation"
+    duration: "8 hours"
+    sequence: 7
+    description: "Visualizing and analyzing data: matplotlib, seaborn, plotly. Telling data stories."
+    relatesTo: ["Data Analysis"]
+
+  - title: "Statistical Analysis & Hypothesis Testing"
+    url: "https://scipy.org"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 7
+    description: "Statistical methods for drawing conclusions from data. Critical for evidence-based advocacy."
+    relatesTo: ["Data Analysis"]
+
+  - title: "Network Analysis (Graph Theory) for Social Networks"
+    url: "https://networkx.org"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 7
+    description: "Understanding social networks, influence, and connections using graph analysis."
+    relatesTo: ["Data Analysis"]
+
+  # Decentralization & Blockchain
+  - title: "Bitcoin & Blockchain in Python"
+    url: "https://blockchain.info"
+    type: "course"
+    duration: "8 hours"
+    sequence: 8
+    description: "Understanding blockchain technology through Python implementation."
+    relatesTo: ["Decentralization"]
+
+  - title: "Building with Ethereum (Web3.py)"
+    url: "https://web3py.readthedocs.io"
+    type: "documentation"
+    duration: "8 hours"
+    sequence: 8
+    description: "Building decentralized applications (dApps) using Python. Smart contracts, DAOs."
+    relatesTo: ["Decentralization"]
+
+  - title: "IPFS & Decentralized Storage (Python)"
+    url: "https://docs.ipfs.tech"
+    type: "documentation"
+    duration: "6 hours"
+    sequence: 8
+    description: "Storing data in IPFS (peer-to-peer, censorship-resistant storage)."
+    relatesTo: ["Decentralization"]
+
+  # Community & Contribution
+  - title: "Contributing to Open Source Activism Projects"
+    url: "https://github.com/topics/activism"
+    type: "interactive"
+    duration: "Ongoing"
+    sequence: 9
+    description: "Finding and contributing to real activism tech projects: privacy tools, transparency projects."
+    relatesTo: ["Community Projects"]
+
+  - title: "Building Your Own Activism Tool (Capstone Project)"
+    url: "https://github.com"
+    type: "interactive"
+    duration: "20 hours"
+    sequence: 10
+    description: "Design and build a tool using everything learned: could be automation, data analysis, privacy app."
+    relatesTo: ["All concepts"]
+
+outcomes:
+  - "Build Python applications from scratch"
+  - "Understand and implement encryption and cryptography"
+  - "Extract and analyze data ethically and effectively"
+  - "Automate tools and tasks for activism campaigns"
+  - "Build privacy-respecting applications"
+  - "Analyze social networks and understand influence"
+  - "Participate in decentralized systems"
+  - "Contribute to real open-source activism projects"
+
+exampleProjects:
+  - "Data journalism tool: scrape and visualize government spending"
+  - "Encrypted messaging bot for activists"
+  - "Automated monitoring tool for policy changes"
+  - "Network analysis of influence and corruption"
+  - "Privacy-respecting form builder"
+  - "Blockchain voter registration system"
+  - "IPFS-based document archiving system"
+
+careerPathways:
+  - "Data Journalist"
+  - "NGO/Nonprofit Tech Developer"
+  - "Privacy Engineer"
+  - "Blockchain Developer (Decentralization Focus)"
+  - "Security Researcher"
+  - "Tech for Good Consultant"
+  - "Open Source Maintainer"
+
+prerequisites:
+  - "No programming experience needed - start from basics"
+  - "Curiosity about data and freedom"
+  - "Willingness to learn ethical practices"
+
+featured: true

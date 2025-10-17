@@ -1,0 +1,50 @@
+id: dotnet-csharp-microsoft
+title: "🔷 C# & .NET Modern Enterprise"
+description: "Build enterprise applications with C# and .NET. Microsoft's ecosystem powers banking, healthcare, Fortune 500s. Modern .NET is cross-platform, open-source, and incredibly productive."
+icon: "🔷"
+duration: "12 weeks"
+difficulty: intermediate
+tags:
+  - csharp
+  - dotnet
+  - backend
+  - enterprise
+  - microsoft
+resources:
+  - title: ".NET Official Documentation"
+    url: "https://learn.microsoft.com/en-us/dotnet/"
+    type: course
+    duration: "60 hours"
+    description: "Official C# and .NET learning path from Microsoft"
+  
+  - title: "C# Programming Guide"
+    url: "https://learn.microsoft.com/en-us/dotnet/csharp/"
+    type: course
+    duration: "50 hours"
+    description: "Comprehensive C# language fundamentals to advanced features"
+  
+  - title: "ASP.NET Core Web Application Development"
+    url: "https://learn.microsoft.com/en-us/aspnet/core"
+    type: tutorial
+    duration: "60 hours"
+    description: "Build modern web applications with ASP.NET Core"
+  
+  - title: "Microsoft Learn - Free Training"
+    url: "https://learn.microsoft.com"
+    type: course
+    duration: "300+ hours"
+    description: "Official Microsoft training modules, certifications, learning paths"
+  
+  - title: "Entity Framework & Database Design"
+    url: "https://learn.microsoft.com/en-us/ef/"
+    type: tutorial
+    duration: "40 hours"
+    description: "Data access patterns and ORM best practices"
+
+outcomes:
+  - "Build ASP.NET Core web applications"
+  - "Develop desktop applications with WPF or WinForms"
+  - "Create cloud solutions with Azure"
+  - "Implement enterprise patterns and practices"
+  - "Work with SQL Server and Entity Framework"
+  - "Deploy scalable systems for enterprise use"

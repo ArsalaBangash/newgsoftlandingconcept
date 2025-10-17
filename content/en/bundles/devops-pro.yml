@@ -1,0 +1,51 @@
+id: devops-pro
+title: "🐳 DevOps Engineer Pro"
+description: "Master containerization, orchestration, CI/CD pipelines, and cloud infrastructure. From Docker basics to Kubernetes production deployments."
+icon: "🛠️"
+duration: "10 weeks"
+difficulty: intermediate
+tags:
+  - devops
+  - docker
+  - kubernetes
+  - ci-cd
+  - cloud
+  - infrastructure
+resources:
+  - title: "The Missing Semester of Your CS Education"
+    url: "https://missing.csail.mit.edu"
+    type: course
+    duration: "8 hours"
+    description: "Essential developer tools: shell scripting, Git, debugging, profiling"
+  
+  - title: "KodeKloud DevOps Labs"
+    url: "https://kodekloud.com/courses/devops-beginner-bootcamp"
+    type: course
+    duration: "40 hours"
+    description: "Hands-on Docker, Kubernetes, and cloud labs in browser"
+  
+  - title: "Docker Official Documentation"
+    url: "https://docs.docker.com"
+    type: tutorial
+    duration: "20 hours"
+    description: "Comprehensive Docker guide with best practices"
+  
+  - title: "AWS Certified DevOps Engineer"
+    url: "https://acloudguru.com/course/aws-certified-devops-engineer-professional"
+    type: course
+    duration: "60 hours"
+    description: "AWS DevOps certification prep with CI/CD and infrastructure focus"
+  
+  - title: "System Design Primer"
+    url: "https://github.com/donnemartin/system-design-primer"
+    type: article
+    duration: "20 hours"
+    description: "Scalability, databases, caching - design for scale"
+
+outcomes:
+  - "Containerize applications with Docker"
+  - "Orchestrate containers with Kubernetes"
+  - "Build CI/CD pipelines with GitHub Actions or GitLab"
+  - "Deploy and manage cloud infrastructure"
+  - "Monitor and troubleshoot production systems"
+  - "Implement infrastructure as code"
