@@ -141,7 +141,7 @@ const featuredBooks = computed(() => {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Career Change -->
-          <div class="bg-gradient-to-br dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
+          <div class="dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
             <div class="text-4xl mb-3">🔄</div>
             <h3 class="font-bold text-gray-900 dark:text-white mb-2">Career Change?</h3>
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
@@ -156,7 +156,7 @@ const featuredBooks = computed(() => {
           </div>
 
           <!-- Interview Prep -->
-          <div class="bg-gradient-to-br dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg border border-blue-200 dark:border-blue-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
+          <div class="dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg border border-blue-200 dark:border-blue-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
             <div class="text-4xl mb-3">💼</div>
             <h3 class="font-bold text-gray-900 dark:text-white mb-2">Interview Prep?</h3>
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
@@ -171,7 +171,7 @@ const featuredBooks = computed(() => {
           </div>
 
           <!-- Skill Deepening -->
-          <div class="bg-gradient-to-br dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg border border-purple-200 dark:border-purple-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
+          <div class="dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg border border-purple-200 dark:border-purple-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
             <div class="text-4xl mb-3">🚀</div>
             <h3 class="font-bold text-gray-900 dark:text-white mb-2">Level Up Existing Skills?</h3>
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
@@ -186,7 +186,7 @@ const featuredBooks = computed(() => {
           </div>
 
           <!-- Quick Practice -->
-          <div class="bg-gradient-to-br dark:from-orange-900/20 dark:to-red-900/20 rounded-lg border border-orange-200 dark:border-orange-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
+          <div class="dark:from-orange-900/20 dark:to-red-900/20 rounded-lg border border-orange-200 dark:border-orange-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
             <div class="text-4xl mb-3">⚡</div>
             <h3 class="font-bold text-gray-900 dark:text-white mb-2">Quick Learning Sprints?</h3>
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
@@ -215,7 +215,7 @@ const featuredBooks = computed(() => {
         <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">⭐</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-indigo-300 dark:to-cyan-300 bg-clip-text text-transparent">
+            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-indigo-300 dark:to-cyan-300">
               Expert Essentials
             </h2>
           </div>
@@ -314,7 +314,7 @@ const featuredBooks = computed(() => {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-gradient-to-br rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
+          <div class="rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
             <div class="h-40 flex items-center justify-center text-6xl">📊</div>
             <div class="p-6 bg-white dark:bg-gray-900">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">System Design Primer</h3>
@@ -325,7 +325,7 @@ const featuredBooks = computed(() => {
             </div>
           </div>
 
-          <div class="bg-gradient-to-br rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
+          <div class="rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
             <div class="h-40 flex items-center justify-center text-6xl">🤖</div>
             <div class="p-6 bg-white dark:bg-gray-900">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Google ML Crash Course</h3>
@@ -336,7 +336,7 @@ const featuredBooks = computed(() => {
             </div>
           </div>
 
-          <div class="bg-gradient-to-br rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
+          <div class="rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
             <div class="h-40 flex items-center justify-center text-6xl">🚀</div>
             <div class="p-6 bg-white dark:bg-gray-900">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Full Stack Open 2024</h3>
@@ -363,28 +363,28 @@ const featuredBooks = computed(() => {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-gradient-to-br dark:from-red-950/30 dark:to-red-900/30 rounded-lg p-6 border border-red-200 dark:border-red-800">
+          <div class="dark:from-red-950/30 dark:to-red-900/30 rounded-lg p-6 border border-red-200 dark:border-red-800">
             <div class="text-3xl mb-3">⏱️</div>
             <h4 class="font-bold text-gray-900 dark:text-white mb-2">4 Hours</h4>
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">React Basics - Build your first component</p>
             <div class="text-xs text-red-600 dark:text-red-400">Perfect for: Quick weekend project</div>
           </div>
 
-          <div class="bg-gradient-to-br dark:from-blue-950/30 dark:to-blue-900/30 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
+          <div class="dark:from-blue-950/30 dark:to-blue-900/30 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
             <div class="text-3xl mb-3">⏱️</div>
             <h4 class="font-bold text-gray-900 dark:text-white mb-2">8 Hours</h4>
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Next.js Crash Course - Full stack in a day</p>
             <div class="text-xs text-blue-600 dark:text-blue-400">Perfect for: Deploy first app</div>
           </div>
 
-          <div class="bg-gradient-to-br dark:from-purple-950/30 dark:to-purple-900/30 rounded-lg p-6 border border-purple-200 dark:border-purple-800">
+          <div class="dark:from-purple-950/30 dark:to-purple-900/30 rounded-lg p-6 border border-purple-200 dark:border-purple-800">
             <div class="text-3xl mb-3">⏱️</div>
             <h4 class="font-bold text-gray-900 dark:text-white mb-2">6 Hours</h4>
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Docker & Containers - Deploy like a pro</p>
             <div class="text-xs text-purple-600 dark:text-purple-400">Perfect for: Understand DevOps</div>
           </div>
 
-          <div class="bg-gradient-to-br dark:from-green-950/30 dark:to-green-900/30 rounded-lg p-6 border border-green-200 dark:border-green-800">
+          <div class="dark:from-green-950/30 dark:to-green-900/30 rounded-lg p-6 border border-green-200 dark:border-green-800">
             <div class="text-3xl mb-3">⏱️</div>
             <h4 class="font-bold text-gray-900 dark:text-white mb-2">5 Hours</h4>
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">TypeScript Essentials - Type safety 101</p>
@@ -521,14 +521,14 @@ const featuredBooks = computed(() => {
         <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">👑</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-purple-300 dark:to-pink-300 bg-clip-text text-transparent">
+            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-purple-300 dark:to-pink-300">
               Master's Collection
             </h2>
           </div>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
             The most transformative, battle-tested resources handpicked by experts. These are the tools that accelerate careers and change how developers think.
           </p>
-          <div class="bg-gradient-to-r dark:from-purple-900/50 dark:to-pink-900/50 border border-purple-200 dark:border-purple-800 rounded-lg p-6 max-w-3xl">
+          <div class="dark:from-purple-900/50 dark:to-pink-900/50 border border-purple-200 dark:border-purple-800 rounded-lg p-6 max-w-3xl">
             <p class="text-purple-900 dark:text-purple-100 font-medium mb-2">✨ Why This Collection?</p>
             <p class="text-purple-800 dark:text-purple-200">
               Each resource here has proven itself across thousands of developers. Not just good—transformative. Master these foundations and you'll build, debug, and design with confidence others take years to achieve.
@@ -575,7 +575,7 @@ const featuredBooks = computed(() => {
         <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">📚</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-emerald-300 dark:to-teal-300 bg-clip-text text-transparent">
+            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-emerald-300 dark:to-teal-300">
               Learning Bundles
             </h2>
           </div>
@@ -669,7 +669,7 @@ const featuredBooks = computed(() => {
         <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">🌍</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-slate-300 dark:to-gray-300 bg-clip-text text-transparent">
+            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-slate-300 dark:to-gray-300">
               Real World Tech Stacks
             </h2>
           </div>
@@ -850,7 +850,7 @@ const featuredBooks = computed(() => {
         <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">🔐</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-indigo-300 dark:via-purple-300 dark:to-pink-300 bg-clip-text text-transparent">
+            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-indigo-300 dark:via-purple-300 dark:to-pink-300">
               Freedom Through Code
             </h2>
           </div>
@@ -995,7 +995,7 @@ const featuredBooks = computed(() => {
         </div>
 
         <!-- Complete Learning Bundle -->
-        <div class="bg-gradient-to-r dark:from-indigo-900/30 dark:to-pink-900/30 border border-indigo-300 dark:border-indigo-700 rounded-lg p-8 text-center">
+        <div class="dark:from-indigo-900/30 dark:to-pink-900/30 border border-indigo-300 dark:border-indigo-700 rounded-lg p-8 text-center">
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">📚 Complete Learning Path: Digital Freedom & Privacy</h3>
           <p class="text-gray-700 dark:text-gray-300 mb-6">
             A comprehensive 12-week bundle combining cryptography, internet architecture, privacy tools, open-source principles, and security knowledge. For anyone who believes technology should empower human freedom.
@@ -1022,7 +1022,7 @@ const featuredBooks = computed(() => {
         <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">⚔️</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-amber-300 dark:to-orange-300 bg-clip-text text-transparent">
+            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-amber-300 dark:to-orange-300">
               Resource Showdowns
             </h2>
           </div>
@@ -1034,7 +1034,7 @@ const featuredBooks = computed(() => {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Comparison 1: Codewars vs LeetCode -->
           <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-            <div class="bg-gradient-to-r dark:from-amber-900/50 dark:to-orange-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
+            <div class="dark:from-amber-900/50 dark:to-orange-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
               <h3 class="text-lg font-bold text-gray-900 dark:text-white">Codewars vs LeetCode</h3>
               <p class="text-sm text-gray-700 dark:text-gray-300">Coding practice platforms compared</p>
             </div>
@@ -1063,7 +1063,7 @@ const featuredBooks = computed(() => {
 
           <!-- Comparison 2: Full Stack Open vs The Odin Project -->
           <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-            <div class="bg-gradient-to-r dark:from-orange-900/50 dark:to-red-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
+            <div class="dark:from-orange-900/50 dark:to-red-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
               <h3 class="text-lg font-bold text-gray-900 dark:text-white">Full Stack Open vs The Odin Project</h3>
               <p class="text-sm text-gray-700 dark:text-gray-300">Comprehensive web dev courses compared</p>
             </div>
@@ -1092,7 +1092,7 @@ const featuredBooks = computed(() => {
 
           <!-- Comparison 3: System Design Primer vs LeetCode System Design -->
           <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-            <div class="bg-gradient-to-r dark:from-red-900/50 dark:to-pink-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
+            <div class="dark:from-red-900/50 dark:to-pink-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
               <h3 class="text-lg font-bold text-gray-900 dark:text-white">System Design Primer vs Interview Handbook</h3>
               <p class="text-sm text-gray-700 dark:text-gray-300">System design learning resources compared</p>
             </div>
@@ -1121,7 +1121,7 @@ const featuredBooks = computed(() => {
 
           <!-- Comparison 4: NeetCode vs LeetCode -->
           <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-            <div class="bg-gradient-to-r dark:from-pink-900/50 dark:to-rose-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
+            <div class="dark:from-pink-900/50 dark:to-rose-900/50 p-4 border-b border-gray-200 dark:border-gray-800">
               <h3 class="text-lg font-bold text-gray-900 dark:text-white">NeetCode vs LeetCode</h3>
               <p class="text-sm text-gray-700 dark:text-gray-300">Focused interview prep platforms compared</p>
             </div>
@@ -1164,7 +1164,7 @@ const featuredBooks = computed(() => {
         <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">🚀</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-red-300 dark:to-orange-300 bg-clip-text text-transparent">
+            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-red-300 dark:to-orange-300">
               Success Stories
             </h2>
           </div>
@@ -1572,7 +1572,7 @@ const featuredBooks = computed(() => {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           
           <!-- Open Source Books on GitHub -->
-          <div class="bg-gradient-to-br dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border-2 border-green-300 dark:border-green-700 p-8 shadow-lg">
+          <div class="dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border-2 border-green-300 dark:border-green-700 p-8 shadow-lg">
             <div class="flex items-start gap-4 mb-6">
               <div class="text-5xl">🌟</div>
               <div>
@@ -1641,7 +1641,7 @@ const featuredBooks = computed(() => {
           </div>
 
           <!-- O'Reilly - The Industry Standard -->
-          <div class="bg-gradient-to-br dark:from-orange-950/50 dark:to-red-950/50 rounded-xl border-2 border-orange-300 dark:border-orange-700 p-8 shadow-lg">
+          <div class="dark:from-orange-950/50 dark:to-red-950/50 rounded-xl border-2 border-orange-300 dark:border-orange-700 p-8 shadow-lg">
             <div class="flex items-start gap-4 mb-6">
               <div class="text-5xl">🎓</div>
               <div>
@@ -2151,12 +2151,12 @@ const featuredBooks = computed(() => {
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">Structured journeys from beginner to expert. Pick your destination and start learning.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="bg-gradient-to-r p-6"><h3 class="text-xl font-bold text-white mb-2">Frontend Developer</h3><p class="text-blue-50 text-sm">Build beautiful, interactive web interfaces</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">HTML & CSS Basics</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">JavaScript Fundamentals</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">React & Modern Frameworks</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">TypeScript & Advanced Patterns</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Next.js & Full Stack</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
-          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="bg-gradient-to-r p-6"><h3 class="text-xl font-bold text-white mb-2">Backend Developer</h3><p class="text-purple-50 text-sm">Master server-side architecture and databases</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Programming Fundamentals</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Node.js & Runtime Environment</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Databases & SQL/NoSQL</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">API Design & REST/GraphQL</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Authentication & Security</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
-          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="bg-gradient-to-r p-6"><h3 class="text-xl font-bold text-white mb-2">AI/ML Engineer</h3><p class="text-orange-50 text-sm">Build intelligent systems with machine learning</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Python Fundamentals</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Math & Statistics Basics</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Machine Learning Crash Course</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Deep Learning & Neural Networks</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Production & Deployment</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
-          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="bg-gradient-to-r p-6"><h3 class="text-xl font-bold text-white mb-2">DevOps Engineer</h3><p class="text-green-50 text-sm">Deploy, scale, and manage infrastructure</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Linux & Command Line</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Docker & Containerization</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Kubernetes & Orchestration</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">CI/CD Pipelines & Automation</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Cloud Platforms (AWS/GCP)</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
-          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="bg-gradient-to-r p-6"><h3 class="text-xl font-bold text-white mb-2">Full Stack Developer</h3><p class="text-indigo-50 text-sm">Build complete end-to-end applications</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Web Fundamentals (HTML/CSS)</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Frontend (React/Vue)</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Backend (Node.js/Databases)</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">APIs & Integration</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Deployment & DevOps</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
-          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="bg-gradient-to-r p-6"><h3 class="text-xl font-bold text-white mb-2">Open Source Champion</h3><p class="text-rose-50 text-sm">Contribute to communities and grow your portfolio</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Git & GitHub Mastery</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Finding Beginner-Friendly Projects</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Making Your First PR</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Code Review & Community</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Building Your Portfolio</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Frontend Developer</h3><p class="text-blue-50 text-sm">Build beautiful, interactive web interfaces</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">HTML & CSS Basics</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">JavaScript Fundamentals</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">React & Modern Frameworks</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">TypeScript & Advanced Patterns</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Next.js & Full Stack</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Backend Developer</h3><p class="text-purple-50 text-sm">Master server-side architecture and databases</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Programming Fundamentals</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Node.js & Runtime Environment</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Databases & SQL/NoSQL</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">API Design & REST/GraphQL</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Authentication & Security</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">AI/ML Engineer</h3><p class="text-orange-50 text-sm">Build intelligent systems with machine learning</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Python Fundamentals</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Math & Statistics Basics</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Machine Learning Crash Course</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Deep Learning & Neural Networks</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Production & Deployment</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">DevOps Engineer</h3><p class="text-green-50 text-sm">Deploy, scale, and manage infrastructure</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Linux & Command Line</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Docker & Containerization</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Kubernetes & Orchestration</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">CI/CD Pipelines & Automation</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Cloud Platforms (AWS/GCP)</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Full Stack Developer</h3><p class="text-indigo-50 text-sm">Build complete end-to-end applications</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Web Fundamentals (HTML/CSS)</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Frontend (React/Vue)</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Backend (Node.js/Databases)</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">APIs & Integration</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Deployment & DevOps</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Open Source Champion</h3><p class="text-rose-50 text-sm">Contribute to communities and grow your portfolio</p></div><div class="p-6"><div class="space-y-3 mb-6"><div class="flex items-center gap-2"><span class="text-lg">1️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Git & GitHub Mastery</span></div><div class="flex items-center gap-2"><span class="text-lg">2️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Finding Beginner-Friendly Projects</span></div><div class="flex items-center gap-2"><span class="text-lg">3️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Making Your First PR</span></div><div class="flex items-center gap-2"><span class="text-lg">4️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Code Review & Community</span></div><div class="flex items-center gap-2"><span class="text-lg">5️⃣</span><span class="text-sm text-gray-700 dark:text-gray-300">Building Your Portfolio</span></div></div><UButton to="/resources" size="sm" variant="outline" class="w-full">Start Path →</UButton></div></div>
         </div>
         <div class="mt-12 p-6 bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg"><p class="text-center text-gray-700 dark:text-gray-300">💡 <span class="font-semibold">Tip:</span> Pick a path that excites you. Each step includes curated resources, practice opportunities, and community support. Complete 5-10 resources per path on average (approximately 3-6 months).</p></div>
       </UContainer>
