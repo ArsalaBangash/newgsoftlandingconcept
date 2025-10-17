@@ -5,9 +5,16 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@nuxt/content',
+    '@nuxt/image',
     '@nuxtjs/i18n',
     '@nuxtjs/seo'
   ],
+
+  // @ts-ignore - @nuxt/image types not fully compatible with Nuxt 4
+  image: {
+    provider: 'ipx',
+    dir: 'public'
+  },
 
   colorMode: {
     preference: 'system',
