@@ -40,15 +40,6 @@ const appConfig = useAppConfig()
         <div class="flex items-center gap-3">
           <!-- Search Modal -->
           <SearchModal />
-          
-          <!-- CTA Button -->
-          <UButton 
-            to="/resources/contribute" 
-            size="sm" 
-            class="hidden sm:inline-flex bg-accent hover:bg-accent/90 text-white font-medium"
-          >
-            Contribute
-          </UButton>
         </div>
       </div>
     </UContainer>

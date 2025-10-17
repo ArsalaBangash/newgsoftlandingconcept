@@ -28,7 +28,7 @@ function scrollToTop() {
   >
     <UContainer>
       <div class="py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           <!-- Brand & Mission -->
           <div class="lg:col-span-1">
             <NuxtLink to="/" class="inline-block mb-4">
@@ -112,25 +112,6 @@ function scrollToTop() {
               </li>
             </ul>
           </nav>
-
-          <!-- Newsletter / CTA -->
-          <div class="lg:col-span-1">
-            <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-4">
-              Contribute
-            </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-              Help us curate the best resources for developers worldwide.
-            </p>
-            <NuxtLink
-              to="/resources/contribute"
-              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent/90 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
-            >
-              Submit Resource
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-            </NuxtLink>
-          </div>
         </div>
 
         <!-- Bottom Bar -->

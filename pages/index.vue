@@ -350,58 +350,8 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 🏃 Speed Run - Crash Courses -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-      <UContainer class="py-24">
-        <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            🏃 Speed Run - Learn in Hours, Not Weeks
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Crash courses perfect for weekends or dedicated learning days. Get up to speed fast.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="dark:from-red-950/30 dark:to-red-900/30 rounded-lg p-6 border border-red-200 dark:border-red-800">
-            <div class="text-3xl mb-3">⏱️</div>
-            <h4 class="font-bold text-gray-900 dark:text-white mb-2">4 Hours</h4>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">React Basics - Build your first component</p>
-            <div class="text-xs text-red-600 dark:text-red-400">Perfect for: Quick weekend project</div>
-          </div>
-
-          <div class="dark:from-blue-950/30 dark:to-blue-900/30 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
-            <div class="text-3xl mb-3">⏱️</div>
-            <h4 class="font-bold text-gray-900 dark:text-white mb-2">8 Hours</h4>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Next.js Crash Course - Full stack in a day</p>
-            <div class="text-xs text-blue-600 dark:text-blue-400">Perfect for: Deploy first app</div>
-          </div>
-
-          <div class="dark:from-purple-950/30 dark:to-purple-900/30 rounded-lg p-6 border border-purple-200 dark:border-purple-800">
-            <div class="text-3xl mb-3">⏱️</div>
-            <h4 class="font-bold text-gray-900 dark:text-white mb-2">6 Hours</h4>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Docker & Containers - Deploy like a pro</p>
-            <div class="text-xs text-purple-600 dark:text-purple-400">Perfect for: Understand DevOps</div>
-          </div>
-
-          <div class="dark:from-green-950/30 dark:to-green-900/30 rounded-lg p-6 border border-green-200 dark:border-green-800">
-            <div class="text-3xl mb-3">⏱️</div>
-            <h4 class="font-bold text-gray-900 dark:text-white mb-2">5 Hours</h4>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">TypeScript Essentials - Type safety 101</p>
-            <div class="text-xs text-green-600 dark:text-green-400">Perfect for: Level up JavaScript</div>
-          </div>
-        </div>
-
-        <div class="mt-12 p-6 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
-          <p class="text-center text-gray-700 dark:text-gray-300">
-            <span class="font-semibold">💪 Challenge Yourself:</span> Pick one Speed Run. Block out 8 hours this weekend. Complete it. Post "I built this in 8 hours" on Twitter. Watch the engagement.
-          </p>
-        </div>
-      </UContainer>
-    </div>
-
     <!-- Resource Discovery Filters -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+    <!-- <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
       <UContainer class="py-16">
         <div class="mb-12">
           <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -474,7 +424,7 @@ const featuredBooks = computed(() => {
           <p class="text-gray-600 dark:text-gray-400">No resources found matching your filters. Try adjusting your criteria.</p>
         </div>
       </UContainer>
-    </div>
+    </div> -->
 
     <!-- Quick Wins -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-green-50 dark:bg-green-950">
@@ -1818,7 +1768,7 @@ const featuredBooks = computed(() => {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="group rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
+          <div class="group bg-blue-600 dark:bg-blue-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
             <div class="text-4xl mb-4">🚀</div>
             <h3 class="text-xl font-bold mb-3">React in 30 Days</h3>
             <p class="text-blue-100 mb-6">Build 3 projects while learning React fundamentals, hooks, and component patterns.</p>
@@ -1829,7 +1779,7 @@ const featuredBooks = computed(() => {
             </div>
           </div>
 
-          <div class="group rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
+          <div class="group bg-purple-600 dark:bg-purple-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
             <div class="text-4xl mb-4">🐍</div>
             <h3 class="text-xl font-bold mb-3">Python Fundamentals</h3>
             <p class="text-purple-100 mb-6">Master Python basics through daily exercises and mini-projects. Perfect for beginners.</p>
@@ -1840,7 +1790,7 @@ const featuredBooks = computed(() => {
             </div>
           </div>
 
-          <div class="group rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
+          <div class="group bg-green-600 dark:bg-green-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
             <div class="text-4xl mb-4">🎨</div>
             <h3 class="text-xl font-bold mb-3">Frontend Design</h3>
             <p class="text-green-100 mb-6">Learn CSS, Tailwind, and design systems by building 3 beautiful projects from scratch.</p>
@@ -1851,7 +1801,7 @@ const featuredBooks = computed(() => {
             </div>
           </div>
 
-          <div class="group rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
+          <div class="group bg-orange-600 dark:bg-orange-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
             <div class="text-4xl mb-4">🐳</div>
             <h3 class="text-xl font-bold mb-3">Docker Mastery</h3>
             <p class="text-orange-100 mb-6">From containers to orchestration. Deploy your first containerized app in 30 days.</p>
@@ -1862,7 +1812,7 @@ const featuredBooks = computed(() => {
             </div>
           </div>
 
-          <div class="group rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
+          <div class="group bg-pink-600 dark:bg-pink-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
             <div class="text-4xl mb-4">🎤</div>
             <h3 class="text-xl font-bold mb-3">Data Structures 101</h3>
             <p class="text-pink-100 mb-6">Interview prep essentials. Master arrays, linked lists, trees, and graphs in 30 days.</p>
@@ -1873,7 +1823,7 @@ const featuredBooks = computed(() => {
             </div>
           </div>
 
-          <div class="group rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
+          <div class="group bg-indigo-600 dark:bg-indigo-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
             <div class="text-4xl mb-4">🔗</div>
             <h3 class="text-xl font-bold mb-3">Open Source Contributor</h3>
             <p class="text-indigo-100 mb-6">Make 5 meaningful open source contributions in 30 days and grow your portfolio.</p>
@@ -2079,66 +2029,6 @@ const featuredBooks = computed(() => {
           <p class="text-sm text-orange-700 dark:text-orange-300">
             The breakthrough resources aren't the easiest. They're the ones that unlock entire new ways of thinking.
           </p>
-        </div>
-      </UContainer>
-    </div>
-
-    <!-- �🎓 Yearly Developer Roadmap -->
-    <div class="border-t border-gray-200 dark:border-gray-800 dark:from-indigo-950/30 dark:to-blue-950/30">
-      <UContainer class="py-24">
-        <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            🎓 12-Month Developer Roadmap
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Strategic learning plan for 2025. Master a new skill each quarter.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div class="bg-white dark:bg-gray-900 rounded-lg border-l-4 border-l-red-500 p-6 hover:shadow-lg transition-shadow">
-            <div class="text-2xl font-bold text-red-600 dark:text-red-400 mb-2">Q1 (Jan-Mar)</div>
-            <h4 class="font-bold text-gray-900 dark:text-white mb-3">Foundations</h4>
-            <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>✓ Data Structures</li>
-              <li>✓ Algorithms</li>
-              <li>✓ System Design Basics</li>
-              <li>✓ 10 LeetCode problems</li>
-            </ul>
-          </div>
-
-          <div class="bg-white dark:bg-gray-900 rounded-lg border-l-4 border-l-yellow-500 p-6 hover:shadow-lg transition-shadow">
-            <div class="text-2xl font-bold text-yellow-600 dark:text-yellow-400 mb-2">Q2 (Apr-Jun)</div>
-            <h4 class="font-bold text-gray-900 dark:text-white mb-3">Specialization</h4>
-            <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>✓ Deep dive into language</li>
-              <li>✓ Framework mastery</li>
-              <li>✓ Build 2 projects</li>
-              <li>✓ Code review 50 PRs</li>
-            </ul>
-          </div>
-
-          <div class="bg-white dark:bg-gray-900 rounded-lg border-l-4 border-l-green-500 p-6 hover:shadow-lg transition-shadow">
-            <div class="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">Q3 (Jul-Sep)</div>
-            <h4 class="font-bold text-gray-900 dark:text-white mb-3">Open Source</h4>
-            <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>✓ Contribute to OSS</li>
-              <li>✓ 5+ meaningful PRs</li>
-              <li>✓ Lead code review</li>
-              <li>✓ Mentor someone</li>
-            </ul>
-          </div>
-
-          <div class="bg-white dark:bg-gray-900 rounded-lg border-l-4 border-l-blue-500 p-6 hover:shadow-lg transition-shadow">
-            <div class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">Q4 (Oct-Dec)</div>
-            <h4 class="font-bold text-gray-900 dark:text-white mb-3">Elevation</h4>
-            <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>✓ Interview prep</li>
-              <li>✓ Portfolio showcase</li>
-              <li>✓ Conference talk?</li>
-              <li>✓ Reflect & plan 2026</li>
-            </ul>
-          </div>
         </div>
       </UContainer>
     </div>
