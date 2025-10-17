@@ -1,7 +1,7 @@
 id: react-full-stack
-title: "🚀 React Full Stack Mastery"
+title: "React Full Stack Mastery"
 description: "Build production-ready full-stack applications with React, Node.js, and modern tooling. From frontend fundamentals to backend APIs to deployment."
-icon: "⚛️"
+icon: "lucide-atom"
 duration: "6 weeks"
 difficulty: intermediate
 tags:

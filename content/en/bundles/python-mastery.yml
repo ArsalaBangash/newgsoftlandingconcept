@@ -1,7 +1,7 @@
 id: python-mastery
-title: "🐍 Python Developer Mastery"
+title: "Python Developer Mastery"
 description: "Master Python from basics to advanced applications. Build scripts, web applications, data processing pipelines, and dive into AI/ML."
-icon: "🐍"
+icon: "lucide-code-2"
 duration: "8 weeks"
 difficulty: beginner
 tags:

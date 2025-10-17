@@ -1,7 +1,7 @@
 id: java-spring-enterprise
-title: "☕ Java & Spring Boot Enterprise"
+title: "Java & Spring Boot Enterprise"
 description: "Master enterprise Java development with Spring Boot. Build scalable systems used in Fortune 500 companies. Java ecosystem is mature, battle-tested, and here to stay."
-icon: "☕"
+icon: "lucide-coffee"
 duration: "12 weeks"
 difficulty: intermediate
 tags:

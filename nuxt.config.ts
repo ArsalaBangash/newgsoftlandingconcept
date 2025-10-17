@@ -10,6 +10,9 @@ export default defineNuxtConfig({
     '@nuxtjs/seo'
   ],
 
+  image: {
+    dir: 'public'
+  },
 
   colorMode: {
     preference: 'system',
@@ -21,19 +24,6 @@ export default defineNuxtConfig({
     preset: 'netlify',
     alias: {
       'tailwindcss/colors': 'tailwindcss/colors.js'
-    },
-    publicAssets: [
-      {
-        baseURL: '/',
-        dir: 'public',
-        maxAge: 60 * 60 * 24 * 365 // 1 year
-      }
-    ]
-  },
-
-  content: {
-    experimental: {
-      search: false
     }
   },
 

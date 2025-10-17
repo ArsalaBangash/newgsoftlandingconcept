@@ -1,7 +1,7 @@
 id: go-rust-systems
-title: "⚙️ Go & Rust for Systems Programming"
+title: "Go & Rust for Systems Programming"
 description: "Master modern systems languages. Go for cloud infrastructure, Rust for performance-critical systems. These languages are reshaping infrastructure and are increasingly demanded."
-icon: "⚙️"
+icon: "lucide-cpu"
 duration: "10 weeks"
 difficulty: advanced
 tags:

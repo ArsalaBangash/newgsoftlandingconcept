@@ -529,7 +529,7 @@ const featuredBooks = computed(() => {
             Complete, structured learning paths. Stop jumping between resources. Follow these curated bundles from zero to hero in your chosen skill.
           </p>
           <div class="bg-emerald-100 dark:bg-emerald-900/50 border border-emerald-300 dark:border-emerald-700 rounded-lg p-6 max-w-3xl">
-            <p class="text-emerald-900 dark:text-emerald-100 font-medium mb-2">🎯 How It Works</p>
+            <p class="text-emerald-900 dark:text-emerald-100 font-medium mb-2"><strong>How It Works</strong></p>
             <p class="text-emerald-800 dark:text-emerald-200">
               Each bundle combines the best resources in a proven sequence. No more decision paralysis. Pick your goal, follow the path, and level up. Typical completion time: 6-12 weeks depending on pace.
             </p>
@@ -541,9 +541,9 @@ const featuredBooks = computed(() => {
             <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 h-full hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-700 transition-all transform hover:-translate-y-1">
               <!-- Header -->
               <div class="mb-4">
-                <div class="flex items-start justify-between mb-3">
-                  <div>
-                    <div class="text-3xl mb-2">{{ bundle.icon || '🎓' }}</div>
+                <div class="flex items-start gap-3 mb-3">
+                  <UIcon v-if="bundle.icon" :name="bundle.icon" class="w-6 h-6 text-gray-600 dark:text-gray-300 flex-shrink-0 mt-1" />
+                  <div class="flex-1">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
                       {{ bundle.title }}
                     </h3>
@@ -559,12 +559,12 @@ const featuredBooks = computed(() => {
 
               <!-- Duration -->
               <div class="mb-4 p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded border border-emerald-200 dark:border-emerald-800">
-                <p class="text-sm font-semibold text-emerald-900 dark:text-emerald-100">⏱️ {{ bundle.duration }}</p>
+                <p class="text-sm font-semibold text-emerald-900 dark:text-emerald-100"><UIcon name="lucide-clock" class="w-4 h-4 inline-block mr-1" /> {{ bundle.duration }}</p>
               </div>
 
               <!-- Resource Count -->
               <div class="mb-4">
-                <p class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">📦 {{ (bundle.resources || []).length }} Resources</p>
+                <p class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2"><UIcon name="lucide-package" class="w-4 h-4 inline-block mr-1" /> {{ (bundle.resources || []).length }} Resources</p>
                 <ul class="space-y-1 text-xs text-gray-600 dark:text-gray-400">
                   <li v-for="(resource, idx) in (bundle.resources || []).slice(0, 3)" :key="idx" class="flex items-start gap-2">
                     <span class="text-emerald-600 dark:text-emerald-400 font-bold">→</span>

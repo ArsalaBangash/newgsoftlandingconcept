@@ -1,7 +1,7 @@
 id: devops-pro
-title: "🐳 DevOps Engineer Pro"
+title: "DevOps Engineer Pro"
 description: "Master containerization, orchestration, CI/CD pipelines, and cloud infrastructure. From Docker basics to Kubernetes production deployments."
-icon: "🛠️"
+icon: "lucide-container"
 duration: "10 weeks"
 difficulty: intermediate
 tags:

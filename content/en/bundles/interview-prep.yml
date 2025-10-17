@@ -1,7 +1,7 @@
 id: interview-prep
-title: "🎯 FAANG Interview Intensive"
+title: "FAANG Interview Intensive"
 description: "Comprehensive preparation for top-tech interviews. Master algorithms, system design, behavioral questions, and negotiation tactics."
-icon: "💼"
+icon: "lucide-briefcase"
 duration: "12 weeks"
 difficulty: intermediate
 tags:

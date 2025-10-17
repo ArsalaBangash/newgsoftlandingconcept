@@ -1,7 +1,7 @@
 id: web-fundamentals
-title: "🌐 Web Development Fundamentals"
+title: "Web Development Fundamentals"
 description: "Start your web development journey. Master HTML, CSS, JavaScript, and build your first projects from scratch."
-icon: "💻"
+icon: "lucide-globe"
 duration: "12 weeks"
 difficulty: beginner
 tags:

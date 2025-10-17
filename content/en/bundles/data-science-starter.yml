@@ -1,7 +1,7 @@
 id: data-science-starter
-title: "📊 Data Science Starter Pack"
+title: "Data Science Starter Pack"
 description: "Launch your data science journey. Learn statistics, Python, data analysis, and build your first ML models."
-icon: "📈"
+icon: "lucide-bar-chart-3"
 duration: "10 weeks"
 difficulty: intermediate
 tags:

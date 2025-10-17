@@ -1,7 +1,7 @@
 id: php-laravel-backend
-title: "🔧 Modern PHP & Laravel Backend"
+title: "Modern PHP & Laravel Backend"
 description: "Build production-grade web applications with PHP and Laravel. From fundamentals to real-world enterprise applications. PHP powers 77% of the web—it's not going anywhere."
-icon: "🐘"
+icon: "lucide-server"
 duration: "8 weeks"
 difficulty: intermediate
 tags:

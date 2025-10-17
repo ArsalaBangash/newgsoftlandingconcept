@@ -1,7 +1,7 @@
 id: dotnet-csharp-microsoft
-title: "🔷 C# & .NET Modern Enterprise"
+title: "C# & .NET Modern Enterprise"
 description: "Build enterprise applications with C# and .NET. Microsoft's ecosystem powers banking, healthcare, Fortune 500s. Modern .NET is cross-platform, open-source, and incredibly productive."
-icon: "🔷"
+icon: "lucide-layers"
 duration: "12 weeks"
 difficulty: intermediate
 tags:

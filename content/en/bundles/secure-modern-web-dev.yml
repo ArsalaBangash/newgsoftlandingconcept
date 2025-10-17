@@ -1,6 +1,6 @@
 id: secure-modern-web-dev
-title: "🔒 Secure Modern Web Development"
-icon: "🔒"
+title: "Secure Modern Web Development"
+icon: "lucide-shield"
 difficulty: "Intermediate"
 duration: "10 weeks"
 description: "Build secure, privacy-respecting web applications using modern tech. Combines React/Next.js with security best practices, privacy design, and user data protection. For developers who believe the web should be fast, beautiful, AND trustworthy."

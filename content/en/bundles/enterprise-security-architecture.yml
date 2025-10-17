@@ -1,6 +1,6 @@
 id: enterprise-security-architecture
-title: "🏢 Enterprise Security Architecture"
-icon: "🏢"
+title: "Enterprise Security Architecture"
+icon: "lucide-building-2"
 difficulty: "Advanced"
 duration: "12 weeks"
 description: "Secure enterprise systems at scale. Combines Java/Spring, .NET, and DevOps with security best practices. For developers building mission-critical systems where security, compliance, and reliability are non-negotiable."
