@@ -1,5 +1,5 @@
 <template>
-  <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-950 dark:to-blue-950">
+  <div class="border-t border-gray-200 dark:border-gray-800 dark:from-slate-950 dark:to-blue-950">
     <UContainer class="py-24">
       <div class="text-center mb-16">
         <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -12,7 +12,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-          <div class="bg-gradient-to-r from-blue-500 to-cyan-500 p-6">
+          <div class="bg-gradient-to-r p-6">
             <h3 class="text-xl font-bold text-white mb-2">Frontend Developer</h3>
             <p class="text-blue-50 text-sm">Build beautiful, interactive web interfaces</p>
           </div>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-          <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-6">
+          <div class="bg-gradient-to-r p-6">
             <h3 class="text-xl font-bold text-white mb-2">Backend Developer</h3>
             <p class="text-purple-50 text-sm">Master server-side architecture and databases</p>
           </div>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-          <div class="bg-gradient-to-r from-orange-500 to-red-500 p-6">
+          <div class="bg-gradient-to-r p-6">
             <h3 class="text-xl font-bold text-white mb-2">AI/ML Engineer</h3>
             <p class="text-orange-50 text-sm">Build intelligent systems with machine learning</p>
           </div>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-          <div class="bg-gradient-to-r from-green-500 to-teal-500 p-6">
+          <div class="bg-gradient-to-r p-6">
             <h3 class="text-xl font-bold text-white mb-2">DevOps Engineer</h3>
             <p class="text-green-50 text-sm">Deploy, scale, and manage infrastructure</p>
           </div>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-          <div class="bg-gradient-to-r from-indigo-500 to-violet-500 p-6">
+          <div class="bg-gradient-to-r p-6">
             <h3 class="text-xl font-bold text-white mb-2">Full Stack Developer</h3>
             <p class="text-indigo-50 text-sm">Build complete end-to-end applications</p>
           </div>
@@ -97,7 +97,7 @@
         </div>
 
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
-          <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-6">
+          <div class="bg-gradient-to-r p-6">
             <h3 class="text-xl font-bold text-white mb-2">Open Source Champion</h3>
             <p class="text-rose-50 text-sm">Contribute to communities and grow your portfolio</p>
           </div>

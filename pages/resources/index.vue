@@ -168,7 +168,7 @@ const sortOptions = [
           id="resource-filters"
           class="lg:w-64 flex-shrink-0"
         >
-          <div class="sticky top-24">
+          <div class="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pr-2">
             <ResourceFilters 
               v-model="filters"
               :result-count="filteredResources.length"
@@ -177,7 +177,7 @@ const sortOptions = [
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 min-w-0">
+        <div class="flex-1 min-w-0 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pr-2">
           <!-- Search and Sort Bar -->
           <div class="flex flex-col sm:flex-row gap-3 mb-6">
             <div class="relative flex-1">
