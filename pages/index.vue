@@ -103,24 +103,38 @@ const trendingThisWeek = computed(() => {
     })
     .slice(0, 6)
 })
+
+// Books - Filter all book resources
+const allBooks = computed(() => {
+  return (allResources.value || []).filter((r: any) => r.category === 'book' || r.format === 'book')
+})
+
+// Open Source Books - Free books on GitHub
+const openSourceBooks = computed(() => {
+  return allBooks.value.filter((r: any) => r.isOpenSource && r.isFree)
+})
+
+// Featured Books
+const featuredBooks = computed(() => {
+  return allBooks.value.filter((r: any) => r.featured)
+})
 </script>
 
 <template>
   <div>
     <HomeHero />
     <HomeFeatures />
-
     <!-- 🎯 Quick Decision Tool - Find Your Path -->
-    <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
+    <div class="bg-white dark:bg-black">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">🎯</span>
             <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">
               What Should You Learn Next?
             </h2>
           </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
             Overwhelmed by choices? Answer a few quick questions and we'll point you to the perfect resources for your situation.
           </p>
         </div>
@@ -198,17 +212,17 @@ const trendingThisWeek = computed(() => {
     <!-- ⭐ Expert Essentials - The Non-Negotiables -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 dark:from-indigo-950/40 dark:via-blue-950/40 dark:to-cyan-950/40">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">⭐</span>
             <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-300 dark:to-cyan-300 bg-clip-text text-transparent">
               Expert Essentials
             </h2>
           </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
             The non-negotiable resources every serious developer needs to know. These are the foundations that separate capable engineers from exceptional ones.
           </p>
-          <div class="bg-indigo-100 dark:bg-indigo-900/50 border border-indigo-300 dark:border-indigo-700 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-indigo-100 dark:bg-indigo-900/50 border border-indigo-300 dark:border-indigo-700 rounded-lg p-6 max-w-3xl">
             <p class="text-indigo-900 dark:text-indigo-100 font-medium mb-2">🎯 Why Master These First?</p>
             <p class="text-indigo-800 dark:text-indigo-200">
               These curated essentials have been battle-tested by tens of thousands of developers. They build the foundational skills that unlock everything else—from landing your first dev job to architecting systems at scale.
@@ -237,7 +251,7 @@ const trendingThisWeek = computed(() => {
 
         <div class="mt-8 flex justify-center">
           <NuxtLink
-            to="/resources"
+            to="/resources?featured=true"
             class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold underline underline-offset-4"
           >
             See all featured resources →
@@ -249,14 +263,14 @@ const trendingThisWeek = computed(() => {
     <!-- 🔥 Trending This Week -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-b from-orange-50 to-orange-100/50 dark:from-orange-950/30 dark:to-orange-900/20">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-2">
+        <div class="mb-16">
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
             🔥 Trending This Week
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             The hottest resources spotted in the developer community - fresh updates and handpicked favorites.
           </p>
-          <div class="bg-orange-100 dark:bg-orange-950/50 border border-orange-300 dark:border-orange-700 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-orange-100 dark:bg-orange-950/50 border border-orange-300 dark:border-orange-700 rounded-lg p-6 max-w-3xl">
             <p class="text-orange-800 dark:text-orange-200 font-medium mb-2">⚡ Stay Ahead of the Curve:</p>
             <p class="text-orange-700 dark:text-orange-300">
               "The tech landscape shifts faster than ever. These trending resources represent what the developer community is buzzing about right now. By diving into what's hot, you're not just learning - you're staying competitive and discovering tools before they hit the mainstream. What will you master this week?"
@@ -290,7 +304,7 @@ const trendingThisWeek = computed(() => {
     <!-- ⭐ Best of This Month -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-950/30 dark:to-yellow-950/30">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             ⭐ Editor's Picks - October 2025
           </h2>
@@ -339,7 +353,7 @@ const trendingThisWeek = computed(() => {
     <!-- 🏃 Speed Run - Crash Courses -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             🏃 Speed Run - Learn in Hours, Not Weeks
           </h2>
@@ -389,7 +403,7 @@ const trendingThisWeek = computed(() => {
     <!-- Resource Discovery Filters -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
       <UContainer class="py-16">
-        <div class="text-center mb-12">
+        <div class="mb-12">
           <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
             Discover Your Perfect Resource
           </h2>
@@ -465,14 +479,14 @@ const trendingThisWeek = computed(() => {
     <!-- Quick Wins -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-green-50 dark:bg-green-950">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             ⚡ Quick Wins (< 2 hours)
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Fast-track your learning with bite-sized resources you can complete today.
           </p>
-          <div class="bg-green-100 dark:bg-green-950/50 border border-green-300 dark:border-green-700 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-green-100 dark:bg-green-950/50 border border-green-300 dark:border-green-700 rounded-lg p-6 max-w-3xl">
             <p class="text-green-800 dark:text-green-200 font-medium mb-2">🚀 Your Productivity Coach Says:</p>
             <p class="text-green-700 dark:text-green-300">
               "Every expert was once a beginner, and every journey starts with small steps. These quick wins are your training wheels - perfect for building momentum without overwhelm. Complete one today, and you'll feel that satisfying 'I got this' confidence boost. Consistency compounds!"
@@ -504,17 +518,17 @@ const trendingThisWeek = computed(() => {
     <!-- 👑 Master's Collection - Elite Resources -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-purple-950/40 dark:via-pink-950/40 dark:to-rose-950/40">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">👑</span>
             <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-300 dark:to-pink-300 bg-clip-text text-transparent">
               Master's Collection
             </h2>
           </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
             The most transformative, battle-tested resources handpicked by experts. These are the tools that accelerate careers and change how developers think.
           </p>
-          <div class="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 border border-purple-200 dark:border-purple-800 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 border border-purple-200 dark:border-purple-800 rounded-lg p-6 max-w-3xl">
             <p class="text-purple-900 dark:text-purple-100 font-medium mb-2">✨ Why This Collection?</p>
             <p class="text-purple-800 dark:text-purple-200">
               Each resource here has proven itself across thousands of developers. Not just good—transformative. Master these foundations and you'll build, debug, and design with confidence others take years to achieve.
@@ -543,7 +557,7 @@ const trendingThisWeek = computed(() => {
 
         <div v-if="featuredResources.length > 8" class="text-center mt-12">
           <NuxtLink
-            to="/resources"
+            to="/resources?featured=true"
             class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105"
           >
             Explore All Featured Resources
@@ -558,17 +572,17 @@ const trendingThisWeek = computed(() => {
     <!-- 📚 Learning Bundles - Complete Skill Paths -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">📚</span>
             <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-300 dark:to-teal-300 bg-clip-text text-transparent">
               Learning Bundles
             </h2>
           </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
             Complete, structured learning paths. Stop jumping between resources. Follow these curated bundles from zero to hero in your chosen skill.
           </p>
-          <div class="bg-emerald-100 dark:bg-emerald-900/50 border border-emerald-300 dark:border-emerald-700 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-emerald-100 dark:bg-emerald-900/50 border border-emerald-300 dark:border-emerald-700 rounded-lg p-6 max-w-3xl">
             <p class="text-emerald-900 dark:text-emerald-100 font-medium mb-2">🎯 How It Works</p>
             <p class="text-emerald-800 dark:text-emerald-200">
               Each bundle combines the best resources in a proven sequence. No more decision paralysis. Pick your goal, follow the path, and level up. Typical completion time: 6-12 weeks depending on pace.
@@ -652,17 +666,17 @@ const trendingThisWeek = computed(() => {
     <!-- 🌍 Real World Tech Stacks - What Actually Powers the Internet -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-950/50 dark:to-gray-950/50">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">🌍</span>
             <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-slate-600 to-gray-600 dark:from-slate-300 dark:to-gray-300 bg-clip-text text-transparent">
               Real World Tech Stacks
             </h2>
           </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
             Forget the JavaScript bubble. Here's what ACTUALLY powers production systems worldwide—and why learning these gives you job security and higher pay.
           </p>
-          <div class="bg-slate-100 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-slate-100 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-lg p-6 max-w-3xl">
             <p class="text-slate-900 dark:text-slate-100 font-medium mb-2">📊 Real Numbers</p>
             <p class="text-slate-800 dark:text-slate-200 text-sm">
               77% of all websites use PHP. Java powers global banking and healthcare. .NET dominates enterprises. WordPress runs 43% of the web. These aren't dying technologies—they're the backbone of the digital world. Companies NEED developers who understand these systems.
@@ -833,17 +847,17 @@ const trendingThisWeek = computed(() => {
     <!-- 🔐 Freedom Through Code - Digital Rights, Privacy, and Open Systems -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/50 dark:via-purple-950/50 dark:to-pink-950/50">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">🔐</span>
             <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-300 dark:via-purple-300 dark:to-pink-300 bg-clip-text text-transparent">
               Freedom Through Code
             </h2>
           </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto font-medium">
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-3xl font-medium">
             Technology is a tool for human dignity. Privacy, security, and open systems enable people worldwide to communicate freely, access knowledge, and protect their rights.
           </p>
-          <div class="max-w-4xl mx-auto space-y-4 text-left">
+          <div class="max-w-4xl space-y-4 text-left">
             <div class="bg-white/50 dark:bg-gray-900/30 border border-indigo-200 dark:border-indigo-800 rounded-lg p-6">
               <p class="text-gray-800 dark:text-gray-200 mb-3">
                 <span class="font-bold text-indigo-600 dark:text-indigo-400">🌍 Knowledge as Liberation:</span> In countries with limited internet access or government censorship, understanding cryptography, internet architecture, and open-source principles can be life-changing. Technology is a path to truth, education, and connection.
@@ -994,7 +1008,7 @@ const trendingThisWeek = computed(() => {
           </NuxtLink>
         </div>
 
-        <div class="mt-12 text-center text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        <div class="mt-12 text-center text-sm text-gray-600 dark:text-gray-400 max-w-2xl">
           <p class="mb-2">
             <span class="font-semibold">Note:</span> This content is not political. These resources serve universal human values: dignity, freedom of thought, access to knowledge, and the ability to protect oneself. They're relevant everywhere—in democracies and restrictive regimes alike.
           </p>
@@ -1005,14 +1019,14 @@ const trendingThisWeek = computed(() => {
     <!-- ⚔️ Resource Showdowns - Head-to-Head Comparisons -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/40 dark:to-orange-950/40">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">⚔️</span>
             <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-300 dark:to-orange-300 bg-clip-text text-transparent">
               Resource Showdowns
             </h2>
           </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
             Can't decide between similar resources? Here's how they stack up against each other.
           </p>
         </div>
@@ -1147,17 +1161,17 @@ const trendingThisWeek = computed(() => {
     <!-- 🚀 Developer Success Stories - Real Journeys, Real Results -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 dark:from-red-950/40 dark:via-orange-950/40 dark:to-yellow-950/40">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <div class="inline-flex items-center gap-2 mb-4">
             <span class="text-3xl">🚀</span>
             <h2 class="text-3xl sm:text-4xl font-semibold bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-300 dark:to-orange-300 bg-clip-text text-transparent">
               Success Stories
             </h2>
           </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
             Real developers. Real outcomes. See how they used these resources to transform their careers.
           </p>
-          <div class="bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 rounded-lg p-6 max-w-3xl">
             <p class="text-red-900 dark:text-red-100 font-medium mb-2">✨ These are real stories from freeCodeCamp, Scrimba, YouTube creators, and open-source communities</p>
             <p class="text-red-800 dark:text-red-200">
               From career changers to indie hackers to engineers at Google and Netflix—these developers used the resources on this site to achieve their dreams. No fluff, no fake testimonials. Just real paths to real outcomes.
@@ -1258,14 +1272,14 @@ const trendingThisWeek = computed(() => {
     <!-- New This Month -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             ✨ New This Month
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Fresh resources added to help you stay current with the latest in development.
           </p>
-          <div class="bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800 rounded-lg p-6 max-w-3xl">
             <p class="text-indigo-800 dark:text-indigo-200 font-medium mb-2">🔄 Your Growth Mindset Coach Says:</p>
             <p class="text-indigo-700 dark:text-indigo-300">
               "Technology evolves fast, and so should you! These fresh resources represent the cutting edge of development. By staying current, you're not just learning - you're future-proofing your career. Every month brings new opportunities to level up. What's one new skill you'll tackle this month?"
@@ -1297,7 +1311,7 @@ const trendingThisWeek = computed(() => {
     <!-- Latest Resources Preview -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             Dive Into Our Latest Resources
           </h2>
@@ -1341,7 +1355,7 @@ const trendingThisWeek = computed(() => {
     <!-- 🤝 Perfect Study Buddy Combinations -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-b from-cyan-50 to-blue-50 dark:from-cyan-950/30 dark:to-blue-950/30">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             🤝 Study Buddy Packs
           </h2>
@@ -1503,14 +1517,14 @@ const trendingThisWeek = computed(() => {
     <!-- 💎 Hidden Gems - Underrated Resources -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50 dark:from-violet-950/30 dark:via-purple-950/30 dark:to-pink-950/30">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-2">
+        <div class="mb-16">
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
             💎 Hidden Gems
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Underrated, high-quality resources that deserve more attention. These won't find you—you have to find them.
           </p>
-          <div class="bg-violet-100 dark:bg-violet-950/50 border border-violet-300 dark:border-violet-700 rounded-lg p-6 max-w-3xl mx-auto">
+          <div class="bg-violet-100 dark:bg-violet-950/50 border border-violet-300 dark:border-violet-700 rounded-lg p-6 max-w-3xl">
             <p class="text-violet-800 dark:text-violet-200 font-medium mb-2">🔮 The Scout's Insight:</p>
             <p class="text-violet-700 dark:text-violet-300">
               "The best resources are often hidden in plain sight, undiscovered by the masses. While everyone follows the beaten path, explorers find the treasures. These gems are less popular but equally (or more) valuable. Be the developer who knows about them."
@@ -1542,10 +1556,189 @@ const trendingThisWeek = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 🔥 Skills on Fire - Hot Skills This Season -->
+    <!-- � Books - Learn from the Masters -->
+    <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-yellow-950/30">
+      <UContainer class="py-24">
+        <div class="mb-16">
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            📚 Books - Deep Learning for the Committed
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+            For those who learn best through books. The depth, structure, and comprehensiveness that only books provide.
+          </p>
+        </div>
+
+        <!-- Strategic Book Learning Paths -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          
+          <!-- Open Source Books on GitHub -->
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border-2 border-green-300 dark:border-green-700 p-8 shadow-lg">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="text-5xl">🌟</div>
+              <div>
+                <h3 class="text-2xl font-bold text-green-900 dark:text-green-100 mb-2">
+                  Free & Open Source Books
+                </h3>
+                <p class="text-green-700 dark:text-green-300 text-sm">
+                  Generously shared by expert authors on GitHub
+                </p>
+              </div>
+            </div>
+            
+            <div class="bg-white/60 dark:bg-gray-900/60 rounded-lg p-6 mb-6">
+              <p class="text-gray-700 dark:text-gray-300 mb-4">
+                <span class="font-semibold text-green-800 dark:text-green-200">The Open Source Way:</span> Some of the world's best technical books are completely free and open source. Authors have generously made their life's work available to anyone with internet access.
+              </p>
+              <div class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Free forever, no sign-up required</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400 mt-2">
+                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Read online or download as PDF/ePub</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400 mt-2">
+                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Active communities & often updated</span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div v-for="book in openSourceBooks.slice(0, 4)" :key="book.path" class="bg-white dark:bg-gray-900 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                <div class="flex items-start justify-between gap-3">
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-gray-900 dark:text-white mb-1">{{ book.title }}</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-2">{{ book.description }}</p>
+                    <div class="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-500">
+                      <span class="flex items-center gap-1">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        {{ book.githubStars || 'Many' }}
+                      </span>
+                      <span>•</span>
+                      <span class="px-2 py-0.5 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded font-medium">FREE</span>
+                    </div>
+                  </div>
+                  <a :href="book.url" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 p-2 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-lg transition-colors">
+                    <svg class="w-5 h-5 text-green-700 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <UButton to="/resources?category=book&isOpenSource=true" size="lg" color="success" variant="solid" class="w-full mt-6">
+              Explore All Free Books →
+            </UButton>
+          </div>
+
+          <!-- O'Reilly - The Industry Standard -->
+          <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-950/50 dark:to-red-950/50 rounded-xl border-2 border-orange-300 dark:border-orange-700 p-8 shadow-lg">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="text-5xl">🎓</div>
+              <div>
+                <h3 class="text-2xl font-bold text-orange-900 dark:text-orange-100 mb-2">
+                  O'Reilly Learning Platform
+                </h3>
+                <p class="text-orange-700 dark:text-orange-300 text-sm">
+                  The undisputed champion of technical books
+                </p>
+              </div>
+            </div>
+            
+            <div class="bg-white/60 dark:bg-gray-900/60 rounded-lg p-6 mb-6">
+              <p class="text-gray-700 dark:text-gray-300 mb-4">
+                <span class="font-semibold text-orange-800 dark:text-orange-200">The Gold Standard:</span> O'Reilly has been the trusted name in technical education for decades. If you're serious about mastering a technology deeply, O'Reilly books are the benchmark.
+              </p>
+              <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>60,000+ books, courses, and videos</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>Written by industry experts & practitioners</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>Live online training & certifications</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>Constantly updated with latest technologies</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-orange-100 dark:bg-orange-900/50 rounded-lg p-4 mb-6 border border-orange-300 dark:border-orange-700">
+              <p class="text-sm font-semibold text-orange-900 dark:text-orange-100 mb-2">💡 Student Discount Available</p>
+              <p class="text-sm text-orange-800 dark:text-orange-200">
+                Many universities provide free O'Reilly access through their library. Check if your school has an institutional subscription—you might already have access!
+              </p>
+            </div>
+
+            <div class="space-y-3 mb-6">
+              <div class="bg-white dark:bg-gray-900 rounded-lg p-4 border border-orange-200 dark:border-orange-800">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Popular O'Reilly Titles:</h4>
+                <ul class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                  <li class="flex items-center gap-2">
+                    <span class="text-orange-600 dark:text-orange-400">•</span>
+                    <span>Designing Data-Intensive Applications</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-orange-600 dark:text-orange-400">•</span>
+                    <span>Head First Design Patterns</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-orange-600 dark:text-orange-400">•</span>
+                    <span>Learning Python (5th Edition)</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-orange-600 dark:text-orange-400">•</span>
+                    <span>Kubernetes Up & Running</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <a href="https://www.oreilly.com/library-access/" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-6 py-3 bg-orange-600 hover:bg-orange-700 dark:bg-orange-700 dark:hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors">
+              Check O'Reilly Learning →
+            </a>
+          </div>
+        </div>
+
+        <!-- All Books Browse -->
+        <div class="text-center pt-8 border-t border-amber-200 dark:border-amber-800">
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            Looking for something specific? Browse our complete curated collection of {{ allBooks.length }} technical books
+          </p>
+          <UButton to="/resources?category=book" size="lg" variant="outline">
+            Browse All Books →
+          </UButton>
+        </div>
+      </UContainer>
+    </div>
+
+    <!-- �🔥 Skills on Fire - Hot Skills This Season -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             🔥 Skills on Fire (2025)
           </h2>
@@ -1574,7 +1767,7 @@ const trendingThisWeek = computed(() => {
                 <span class="text-gray-700 dark:text-gray-300">PyTorch Deep Learning - Hands-on</span>
               </div>
             </div>
-            <UButton to="/resources?category=course" size="sm" variant="outline" class="mt-6 w-full">
+            <UButton to="/resources?topics=AI+%26+Machine+Learning" size="sm" variant="outline" class="mt-6 w-full">
               Explore AI/ML Courses →
             </UButton>
           </div>
@@ -1598,7 +1791,7 @@ const trendingThisWeek = computed(() => {
                 <span class="text-gray-700 dark:text-gray-300">CI/CD Pipeline Automation</span>
               </div>
             </div>
-            <UButton to="/resources?category=course" size="sm" variant="outline" class="mt-6 w-full">
+            <UButton to="/resources?topics=Cloud+%26+DevOps" size="sm" variant="outline" class="mt-6 w-full">
               Explore DevOps Resources →
             </UButton>
           </div>
@@ -1615,7 +1808,7 @@ const trendingThisWeek = computed(() => {
     <!-- 🎯 30-Day Challenges - Sprint Learning -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             🎯 30-Day Challenges
           </h2>
@@ -1703,7 +1896,7 @@ const trendingThisWeek = computed(() => {
     <!-- 👨‍💻 Learn Like the Pros - Expert Strategies -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-950 dark:to-gray-950">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             👨‍💻 Learn Like the Pros
           </h2>
@@ -1803,7 +1996,7 @@ const trendingThisWeek = computed(() => {
     <!-- � Breakthrough Moments - The "Aha!" Resources -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-950/30 dark:to-orange-950/30">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             🌟 Breakthrough Resources - "Aha!" Moments
           </h2>
@@ -1893,7 +2086,7 @@ const trendingThisWeek = computed(() => {
     <!-- �🎓 Yearly Developer Roadmap -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/30">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             🎓 12-Month Developer Roadmap
           </h2>
@@ -1953,7 +2146,7 @@ const trendingThisWeek = computed(() => {
     <!-- Learning Paths -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-950 dark:to-blue-950">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">🗺️ Learning Paths</h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">Structured journeys from beginner to expert. Pick your destination and start learning.</p>
         </div>
@@ -1972,7 +2165,7 @@ const trendingThisWeek = computed(() => {
     <!-- 🔥 Controversial Truths - Hot Takes on Learning -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-gradient-to-br from-rose-50 to-red-50 dark:from-rose-950/30 dark:to-red-950/30">
       <UContainer class="py-24">
-        <div class="text-center mb-16">
+        <div class="mb-16">
           <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
             🔥 Controversial Truths About Learning to Code
           </h2>
