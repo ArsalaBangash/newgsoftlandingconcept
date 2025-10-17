@@ -1,0 +1,2 @@
+# Serve static assets
+/images/* /images/:splat 200

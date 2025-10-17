@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   // @ts-ignore - @nuxt/image types not fully compatible with Nuxt 4
   image: {
     provider: 'ipx',
-    dir: 'public'
+    ipx: {}
   },
 
   colorMode: {

@@ -1,7 +1,4 @@
 [build]
   command = "pnpm run build"
+  publish = "dist"
 
-[build.environment]
-  NUXT_IMAGE_PROVIDER = "ipx"
-  # Tell IPX not to use Sharp
-  NUXT_IMAGE_IPX_SHARP = "false"

@@ -9,19 +9,15 @@ const appConfig = useAppConfig()
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900 dark:text-white hover:text-accent transition-colors">
-          <NuxtImg 
+          <img 
             src="/images/logo-black-unpadded.png" 
             alt="Grey Software Logo" 
             class="h-6 w-auto dark:hidden"
-            preload
-            format="png"
           />
-          <NuxtImg 
+          <img 
             src="/images/logo-white-unpadded.png" 
             alt="Grey Software Logo" 
             class="h-8 w-auto hidden dark:block"
-            preload
-            format="png"
           />
           <span class="sr-only">Grey Software</span>
         </NuxtLink>
