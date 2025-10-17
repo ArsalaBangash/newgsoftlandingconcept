@@ -13,7 +13,7 @@ isOpenSource: true
 url: "https://www.techinterviewhandbook.org"
 estimatedTime: "Variable"
 publishedAt: "2018-01-01"
-featured: false
+featured: true
 ---
 
 # Tech Interview Handbook

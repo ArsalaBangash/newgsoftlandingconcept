@@ -13,7 +13,7 @@ isOpenSource: false
 url: "https://nextjs.org/learn"
 estimatedTime: "10 hours"
 publishedAt: "2023-10-01"
-featured: false
+featured: true
 ---
 
 # Next.js 14 Official Learn Course

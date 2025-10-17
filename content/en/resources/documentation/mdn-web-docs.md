@@ -13,7 +13,7 @@ isOpenSource: true
 url: "https://developer.mozilla.org"
 estimatedTime: "Variable"
 publishedAt: "2005-01-01"
-featured: false
+featured: true
 ---
 
 # MDN Web Docs

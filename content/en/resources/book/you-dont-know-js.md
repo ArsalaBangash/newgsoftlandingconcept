@@ -13,7 +13,7 @@ isOpenSource: true
 url: "https://github.com/getify/You-Dont-Know-JS"
 estimatedTime: "50 hours"
 publishedAt: "2014-01-01"
-featured: false
+featured: true
 ---
 
 # You Don't Know JS (Book Series)
