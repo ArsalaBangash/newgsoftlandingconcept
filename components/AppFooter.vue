@@ -11,7 +11,6 @@ const resourceCategories = [
 
 const quickLinks = [
   { label: 'All Resources', to: '/resources' },
-  { label: 'Learning Roadmaps', to: '/roadmaps' },
   { label: 'Blog', to: '/blog' },
   { label: 'About', to: '/about' }
 ]

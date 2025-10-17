@@ -124,12 +124,12 @@ const featuredBooks = computed(() => {
   <div>
     <HomeHero />
     <HomeFeatures />
-    <!-- 🎯 Quick Decision Tool - Find Your Path -->
+    <!-- Quick Decision Tool - Find Your Path -->
     <div class="bg-white dark:bg-black">
       <UContainer class="py-24">
         <div class="mb-16">
-          <div class="inline-flex items-center gap-2 mb-4">
-            <span class="text-3xl">🎯</span>
+          <div class="inline-flex items-center gap-3 mb-4">
+            <UIcon name="lucide-target" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
             <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">
               What Should You Learn Next?
             </h2>
@@ -140,65 +140,53 @@ const featuredBooks = computed(() => {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Career Change -->
-          <div class="dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
-            <div class="text-4xl mb-3">🔄</div>
+          <NuxtLink to="/resources?difficulty=beginner&category=course" class="rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow group block">
+            <div class="mb-3"><UIcon name="lucide-refresh-ccw" class="w-7 h-7 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="font-bold text-gray-900 dark:text-white mb-2">Career Change?</h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
-              You're switching fields. You need structured, beginner-friendly resources.
-            </p>
-            <a href="/resources?difficulty=beginner&category=course" class="inline-flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300">
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">You're switching fields. You need structured, beginner-friendly resources.</p>
+            <div class="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 group-hover:text-accent">
               Find Beginner Courses
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
-          </div>
+            </div>
+          </NuxtLink>
 
-          <!-- Interview Prep -->
-          <div class="dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg border border-blue-200 dark:border-blue-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
-            <div class="text-4xl mb-3">💼</div>
+          <NuxtLink to="/resources?tags=interview-prep&category=practice" class="rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow group block">
+            <div class="mb-3"><UIcon name="lucide-briefcase" class="w-7 h-7 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="font-bold text-gray-900 dark:text-white mb-2">Interview Prep?</h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
-              You're preparing for technical interviews. You need focused, battle-tested resources.
-            </p>
-            <a href="/resources?tags=interview-prep&category=practice" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">You're preparing for technical interviews. You need focused, battle-tested resources.</p>
+            <div class="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 group-hover:text-accent">
               Interview Resources
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
-          </div>
+            </div>
+          </NuxtLink>
 
-          <!-- Skill Deepening -->
-          <div class="dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg border border-purple-200 dark:border-purple-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
-            <div class="text-4xl mb-3">🚀</div>
+          <NuxtLink to="/resources?difficulty=advanced" class="rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow group block">
+            <div class="mb-3"><UIcon name="lucide-rocket" class="w-7 h-7 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="font-bold text-gray-900 dark:text-white mb-2">Level Up Existing Skills?</h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
-              You know basics. You want to master advanced concepts and patterns.
-            </p>
-            <a href="/resources?difficulty=advanced" class="inline-flex items-center gap-2 text-sm font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">You know basics. You want to master advanced concepts and patterns.</p>
+            <div class="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 group-hover:text-accent">
               Advanced Resources
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
-          </div>
+            </div>
+          </NuxtLink>
 
-          <!-- Quick Practice -->
-          <div class="dark:from-orange-900/20 dark:to-red-900/20 rounded-lg border border-orange-200 dark:border-orange-800 p-6 hover:shadow-lg transition-shadow cursor-pointer group">
-            <div class="text-4xl mb-3">⚡</div>
+          <NuxtLink to="#learning-bundles" class="rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow group block">
+            <div class="mb-3"><UIcon name="lucide-zap" class="w-7 h-7 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="font-bold text-gray-900 dark:text-white mb-2">Quick Learning Sprints?</h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
-              You have limited time. You want intensive, high-impact learning bundles.
-            </p>
-            <a href="#learning-bundles" class="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300">
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">You have limited time. You want intensive, high-impact learning bundles.</p>
+            <div class="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 group-hover:text-accent">
               Browse Learning Bundles
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
-          </div>
+            </div>
+          </NuxtLink>
         </div>
 
         <div class="mt-12 p-6 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800">
@@ -209,13 +197,13 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- ⭐ Expert Essentials - The Non-Negotiables -->
+    <!-- Expert Essentials - The Non-Negotiables -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-indigo-950/40 dark:via-blue-950/40 dark:to-cyan-950/40">
       <UContainer class="py-24">
         <div class="mb-16">
-          <div class="inline-flex items-center gap-2 mb-4">
-            <span class="text-3xl">⭐</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-indigo-300 dark:to-cyan-300">
+          <div class="inline-flex items-center gap-3 mb-4">
+            <UIcon name="lucide-star" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">
               Expert Essentials
             </h2>
           </div>
@@ -260,12 +248,13 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 🔥 Trending This Week -->
+    <!-- Trending This Week -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-orange-950/30 dark:to-orange-900/20">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-            🔥 Trending This Week
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-flame" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            Trending This Week
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             The hottest resources spotted in the developer community - fresh updates and handpicked favorites.
@@ -301,12 +290,13 @@ const featuredBooks = computed(() => {
 
     <HomePartners :partners="partners" />
 
-    <!-- ⭐ Best of This Month -->
+    <!-- Editor's Picks - Best of This Month -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-amber-950/30 dark:to-yellow-950/30">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            ⭐ Editor's Picks - October 2025
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-star" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            Editor's Picks - October 2025
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Hand-curated by our team. These resources stood out this month.
@@ -315,7 +305,9 @@ const featuredBooks = computed(() => {
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
-            <div class="h-40 flex items-center justify-center text-6xl">📊</div>
+            <div class="h-40 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+              <UIcon name="lucide-bar-chart" class="w-16 h-16 text-gray-600 dark:text-gray-300" />
+            </div>
             <div class="p-6 bg-white dark:bg-gray-900">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">System Design Primer</h3>
               <p class="text-gray-600 dark:text-gray-400 mb-4">Master distributed systems architecture like the pros. 80-hour deep dive into scalability.</p>
@@ -326,7 +318,9 @@ const featuredBooks = computed(() => {
           </div>
 
           <div class="rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
-            <div class="h-40 flex items-center justify-center text-6xl">🤖</div>
+            <div class="h-40 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+              <UIcon name="lucide-bot" class="w-16 h-16 text-gray-600 dark:text-gray-300" />
+            </div>
             <div class="p-6 bg-white dark:bg-gray-900">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Google ML Crash Course</h3>
               <p class="text-gray-600 dark:text-gray-400 mb-4">15-hour interactive course on machine learning fundamentals from Google engineers. No prerequisites needed.</p>
@@ -337,7 +331,9 @@ const featuredBooks = computed(() => {
           </div>
 
           <div class="rounded-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
-            <div class="h-40 flex items-center justify-center text-6xl">🚀</div>
+            <div class="h-40 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+              <UIcon name="lucide-rocket" class="w-16 h-16 text-gray-600 dark:text-gray-300" />
+            </div>
             <div class="p-6 bg-white dark:bg-gray-900">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Full Stack Open 2024</h3>
               <p class="text-gray-600 dark:text-gray-400 mb-4">Complete modern web stack: React, Node, MongoDB, GraphQL. 11 parts, thousands of hours invested in quality.</p>
@@ -519,13 +515,13 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 📚 Learning Bundles - Complete Skill Paths -->
+    <!-- Learning Bundles - Complete Skill Paths -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-emerald-950/40 dark:to-teal-950/40">
       <UContainer class="py-24">
         <div class="mb-16">
-          <div class="inline-flex items-center gap-2 mb-4">
-            <span class="text-3xl">📚</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-emerald-300 dark:to-teal-300">
+          <div class="inline-flex items-center gap-3 mb-4">
+            <UIcon name="lucide-library" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">
               Learning Bundles
             </h2>
           </div>
@@ -1108,13 +1104,13 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 🚀 Developer Success Stories - Real Journeys, Real Results -->
+    <!-- Developer Success Stories - Real Journeys, Real Results -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-red-950/40 dark:via-orange-950/40 dark:to-yellow-950/40">
       <UContainer class="py-24">
         <div class="mb-16">
-          <div class="inline-flex items-center gap-2 mb-4">
-            <span class="text-3xl">🚀</span>
-            <h2 class="text-3xl sm:text-4xl font-semibold dark:from-red-300 dark:to-orange-300">
+          <div class="inline-flex items-center gap-3 mb-4">
+            <UIcon name="lucide-trophy" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">
               Success Stories
             </h2>
           </div>
@@ -1223,8 +1219,9 @@ const featuredBooks = computed(() => {
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-blue-950 dark:to-indigo-950">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            ✨ New This Month
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-sparkles" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            New This Month
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Fresh resources added to help you stay current with the latest in development.
@@ -1302,12 +1299,13 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 🤝 Perfect Study Buddy Combinations -->
+    <!-- Study Buddy Packs - Perfect Combinations -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-cyan-950/30 dark:to-blue-950/30">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            🤝 Study Buddy Packs
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-users" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            Study Buddy Packs
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Complementary resource combinations for accelerated learning. Use these together for 2x impact.
@@ -1464,12 +1462,13 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 💎 Hidden Gems - Underrated Resources -->
+    <!-- Hidden Gems - Underrated Resources -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-violet-950/30 dark:via-purple-950/30 dark:to-pink-950/30">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-            💎 Hidden Gems
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-gem" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            Hidden Gems
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Underrated, high-quality resources that deserve more attention. These won't find you—you have to find them.
@@ -1755,88 +1754,87 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 🎯 30-Day Challenges - Sprint Learning -->
+    <!-- 30-Day Challenges - Sprint Learning (muted colors, iconography) -->
     <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            🎯 30-Day Challenges
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-target" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            30-Day Challenges
           </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Bite-sized learning sprints. Pick one and commit for 30 days.
-          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">Bite-sized learning sprints. Pick one and commit for 30 days.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="group bg-blue-600 dark:bg-blue-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
-            <div class="text-4xl mb-4">🚀</div>
+          <NuxtLink to="#learning-bundles" class="group bg-white dark:bg-gray-900 rounded-lg p-8 text-gray-900 dark:text-white hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-800 block">
+            <div class="mb-4"><UIcon name="lucide-rocket" class="w-8 h-8 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="text-xl font-bold mb-3">React in 30 Days</h3>
-            <p class="text-blue-100 mb-6">Build 3 projects while learning React fundamentals, hooks, and component patterns.</p>
-            <div class="text-sm text-blue-200 space-y-2">
-              <div>📝 Day 1-10: Basics & Components</div>
-              <div>📝 Day 11-20: Hooks & State</div>
-              <div>📝 Day 21-30: Real Project</div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-6">Build 3 projects while learning React fundamentals, hooks, and component patterns.</p>
+            <div class="text-sm text-gray-500 space-y-2">
+              <div>Day 1-10: Basics & Components</div>
+              <div>Day 11-20: Hooks & State</div>
+              <div>Day 21-30: Real Project</div>
             </div>
-          </div>
+          </NuxtLink>
 
-          <div class="group bg-purple-600 dark:bg-purple-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
-            <div class="text-4xl mb-4">🐍</div>
+          <NuxtLink to="#learning-bundles" class="group bg-white dark:bg-gray-900 rounded-lg p-8 text-gray-900 dark:text-white hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-800 block">
+            <div class="mb-4"><UIcon name="lucide-activity" class="w-8 h-8 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="text-xl font-bold mb-3">Python Fundamentals</h3>
-            <p class="text-purple-100 mb-6">Master Python basics through daily exercises and mini-projects. Perfect for beginners.</p>
-            <div class="text-sm text-purple-200 space-y-2">
-              <div>📝 Day 1-10: Syntax & Types</div>
-              <div>📝 Day 11-20: Functions & Loops</div>
-              <div>📝 Day 21-30: Mini Programs</div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-6">Master Python basics through daily exercises and mini-projects. Perfect for beginners.</p>
+            <div class="text-sm text-gray-500 space-y-2">
+              <div>Day 1-10: Syntax & Types</div>
+              <div>Day 11-20: Functions & Loops</div>
+              <div>Day 21-30: Mini Programs</div>
             </div>
-          </div>
+          </NuxtLink>
 
-          <div class="group bg-green-600 dark:bg-green-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
-            <div class="text-4xl mb-4">🎨</div>
+          <NuxtLink to="#learning-bundles" class="group bg-white dark:bg-gray-900 rounded-lg p-8 text-gray-900 dark:text-white hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-800 block">
+            <div class="mb-4"><UIcon name="lucide-paint" class="w-8 h-8 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="text-xl font-bold mb-3">Frontend Design</h3>
-            <p class="text-green-100 mb-6">Learn CSS, Tailwind, and design systems by building 3 beautiful projects from scratch.</p>
-            <div class="text-sm text-green-200 space-y-2">
-              <div>📝 Day 1-10: CSS Mastery</div>
-              <div>📝 Day 11-20: Tailwind & Components</div>
-              <div>📝 Day 21-30: Design System</div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-6">Learn CSS, Tailwind, and design systems by building 3 beautiful projects from scratch.</p>
+            <div class="text-sm text-gray-500 space-y-2">
+              <div>Day 1-10: CSS Mastery</div>
+              <div>Day 11-20: Tailwind & Components</div>
+              <div>Day 21-30: Design System</div>
             </div>
-          </div>
+          </NuxtLink>
 
-          <div class="group bg-orange-600 dark:bg-orange-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
-            <div class="text-4xl mb-4">🐳</div>
+          <NuxtLink to="#learning-bundles" class="group bg-white dark:bg-gray-900 rounded-lg p-8 text-gray-900 dark:text-white hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-800 block">
+            <div class="mb-4"><UIcon name="lucide-box" class="w-8 h-8 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="text-xl font-bold mb-3">Docker Mastery</h3>
-            <p class="text-orange-100 mb-6">From containers to orchestration. Deploy your first containerized app in 30 days.</p>
-            <div class="text-sm text-orange-200 space-y-2">
-              <div>📝 Day 1-10: Docker Basics</div>
-              <div>📝 Day 11-20: Compose & Networking</div>
-              <div>📝 Day 21-30: Production Deploy</div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-6">From containers to orchestration. Deploy your first containerized app in 30 days.</p>
+            <div class="text-sm text-gray-500 space-y-2">
+              <div>Day 1-10: Docker Basics</div>
+              <div>Day 11-20: Compose & Networking</div>
+              <div>Day 21-30: Production Deploy</div>
             </div>
-          </div>
+          </NuxtLink>
 
-          <div class="group bg-pink-600 dark:bg-pink-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
-            <div class="text-4xl mb-4">🎤</div>
+          <NuxtLink to="#learning-bundles" class="group bg-white dark:bg-gray-900 rounded-lg p-8 text-gray-900 dark:text-white hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-800 block">
+            <div class="mb-4"><UIcon name="lucide-code" class="w-8 h-8 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="text-xl font-bold mb-3">Data Structures 101</h3>
-            <p class="text-pink-100 mb-6">Interview prep essentials. Master arrays, linked lists, trees, and graphs in 30 days.</p>
-            <div class="text-sm text-pink-200 space-y-2">
-              <div>📝 Day 1-10: Arrays & Lists</div>
-              <div>📝 Day 11-20: Trees & Graphs</div>
-              <div>📝 Day 21-30: Problem Solving</div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-6">Interview prep essentials. Master arrays, linked lists, trees, and graphs in 30 days.</p>
+            <div class="text-sm text-gray-500 space-y-2">
+              <div>Day 1-10: Arrays & Lists</div>
+              <div>Day 11-20: Trees & Graphs</div>
+              <div>Day 21-30: Problem Solving</div>
             </div>
-          </div>
+          </NuxtLink>
 
-          <div class="group bg-indigo-600 dark:bg-indigo-700 rounded-lg p-8 text-white hover:shadow-lg transition-shadow cursor-pointer">
-            <div class="text-4xl mb-4">🔗</div>
+          <NuxtLink to="#learning-bundles" class="group bg-white dark:bg-gray-900 rounded-lg p-8 text-gray-900 dark:text-white hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-800 block">
+            <div class="mb-4"><UIcon name="lucide-git-branch" class="w-8 h-8 text-gray-600 dark:text-gray-300" /></div>
             <h3 class="text-xl font-bold mb-3">Open Source Contributor</h3>
-            <p class="text-indigo-100 mb-6">Make 5 meaningful open source contributions in 30 days and grow your portfolio.</p>
-            <div class="text-sm text-indigo-200 space-y-2">
-              <div>📝 Day 1-10: Setup & First PR</div>
-              <div>📝 Day 11-20: Bug Fixes</div>
-              <div>📝 Day 21-30: Feature Contribution</div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-6">Make 5 meaningful open source contributions in 30 days and grow your portfolio.</p>
+            <div class="text-sm text-gray-500 space-y-2">
+              <div>Day 1-10: Setup & First PR</div>
+              <div>Day 11-20: Bug Fixes</div>
+              <div>Day 21-30: Feature Contribution</div>
             </div>
-          </div>
+          </NuxtLink>
         </div>
 
-        <div class="mt-12 bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
-          <p class="text-center text-blue-900 dark:text-blue-100">
+        <div class="mt-12 bg-white/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-lg p-6">
+          <p class="text-center text-gray-700 dark:text-gray-300">
             <span class="font-semibold">The 30-Day Challenge:</span> Pick one challenge. Commit fully for 30 days. Share your progress on Twitter/LinkedIn. Watch yourself level up faster than ever before.
           </p>
         </div>
@@ -1943,12 +1941,13 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- � Breakthrough Moments - The "Aha!" Resources -->
+    <!-- Breakthrough Resources - "Aha!" Moments -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-yellow-950/30 dark:to-orange-950/30">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            🌟 Breakthrough Resources - "Aha!" Moments
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-lightbulb" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            Breakthrough Resources - "Aha!" Moments
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             These resources create paradigm shifts. They change how you think about problems.
@@ -2037,7 +2036,10 @@ const featuredBooks = computed(() => {
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-slate-950 dark:to-blue-950">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">🗺️ Learning Paths</h2>
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-map" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            Learning Paths
+          </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">Structured journeys from beginner to expert. Pick your destination and start learning.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -2052,12 +2054,13 @@ const featuredBooks = computed(() => {
       </UContainer>
     </div>
 
-    <!-- 🔥 Controversial Truths - Hot Takes on Learning -->
+    <!-- Controversial Truths - Hot Takes on Learning -->
     <div class="border-t border-gray-200 dark:border-gray-800 dark:from-rose-950/30 dark:to-red-950/30">
       <UContainer class="py-24">
         <div class="mb-16">
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-            🔥 Controversial Truths About Learning to Code
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <UIcon name="lucide-flame" class="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            Controversial Truths About Learning to Code
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Unpopular opinions that will accelerate your growth if you embrace them.
