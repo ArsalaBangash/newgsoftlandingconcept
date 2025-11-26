@@ -12,6 +12,9 @@ interface FilterOptions {
   tags?: string[]
   category?: string
   featured?: boolean
+  hiddenGem?: boolean
+  breakthrough?: boolean
+  estimatedTime?: string[]
   isFree?: boolean
   isOpenSource?: boolean
 }
@@ -43,6 +46,16 @@ if (difficultyParam && !initialDifficulties.includes(difficultyParam)) {
   initialDifficulties.push(difficultyParam)
 }
 
+// Handle time query param (short = under 2 hours)
+const initialTime: string[] = []
+const timeParam = route.query.time as string | undefined
+if (timeParam === 'short') {
+  initialTime.push('under-1h', '1-2h')
+} else if (route.query.estimatedTime) {
+  const timeValues = Array.isArray(route.query.estimatedTime) ? route.query.estimatedTime as string[] : [route.query.estimatedTime as string]
+  initialTime.push(...timeValues)
+}
+
 const filters = ref<FilterOptions>({
   topics: route.query.topics ? (Array.isArray(route.query.topics) ? route.query.topics as string[] : [route.query.topics as string]) : undefined,
   difficulties: initialDifficulties.length > 0 ? initialDifficulties : undefined,
@@ -51,6 +64,9 @@ const filters = ref<FilterOptions>({
   tags: route.query.tags ? (typeof route.query.tags === 'string' ? route.query.tags.split(',').map(t => t.trim()) : (Array.isArray(route.query.tags) ? route.query.tags as string[] : [])) : undefined,
   category: categoryParam,
   featured: route.query.featured === 'true',
+  hiddenGem: route.query.hiddenGem === 'true' || (route.query.tags && (route.query.tags as string).includes('hidden-gem')),
+  breakthrough: route.query.breakthrough === 'true' || (route.query.tags && (route.query.tags as string).includes('breakthrough')),
+  estimatedTime: initialTime.length > 0 ? initialTime : undefined,
   isFree: route.query.isFree === 'true',
   isOpenSource: route.query.isOpenSource === 'true'
 })
@@ -85,6 +101,9 @@ watch([filters, searchQuery, sortBy], () => {
   if (filters.value.tags?.length) query.tags = filters.value.tags.join(',')
   if (filters.value.category) query.category = filters.value.category
   if (filters.value.featured) query.featured = 'true'
+  if (filters.value.hiddenGem) query.hiddenGem = 'true'
+  if (filters.value.breakthrough) query.breakthrough = 'true'
+  if (filters.value.estimatedTime?.length) query.estimatedTime = filters.value.estimatedTime
   if (filters.value.isFree) query.isFree = 'true'
   if (filters.value.isOpenSource) query.isOpenSource = 'true'
   if (searchQuery.value) query.search = searchQuery.value
@@ -93,6 +112,69 @@ watch([filters, searchQuery, sortBy], () => {
   router.replace({ query })
 }, { deep: true })
 
+
+// Helper function to parse estimated time string to minutes
+function parseTimeToMinutes(timeStr: string | undefined): number {
+  if (!timeStr) return 0
+  const lower = timeStr.toLowerCase()
+  
+  // Handle various formats: "2 hours", "30 min", "1-2 hours", "5+ hours", etc.
+  const hoursMatch = lower.match(/(\d+(?:\.\d+)?)\s*(?:hours?|hrs?|h)/i)
+  const minsMatch = lower.match(/(\d+)\s*(?:minutes?|mins?|m)/i)
+  
+  let totalMinutes = 0
+  if (hoursMatch) {
+    totalMinutes += parseFloat(hoursMatch[1]) * 60
+  }
+  if (minsMatch) {
+    totalMinutes += parseInt(minsMatch[1])
+  }
+  
+  // If no match found but has a number, assume hours
+  if (totalMinutes === 0) {
+    const numMatch = lower.match(/(\d+(?:\.\d+)?)/)
+    if (numMatch) {
+      totalMinutes = parseFloat(numMatch[1]) * 60
+    }
+  }
+  
+  return totalMinutes
+}
+
+// Helper function to check if resource matches time filter
+function matchesTimeFilter(resource: any, timeFilters: string[]): boolean {
+  const minutes = parseTimeToMinutes(resource.estimatedTime)
+  
+  // If no estimated time, don't filter out
+  if (minutes === 0 && !resource.estimatedTime) return true
+  
+  return timeFilters.some(filter => {
+    switch (filter) {
+      case 'under-1h':
+        return minutes > 0 && minutes < 60
+      case '1-2h':
+        return minutes >= 60 && minutes <= 120
+      case '2-5h':
+        return minutes > 120 && minutes <= 300
+      case '5h-plus':
+        return minutes > 300
+      default:
+        return true
+    }
+  })
+}
+
+// Helper function to check if resource is new (added in last 30 days)
+function isNewResource(resource: any): boolean {
+  const dateAdded = resource.dateAdded || resource.publishedAt
+  if (!dateAdded) return false
+  
+  const addedDate = new Date(dateAdded)
+  const thirtyDaysAgo = new Date()
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
+  
+  return addedDate >= thirtyDaysAgo
+}
 
 const filteredResources = computed(() => {
   if (!resources.value) return []
@@ -120,11 +202,15 @@ const filteredResources = computed(() => {
     if (filters.value.licenses?.length && resource.license && !filters.value.licenses.includes(resource.license)) {
       return false
     }
+    // Estimated Time filter
+    if (filters.value.estimatedTime?.length && !matchesTimeFilter(resource, filters.value.estimatedTime)) {
+      return false
+    }
     // Tags filter
     if (filters.value.tags?.length) {
       const resourceTags = resource.tags || []
-      const hasMatchingTag = filters.value.tags.some(filterTag => 
-        resourceTags.some((resourceTag: string) => 
+      const hasMatchingTag = filters.value.tags.some(filterTag =>
+        resourceTags.some((resourceTag: string) =>
           resourceTag.toLowerCase() === filterTag.toLowerCase()
         )
       )
@@ -135,6 +221,20 @@ const filteredResources = computed(() => {
     // Featured filter
     if (filters.value.featured && !resource.featured) {
       return false
+    }
+    // Hidden Gem filter
+    if (filters.value.hiddenGem) {
+      const resourceTags = (resource.tags || []).map((t: string) => t.toLowerCase())
+      if (!resource.hiddenGem && !resourceTags.includes('hidden-gem') && !resourceTags.includes('hidden gem')) {
+        return false
+      }
+    }
+    // Breakthrough filter
+    if (filters.value.breakthrough) {
+      const resourceTags = (resource.tags || []).map((t: string) => t.toLowerCase())
+      if (!resource.breakthrough && !resourceTags.includes('breakthrough')) {
+        return false
+      }
     }
     // Free filter
     if (filters.value.isFree && !resource.isFree) {
@@ -151,14 +251,16 @@ const filteredResources = computed(() => {
   filtered.sort((a, b) => {
     switch (sortBy.value) {
       case 'newest':
-        return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+        return new Date(b.publishedAt || b.dateAdded || 0).getTime() - new Date(a.publishedAt || a.dateAdded || 0).getTime()
       case 'oldest':
-        return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
+        return new Date(a.publishedAt || a.dateAdded || 0).getTime() - new Date(b.publishedAt || b.dateAdded || 0).getTime()
       case 'title-asc':
+      case 'az':
         return a.title.localeCompare(b.title)
       case 'title-desc':
         return b.title.localeCompare(a.title)
       case 'popular':
+      case 'trending':
         return (b.githubStars || 0) - (a.githubStars || 0)
       default:
         return 0
@@ -170,11 +272,14 @@ const filteredResources = computed(() => {
 
 const sortOptions = [
   { value: 'newest', label: 'Newest First' },
+  { value: 'popular', label: 'Popular/Trending' },
+  { value: 'title-asc', label: 'A-Z' },
   { value: 'oldest', label: 'Oldest First' },
-  { value: 'title-asc', label: 'Title (A-Z)' },
-  { value: 'title-desc', label: 'Title (Z-A)' },
-  { value: 'popular', label: 'Most Popular' }
+  { value: 'title-desc', label: 'Z-A' }
 ]
+
+// Export helper for Card component
+const isNew = isNewResource
 </script>
 
 <template>
@@ -247,21 +352,76 @@ const sortOptions = [
             </select>
           </div>
 
-          <!-- Active Filter Chips (Tags & Featured) -->
-          <div v-if="filters.tags?.length || filters.featured" class="flex flex-wrap gap-2 mb-6">
+          <!-- Active Filter Chips (Tags, Featured, Special Filters) -->
+          <div v-if="filters.tags?.length || filters.featured || filters.hiddenGem || filters.breakthrough || filters.estimatedTime?.length" class="flex flex-wrap gap-2 mb-6">
             <!-- Featured Chip -->
             <div
               v-if="filters.featured"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 rounded-lg text-sm font-medium"
             >
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
+              <span>⭐</span>
               <span>Featured Only</span>
               <button
                 @click="filters.featured = false"
                 class="ml-1 hover:text-amber-900 dark:hover:text-amber-100 focus:outline-none"
                 aria-label="Remove featured filter"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Hidden Gem Chip -->
+            <div
+              v-if="filters.hiddenGem"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded-lg text-sm font-medium"
+            >
+              <span>💎</span>
+              <span>Hidden Gems</span>
+              <button
+                @click="filters.hiddenGem = false"
+                class="ml-1 hover:text-purple-900 dark:hover:text-purple-100 focus:outline-none"
+                aria-label="Remove hidden gem filter"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Breakthrough Chip -->
+            <div
+              v-if="filters.breakthrough"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-lg text-sm font-medium"
+            >
+              <span>💡</span>
+              <span>Breakthrough</span>
+              <button
+                @click="filters.breakthrough = false"
+                class="ml-1 hover:text-blue-900 dark:hover:text-blue-100 focus:outline-none"
+                aria-label="Remove breakthrough filter"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Time Filter Chips -->
+            <div
+              v-for="time in filters.estimatedTime"
+              :key="time"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg text-sm font-medium"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{{ time === 'under-1h' ? 'Under 1 hour' : time === '1-2h' ? '1-2 hours' : time === '2-5h' ? '2-5 hours' : '5+ hours' }}</span>
+              <button
+                @click="filters.estimatedTime = filters.estimatedTime?.filter(t => t !== time)"
+                class="ml-1 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none"
+                :aria-label="`Remove ${time} time filter`"
               >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -309,6 +469,10 @@ const sortOptions = [
               :github-stars="resource.githubStars"
               :tags="resource.tags"
               :featured="resource.featured"
+              :hidden-gem="resource.hiddenGem || (resource.tags || []).some((t: string) => t.toLowerCase() === 'hidden-gem' || t.toLowerCase() === 'hidden gem')"
+              :breakthrough="resource.breakthrough || (resource.tags || []).some((t: string) => t.toLowerCase() === 'breakthrough')"
+              :is-new="isNewResource(resource)"
+              :date-added="resource.dateAdded || resource.publishedAt"
             />
           </div>
           

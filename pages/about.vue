@@ -1,10 +1,12 @@
 <!-- pages/about.vue -->
 <script setup lang="ts">
 useSeoMeta({
-  title: 'About Grey Software | Open Products, Open Education',
+  title: 'About Grey Software | Open Software, Open Education',
   description: 'Learn about Grey Software\'s mission to democratize education through curating the world\'s best free and open source resources for developers.',
   ogTitle: 'About Grey Software',
-  ogDescription: 'Open Products, Open Education'
+  ogDescription: 'Open Software, Open Education - Curated free resources for developers worldwide',
+  ogImage: '/og-about.png',
+  twitterCard: 'summary_large_image'
 })
 
 // Fetch all resources for statistics
@@ -33,51 +35,131 @@ const stats = computed(() => {
   }
 })
 
+// Why Grey Software features
+const whyGreySoftware = [
+  {
+    title: 'Community-Driven Curation',
+    description: 'Resources are vetted and recommended by real developers, not algorithms.',
+    benefit: 'Quality over quantity',
+    icon: 'i-heroicons-users'
+  },
+  {
+    title: '100% Free Resources',
+    description: 'Every resource we feature is completely free to access.',
+    benefit: 'No paywalls, no hidden costs',
+    icon: 'i-heroicons-gift'
+  },
+  {
+    title: 'Open Source Philosophy',
+    description: 'Our platform is open source - contribute, fork, or learn from our code.',
+    benefit: 'Transparency and community ownership',
+    icon: 'i-heroicons-code-bracket'
+  },
+  {
+    title: 'Structured Learning Paths',
+    description: 'Not just random resources - curated bundles and roadmaps for guided learning.',
+    benefit: 'Clear direction for your learning journey',
+    icon: 'i-heroicons-map'
+  },
+  {
+    title: 'Quality Standards',
+    description: 'Every resource meets our quality criteria before being added.',
+    benefit: 'No wasted time on outdated or low-quality content',
+    icon: 'i-heroicons-shield-check'
+  },
+  {
+    title: 'Regular Updates',
+    description: 'We continuously add new resources and remove outdated ones.',
+    benefit: 'Always current and relevant',
+    icon: 'i-heroicons-arrow-path'
+  }
+]
+
+// Core values
 const values = [
   {
     title: 'Free & Open Source First',
     description: 'We prioritize resources that are freely available and open source, ensuring accessibility for everyone.',
-    icon: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z'
+    icon: 'i-heroicons-heart'
   },
   {
     title: 'Quality Over Quantity',
     description: 'Every resource is carefully vetted for quality, relevance, and educational value before being added.',
-    icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+    icon: 'i-heroicons-check-badge'
   },
   {
     title: 'Community Driven',
     description: 'Our curation is powered by developer contributions and feedback from the global tech community.',
-    icon: 'M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z'
+    icon: 'i-heroicons-user-group'
   },
   {
     title: 'Transparency',
     description: 'Open about our curation process and criteria. All resources are clearly categorized and described.',
-    icon: 'M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+    icon: 'i-heroicons-eye'
+  }
+]
+
+// Curation process steps
+const curationSteps = [
+  {
+    step: 1,
+    title: 'Community Submissions',
+    description: 'Developers from around the world submit resources via GitHub pull requests with detailed information.'
+  },
+  {
+    step: 2,
+    title: 'Quality Review',
+    description: 'Each submission is reviewed for quality, accuracy, and educational value against our strict criteria.'
+  },
+  {
+    step: 3,
+    title: 'Metadata Enrichment',
+    description: 'We add comprehensive metadata including difficulty levels, time estimates, licenses, and learning path connections.'
+  },
+  {
+    step: 4,
+    title: 'Continuous Updates',
+    description: 'Resources are regularly reviewed and updated to ensure they remain relevant and maintain high quality.'
   }
 ]
 </script>
 
 <template>
   <div class="min-h-screen bg-white dark:bg-black">
-    <UContainer class="py-12">
-      <!-- Header -->
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <h1 class="text-4xl sm:text-5xl font-semibold text-gray-900 dark:text-white mb-6">
-          About Grey Software
-        </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">
-          Open Products, Open Education
-        </p>
-        <p class="text-lg text-gray-600 dark:text-gray-400">
-          Our mission is to democratize education by curating the world's best free and open source resources,
-          making quality learning accessible to developers everywhere.
-        </p>
-      </div>
+    <!-- Hero Section -->
+    <section class="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-black">
+      <UContainer>
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            Open Software, Open Education
+          </h1>
+          <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-8">
+            Our mission is to democratize education by curating the world's best free and open source resources,
+            making quality learning accessible to developers everywhere.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <NuxtLink to="/resources">
+              <UButton size="lg" color="primary">
+                <UIcon name="i-heroicons-academic-cap" class="w-5 h-5 mr-2" />
+                Explore Resources
+              </UButton>
+            </NuxtLink>
+            <NuxtLink to="/resources/contribute">
+              <UButton size="lg" variant="outline">
+                <UIcon name="i-heroicons-plus" class="w-5 h-5 mr-2" />
+                Contribute
+              </UButton>
+            </NuxtLink>
+          </div>
+        </div>
+      </UContainer>
+    </section>
 
+    <UContainer class="py-12">
       <!-- Stats -->
-      <div v-if="stats" class="mb-16">
+      <div v-if="stats" class="mb-20">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="p-6 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-lg text-center">
+          <div class="p-6 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl text-center">
             <div class="text-3xl sm:text-4xl font-bold text-accent mb-2">
               {{ stats.totalResources }}+
             </div>
@@ -86,7 +168,7 @@ const values = [
             </div>
           </div>
 
-          <div class="p-6 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-lg text-center">
+          <div class="p-6 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl text-center">
             <div class="text-3xl sm:text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
               {{ Math.round((stats.freeResources / stats.totalResources) * 100) }}%
             </div>
@@ -95,7 +177,7 @@ const values = [
             </div>
           </div>
 
-          <div class="p-6 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-lg text-center">
+          <div class="p-6 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl text-center">
             <div class="text-3xl sm:text-4xl font-bold text-accent mb-2">
               {{ stats.openSourceResources }}+
             </div>
@@ -104,7 +186,7 @@ const values = [
             </div>
           </div>
 
-          <div class="p-6 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-lg text-center">
+          <div class="p-6 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl text-center">
             <div class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
               {{ stats.topics }}
             </div>
@@ -115,21 +197,116 @@ const values = [
         </div>
       </div>
 
+      <!-- Why Grey Software Section -->
+      <section class="mb-20">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Why Grey Software?
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            We're not just another resource aggregator. Here's what makes Grey Software different.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            v-for="feature in whyGreySoftware"
+            :key="feature.title"
+            class="group p-6 bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl hover:border-accent dark:hover:border-accent transition-all duration-300"
+          >
+            <div class="w-12 h-12 mb-4 flex items-center justify-center bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors">
+              <UIcon :name="feature.icon" class="w-6 h-6 text-accent" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              {{ feature.title }}
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+              {{ feature.description }}
+            </p>
+            <div class="inline-flex items-center gap-1.5 text-xs font-medium text-accent">
+              <UIcon name="i-heroicons-check-circle" class="w-4 h-4" />
+              {{ feature.benefit }}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Story Section -->
+      <section class="mb-20">
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Our Story
+              </h2>
+              <div class="space-y-4 text-gray-600 dark:text-gray-400">
+                <p>
+                  Grey Software started with a simple observation: the best learning resources are often scattered across the internet,
+                  buried under paywalls, or lost in the noise of low-quality content.
+                </p>
+                <p>
+                  We believed that quality education should be accessible to everyone, regardless of their financial situation or location.
+                  So we set out to build a curated collection of the world's best free and open source developer resources.
+                </p>
+                <p>
+                  Today, Grey Software is a community-driven platform where developers help developers. Every resource is vetted by real
+                  people who care about quality, and our entire platform is open source—because we practice what we preach.
+                </p>
+              </div>
+            </div>
+            <div class="bg-gradient-to-br from-accent/10 to-accent/5 dark:from-accent/20 dark:to-accent/5 rounded-2xl p-8">
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-accent/20 rounded-lg">
+                    <UIcon name="i-heroicons-light-bulb" class="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 dark:text-white">The Problem</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Quality resources are hard to find and often expensive</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-accent/20 rounded-lg">
+                    <UIcon name="i-heroicons-rocket-launch" class="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 dark:text-white">Our Solution</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Community-curated, 100% free, always accessible</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-accent/20 rounded-lg">
+                    <UIcon name="i-heroicons-heart" class="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 dark:text-white">Our Mission</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Democratize education for developers worldwide</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Our Values -->
-      <div class="mb-16">
-        <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-center">
-          Our Core Values
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section class="mb-20">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Our Core Values
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            These principles guide everything we do at Grey Software.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <div
             v-for="value in values"
             :key="value.title"
-            class="p-6 bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg"
+            class="p-6 bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl"
           >
-            <div class="w-12 h-12 mb-4 flex items-center justify-center bg-accent/10 rounded-lg">
-              <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" :d="value.icon" />
-              </svg>
+            <div class="w-12 h-12 mb-4 flex items-center justify-center bg-accent/10 rounded-xl">
+              <UIcon :name="value.icon" class="w-6 h-6 text-accent" />
             </div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               {{ value.title }}
@@ -139,103 +316,129 @@ const values = [
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- Curation Process -->
-      <div class="mb-16">
-        <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-center">
-          Our Curation Process
-        </h2>
-        <div class="max-w-3xl mx-auto space-y-6">
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent text-white rounded-full font-semibold text-sm">
-              1
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Community Submissions
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                Developers from around the world submit resources via GitHub pull requests with detailed information.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent text-white rounded-full font-semibold text-sm">
-              2
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Quality Review
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                Each submission is reviewed for quality, accuracy, and educational value against our strict criteria.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent text-white rounded-full font-semibold text-sm">
-              3
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Metadata Enrichment
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                We add comprehensive metadata including difficulty levels, time estimates, licenses, and learning path connections.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent text-white rounded-full font-semibold text-sm">
-              4
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Continuous Updates
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                Resources are regularly reviewed and updated to ensure they remain relevant and maintain high quality.
-              </p>
+      <section class="mb-20">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            How We Curate
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Every resource goes through our rigorous curation process to ensure quality.
+          </p>
+        </div>
+        <div class="max-w-3xl mx-auto">
+          <div class="relative">
+            <!-- Vertical line -->
+            <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800"></div>
+            
+            <div class="space-y-8">
+              <div
+                v-for="step in curationSteps"
+                :key="step.step"
+                class="relative flex gap-6"
+              >
+                <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent text-white rounded-full font-semibold text-sm z-10">
+                  {{ step.step }}
+                </div>
+                <div class="flex-1 pb-8">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {{ step.title }}
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    {{ step.description }}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- CTA -->
-      <div class="max-w-2xl mx-auto text-center p-8 bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-lg">
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Join Our Mission
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-6">
-          Help us build the world's most comprehensive library of free and open source developer resources.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <NuxtLink
-            to="/resources/contribute"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg transition-colors"
-          >
-            Submit a Resource
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-          </NuxtLink>
-          <a
-            href="https://github.com/grey-software"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-black border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg hover:border-accent transition-colors"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-            </svg>
-            View on GitHub
-          </a>
+      <!-- Contributors Section -->
+      <section class="mb-20">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl">
+            <UIcon name="i-heroicons-user-group" class="w-12 h-12 text-accent mx-auto mb-4" />
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Built by the Community
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+              Grey Software is made possible by developers from around the world who contribute their time and expertise
+              to curate, review, and improve our resource collection. Every contribution matters.
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <a
+                href="https://github.com/grey-software/grey-software/graphs/contributors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <UButton variant="soft" color="primary">
+                  <UIcon name="i-heroicons-users" class="w-4 h-4 mr-2" />
+                  View Contributors
+                </UButton>
+              </a>
+              <NuxtLink to="/resources/contribute">
+                <UButton variant="outline">
+                  <UIcon name="i-heroicons-plus" class="w-4 h-4 mr-2" />
+                  Become a Contributor
+                </UButton>
+              </NuxtLink>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Get Involved CTA -->
+      <section class="mb-12">
+        <div class="max-w-4xl mx-auto">
+          <div class="p-8 sm:p-12 bg-accent/5 dark:bg-accent/10 border border-accent/20 rounded-2xl text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Get Involved
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+              Help us build the world's most comprehensive library of free and open source developer resources.
+              There are many ways to contribute!
+            </p>
+            <div class="grid sm:grid-cols-3 gap-4 mb-8">
+              <div class="p-4 bg-white dark:bg-black rounded-xl border border-gray-200 dark:border-gray-800">
+                <UIcon name="i-heroicons-document-plus" class="w-8 h-8 text-accent mx-auto mb-2" />
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Submit Resources</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-400">Share your favorite learning materials</p>
+              </div>
+              <div class="p-4 bg-white dark:bg-black rounded-xl border border-gray-200 dark:border-gray-800">
+                <UIcon name="i-heroicons-code-bracket" class="w-8 h-8 text-accent mx-auto mb-2" />
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Contribute Code</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-400">Help improve our open source platform</p>
+              </div>
+              <div class="p-4 bg-white dark:bg-black rounded-xl border border-gray-200 dark:border-gray-800">
+                <UIcon name="i-heroicons-chat-bubble-left-right" class="w-8 h-8 text-accent mx-auto mb-2" />
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Spread the Word</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-400">Tell others about Grey Software</p>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+              <NuxtLink to="/resources/contribute">
+                <UButton size="lg" color="primary">
+                  <UIcon name="i-heroicons-plus" class="w-5 h-5 mr-2" />
+                  Submit a Resource
+                </UButton>
+              </NuxtLink>
+              <a
+                href="https://github.com/grey-software"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <UButton size="lg" variant="outline">
+                  <UIcon name="i-simple-icons-github" class="w-5 h-5 mr-2" />
+                  View on GitHub
+                </UButton>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </UContainer>
   </div>
 </template>

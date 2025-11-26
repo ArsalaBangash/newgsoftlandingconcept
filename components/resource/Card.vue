@@ -5,7 +5,7 @@ interface ResourceCardProps {
   description: string
   url: string
   difficulty?: 'beginner' | 'intermediate' | 'advanced' | 'all'
-  format?: 'video' | 'article' | 'course' | 'tool' | 'book' | 'documentation' | 'interactive' | 'platform' | 'game' | 'event' | 'newsletter'
+  format?: 'video' | 'article' | 'course' | 'tool' | 'book' | 'documentation' | 'interactive' | 'platform' | 'game' | 'event' | 'newsletter' | 'podcast'
   estimatedTime?: string
   license?: string
   isFree?: boolean
@@ -13,12 +13,24 @@ interface ResourceCardProps {
   githubStars?: number
   tags?: string[]
   featured?: boolean
+  hiddenGem?: boolean
+  breakthrough?: boolean
+  isNew?: boolean
+  dateAdded?: string
 }
 
 const props = withDefaults(defineProps<ResourceCardProps>(), {
   isFree: true,
   isOpenSource: false,
-  featured: false
+  featured: false,
+  hiddenGem: false,
+  breakthrough: false,
+  isNew: false
+})
+
+// Check if resource is trending (high GitHub stars)
+const isTrending = computed(() => {
+  return props.githubStars && props.githubStars >= 5000
 })
 
 const difficultyConfig = {
@@ -29,7 +41,7 @@ const difficultyConfig = {
   'all-levels': { label: 'All Levels', color: 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30' }
 }
 
-const formatConfig = {
+const formatConfig: Record<string, { icon: string; label: string }> = {
   video: { icon: 'M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z', label: 'Video' },
   article: { icon: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z', label: 'Article' },
   course: { icon: 'M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5', label: 'Course' },
@@ -40,7 +52,8 @@ const formatConfig = {
   platform: { icon: 'M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25', label: 'Platform' },
   game: { icon: 'M14.25 6.087c0-.355.144-.718.406-1.022C15.14 4.46 16.169 4.5 17.25 4.5c1.336 0 2.573-.82 3.33-1.671.365-.412.688-.722.927-.826.19-.08.346-.035.467.112.244.292.51.686.71 1.1.115.233.16.484.16.743 0 .828-.475 1.622-1.196 2.054-.805.568-1.993.95-3.196.95-1.336 0-2.573.82-3.33 1.671-.365.412-.688.722-.927.826-.19.08-.346.035-.467-.112-.244-.292-.51-.686-.71-1.1-.115-.233-.16-.484-.16-.743zm.966 6.479c.25.092.497.186.74.28.492.189.949.428 1.35.701a3.15 3.15 0 001.83 1.015c.982 0 1.822-.55 2.319-1.303.493-.752.69-1.634.69-2.49 0-.248-.033-.488-.096-.707-.147-.517-.467-.858-.91-1.105-.44-.245-.944-.383-1.436-.383-.982 0-1.822.55-2.319 1.303-.493.752-.69 1.634-.69 2.49 0 .248.033.488.096.707.147.517.467.858.91 1.105.44.245.944.383 1.436.383zm-3.5-6.771c0-.355-.144-.718-.406-1.022C10.86 4.46 9.831 4.5 8.75 4.5c-1.336 0-2.573-.82-3.33-1.671-.365-.412-.688-.722-.927-.826-.19-.08-.346-.035-.467.112-.244.292-.51.686-.71-1.1-.115-.233-.16-.484-.16.743 0 .828.475 1.622 1.196 2.054.805.568 1.993.95 3.196.95 1.336 0 2.573.82 3.33 1.671.365.412.688.722.927.826.19.08.346.035.467-.112.244-.292.51-.686.71-1.1.115-.233.16-.484.16-.743zm-.966 6.479c-.25.092-.497.186-.74.28-.492.189-.949.428-1.35.701a3.15 3.15 0 01-1.83 1.015c-.982 0-1.822-.55-2.319-1.303-.493-.752-.69-1.634-.69-2.49 0-.248.033-.488.096-.707.147-.517.467-.858.91-1.105.44-.245.944-.383 1.436-.383.982 0 1.822.55 2.319 1.303.493.752.69 1.634.69 2.49 0 .248-.033.488-.096.707-.147.517-.467.858-.91 1.105-.44.245-.944.383-1.436.383z', label: 'Game' },
   event: { icon: 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5a2.25 2.25 0 002.25-2.25m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5a2.25 2.25 0 012.25 2.25v7.5', label: 'Event' },
-  newsletter: { icon: 'M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75', label: 'Newsletter' }
+  newsletter: { icon: 'M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75', label: 'Newsletter' },
+  podcast: { icon: 'M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z', label: 'Podcast' }
 }
 </script>
 
@@ -52,38 +65,85 @@ const formatConfig = {
     class="group block p-6 bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg hover-lift hover:border-accent dark:hover:border-accent transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 dark:focus-visible:ring-offset-black"
     :aria-label="`${title} - ${description}`"
   >
+    <!-- Badges Row -->
+    <div class="flex flex-wrap items-center gap-1.5 mb-3">
+      <!-- New Badge -->
+      <span
+        v-if="isNew"
+        class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300"
+        aria-label="New resource"
+      >
+        🆕 New
+      </span>
+      
+      <!-- Featured Badge -->
+      <span
+        v-if="featured"
+        class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300"
+        aria-label="Featured resource"
+      >
+        ⭐ Featured
+      </span>
+      
+      <!-- Hidden Gem Badge -->
+      <span
+        v-if="hiddenGem"
+        class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300"
+        aria-label="Hidden gem resource"
+      >
+        💎 Hidden Gem
+      </span>
+      
+      <!-- Breakthrough Badge -->
+      <span
+        v-if="breakthrough"
+        class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+        aria-label="Breakthrough resource"
+      >
+        💡 Breakthrough
+      </span>
+      
+      <!-- Trending Badge -->
+      <span
+        v-if="isTrending"
+        class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300"
+        aria-label="Trending resource"
+      >
+        🔥 Trending
+      </span>
+    </div>
+
     <!-- Header: Format Icon + External Link Icon -->
-    <div class="flex items-start justify-between mb-3">
+    <div class="flex items-start justify-between mb-2">
       <div class="flex items-center gap-2">
         <!-- Format Icon -->
-        <svg 
+        <svg
           v-if="format && formatConfig[format]"
           class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors flex-shrink-0"
-          fill="none" 
-          viewBox="0 0 24 24" 
-          stroke-width="1.5" 
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
           stroke="currentColor"
           :aria-label="formatConfig[format].label"
         >
           <path stroke-linecap="round" stroke-linejoin="round" :d="formatConfig[format].icon" />
         </svg>
         
-        <!-- Featured Badge -->
-        <span 
-          v-if="featured"
-          class="text-xs font-medium text-yellow-600 dark:text-yellow-400 uppercase tracking-wide"
-          aria-label="Featured resource"
+        <!-- Format Label -->
+        <span
+          v-if="format && formatConfig[format]"
+          class="text-xs text-gray-500 dark:text-gray-400"
         >
-          Featured
+          {{ formatConfig[format].label }}
         </span>
       </div>
       
       <!-- External Link Icon -->
-      <svg 
-        class="w-4 h-4 text-gray-400 group-hover:text-accent transition-colors flex-shrink-0" 
-        fill="none" 
-        viewBox="0 0 24 24" 
-        stroke-width="2" 
+      <svg
+        class="w-4 h-4 text-gray-400 group-hover:text-accent transition-colors flex-shrink-0"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
         stroke="currentColor"
         aria-hidden="true"
       >
